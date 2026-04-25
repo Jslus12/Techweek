@@ -4,7 +4,8 @@ body {
     color: white;
     min-height: 100vh;
     /* Mudei a cor de fundo e adicionei um degrade usando as cores preto e roxo */
-    background: linear-gradient(135deg, #000000 0%, #800080 100%);
+    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    padding-left: 5%;
 }
 
 /* NAVBAR */
@@ -79,6 +80,7 @@ body {
     color: #93c5fd;
 
     margin-bottom: 32px;
+    font-style:italic;
 }
 
 .distintivo-dot {
@@ -89,45 +91,54 @@ body {
     animation: pulse 1.5s infinite;
 }
 
-/* ANIMAÇÃO */
-@keyframes pulse {
-    0% { opacity: 1; }
-    50% { opacity: 0.4; }
-    100% { opacity: 1; }
-}
-
 /* TEXTO */
 .titulo {
     font-size: 56px;
+    text-align: left;
     font-weight: bold;
     max-width: 900px;
     line-height: 1.2;
+    font-family: 'Courier New', Courier, monospace;
+    margin-right:auto;
 }
 
 .destaque {
-    color: #60a5fa;
+    color: #810ab1;
+    font-style:italic;
 }
 
 .descricao {
-    color: #9ca3af;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+    color: #ffffff;
     margin-top: 24px;
-    max-width: 600px;
+    max-width: 700px;
+    font-family:'Courier New', Courier, monospace;
 }
 
 /* BOTÕES */
 .botao {
+    text-align:left;
     display: flex;
     gap: 16px;
     margin-top: 40px;
+    justify-content: flex-start;
+    margin-left:0;
+    margin-right:auto;
 }
 
 .btn-main {
-    background-color: #3b82f6;
-    color: black;
+    text-align:left;
+    background-color: #450355;
+    color: white;
     font-weight: 600;
     padding: 12px 24px;
     border-radius: 999px;
     border: none;
+    cursor:pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .btn-secundario {
@@ -136,4 +147,27 @@ body {
     color: white;
     padding: 12px 24px;
     border-radius: 999px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-main:hover {
+    background-color: a020f0;
+    transform: translatey(-3px);
+    box-shadow: 0 10px 20px rgba(128, 0, 128, 0.3);
+}
+
+.btn-main:active {
+    transform: translatey(-1px);
+    box-shadow: 0 5px 10px rgba(128, 0, 128, 0.3);
+}
+
+.btn-secundario:hover {
+    border-color: 800080;
+    color: 800080;
+    background-color: rgba(128, 0, 128, 0.05);
+}
+
+.btn-secundario:active {
+    transform: scale(0.98);
 }
