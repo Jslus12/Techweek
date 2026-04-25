@@ -1,15 +1,4 @@
-teste git RP
+Oque fizemos, peguei de base o projeto do nicolas e refiz o HTML, fiz os arquivos CSS,
+e o piva mudou o nomes das classes do CSS, o codigo inteiro esta comentado facilitando a vida de vcs.
 
-teste git Japoneis1
-
-teste git jão
-
-teste git nick
-
-teste git Roberto
-
-teste sourcer joao
-
-teste soucer piva
-
-teste pc de casa japoneis1 muito fodas
+é nois
