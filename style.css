@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    min-height: 100vh;
+    /* Mudei a cor de fundo e adicionei um degrade usando as cores preto e roxo */
+    background: linear-gradient(135deg, #000000 0%, #800080 100%);
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 48px;
+}
+
+.nav-esquerda {
+    display: flex;
+    gap: 16px;
+}
+/* troquei a cor de da logo UniCesumar */
+.logo {
+    font-weight: bold;
+    color: #2563eb;
+}
+/* troquei a fonte da classe nome-evento */
+.nome-evento {
+
+    color: #9ca3af;
+    font-weight: bold;
+}
+
+.nav-direita {
+    display: flex;
+    gap: 32px;
+    font-size: 14px;
+}
+
+.nav-direita a {
+    color: #d1d5db;
+    text-decoration: none;
+}
+
+.nav-direita a:hover {
+    color: white;
+}
+
+.btn-primaria {
+    background-color: #2563eb;
+    padding: 8px 20px;
+    border-radius: 999px;
+    color: white;
+}
+
+/* MAIN */
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 80px;
+    padding: 0 16px;
+}
+
+/* BADGE */
+.distintivo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid rgba(30, 58, 138, 0.5);
+    background-color: rgba(23, 37, 84, 0.2);
+
+    padding: 4px 16px;
+    border-radius: 9999px;
+
+    font-size: 12px;
+    color: #93c5fd;
+
+    margin-bottom: 32px;
+}
+
+.distintivo-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #3b82f6;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+/* ANIMAÇÃO */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+/* TEXTO */
+.titulo {
+    font-size: 56px;
+    font-weight: bold;
+    max-width: 900px;
+    line-height: 1.2;
+}
+
+.destaque {
+    color: #60a5fa;
+}
+
+.descricao {
+    color: #9ca3af;
+    margin-top: 24px;
+    max-width: 600px;
+}
+
+/* BOTÕES */
+.botao {
+    display: flex;
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.btn-main {
+    background-color: #3b82f6;
+    color: black;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 999px;
+    border: none;
+}
+
+.btn-secundario {
+    border: 1px solid #374151;
+    background: none;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 999px;
+}
