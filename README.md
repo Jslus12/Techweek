@@ -17,6 +17,8 @@ no href.
     - !!Favor usar, quando for dar commit, entra na pasta com o cd (nome da pasta) e da o git add no arquivo <br>
     - !!Para voltar é cd.. ai vc volta pra pasta anterior <br>
     - Daqui pra frente vamos criar varios arquivos, então peço que na hora que for dar o commit, se for muita coisa que vc mudou, faça o commit arquivo por arquivo 
-    para não ter perigo de corromper ou perder alguma coisa. Se for pouca coisa ta suave, ai pode dar o git add .
+    para não ter perigo de corromper ou perder alguma coisa. Se for pouca coisa ta suave, ai pode dar o git add . <br>
+    - Mais um ponto, as cores podem ser outras, mas o foco é preto, azul e branco.
+
 
     
