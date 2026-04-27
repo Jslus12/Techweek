@@ -105,7 +105,7 @@ body {
 }
 
 .destaque {
-    color: #810ab1;
+    color: #13a6e0;
     font-style:italic;
 }
 
@@ -132,7 +132,7 @@ body {
 
 .btn-main {
     text-align:left;
-    background-color: #450355;
+    background-color: #039ea3;
     color: white;
     font-weight: 600;
     padding: 12px 24px;
@@ -156,7 +156,7 @@ body {
 .btn-main:hover {
     background-color: a020f0;
     transform: translatey(-3px);
-    box-shadow: 0 10px 20px rgba(128, 0, 128, 0.3);
+    box-shadow: 0 10px 20px rgba(5, 135, 221, 0.3);
 }
 
 .btn-main:active {
