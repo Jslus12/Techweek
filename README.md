@@ -13,7 +13,7 @@
 > Criei e separei os arquivos para facilitar na hora de codar as paginas, o app.py é onde as rotas funcionam, cadas rota tem um app e no html o flask busca por essa url que está
 no href.
 
-> Dicas ai para usar no terminal:
+> Dicas ai para usar no terminal: <br>
     - !!Favor usar, quando for dar commit, entra na pasta com o cd (nome da pasta) e da o git add no arquivo <br>
     - !!Para voltar é cd.. ai vc volta pra pasta anterior <br>
     - Daqui pra frente vamos criar varios arquivos, então peço que na hora que for dar o commit, se for muita coisa que vc mudou, faça o commit arquivo por arquivo 
