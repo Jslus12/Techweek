@@ -20,5 +20,11 @@ no href.
     para não ter perigo de corromper ou perder alguma coisa. Se for pouca coisa ta suave, ai pode dar o git add . <br>
     - Mais um ponto, as cores podem ser outras, mas o foco é preto, azul e branco.
 
+>> Na area de DeV's a minha ideia é colocar a foto de cada um e as redes sociais, caso queitam aderir só ajudar <3
 
+#### Como instalar os arquivos do python: <br>
+    - Favor instalar o python na versão mais recente <br>
+    - depois de instalar, no vscode instala as extensões <br>
+    - no terminal: pip install flask <br>
+    - pronto <br>
     
