@@ -24,10 +24,10 @@ no href.
 >> Na area de DeV's a minha ideia é colocar a foto de cada um e as redes sociais, caso queitam aderir só ajudar <3
 
 #### Como instalar os arquivos do python: <br>
-    - Favor instalar o python na versão mais recente <br>
-    - depois de instalar, no vscode instala as extensões <br>
-    - no terminal: pip install flask <br>
-    - pronto <br>
+    - Favor instalar o python na versão mais recente 
+    - depois de instalar, no vscode instala as extensões 
+    - no terminal: pip install flask 
+    - pronto 
 
 
     
