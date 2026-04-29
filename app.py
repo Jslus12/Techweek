@@ -14,5 +14,9 @@ def index():
 def devs():
     return render_template("devs.html")
 
+@app.route("/sobreevento")
+def sobreevento():
+    return render_template("sobreevento.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
