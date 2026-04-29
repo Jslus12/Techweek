@@ -14,9 +14,25 @@ def index():
 def devs():
     return render_template("devs.html")
 
+@app.route("/palestrantes")
+def palestrantes():
+    return render_template("palestrantes.html")
+
 @app.route("/sobreevento")
 def sobreevento():
     return render_template("sobreevento.html")
+
+@app.route("/programacao")
+def programacao():
+    return render_template("programacao.html")
+
+@app.route("/ajuda")
+def ajuda():
+    return render_template("ajuda.html")
+
+@app.route("/inscricao")
+def inscricao():
+    return render_template("inscricao.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
