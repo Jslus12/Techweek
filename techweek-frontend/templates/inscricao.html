@@ -4,9 +4,31 @@
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Inscrição</title>
-    <link rel='stylesheet' href='main.css'>
+    <link rel='stylesheet' href="{{ url_for('static', filename='inscricao.css') }}">
 </head>
 <body>
-    
+    <nav class="navbar">
+        <span class="logo">UniCesumar</span>
+        <span class="nome-evento">WeekTech, 1ª Edição</span>
+        <a href="{{ url_for('index') }}" class="btn-voltar" aria-label="Voltar para a página inicial">Voltar</a>
+    </nav>
+
+    <form>
+    <label>Nome:</label><br>
+    <input type="text" name="nome"><br><br>
+
+    <label>RA:</label><br>
+    <input type="text" name="ra"><br><br>
+
+    <label>Ira participar no cafe?:</label><br>
+    <input type="checkbox" name="sim"> sim <br>
+    <input type="checkbox" name="nao"> nao <br><br>
+
+    <label>Gênero:</label><br>
+    <input type="radio" name="genero" value="M"> Masc
+    <input type="radio" name="genero" value="F"> Fem <br><br>
+
+    <button type="submit">Cadastrar</button>
+</form>
 </body>
 </html>
