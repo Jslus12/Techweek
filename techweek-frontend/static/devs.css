@@ -1,0 +1,79 @@
+/* Configurações Gerais */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000;
+    color: white;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #000000;
+    border-bottom: 2px solid #38bdf8;
+}
+
+.btn-voltar {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Título */
+.titulo-pagina {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Grid de Devs */
+.container-devs {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Estilo do Card */
+.card-dev {
+    background-color: #1e293b;
+    border-radius: 15px;
+    padding: 25px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s;
+    border: 1px solid #334155;
+}
+
+.card-dev:hover {
+    transform: translateY(-10px);
+    border-color: #38bdf8;
+}
+
+/* ainda vou colocar/ coloquem o link */
+.foto-perfil {
+    width: 100px;
+    height: 100px;
+    background-color: #475569;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.cargo {
+    color: #38bdf8;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.links a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 0.8rem;
+}
+
+.links a:hover {
+    color: white;
+}
