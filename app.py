@@ -18,14 +18,6 @@ def devs():
 def palestrantes():
     return render_template("palestrantes.html")
 
-@app.route("/sobreevento")
-def sobreevento():
-    return render_template("sobreevento.html")
-
-@app.route("/programacao")
-def programacao():
-    return render_template("programacao.html")
-
 @app.route("/ajuda")
 def ajuda():
     return render_template("ajuda.html")
