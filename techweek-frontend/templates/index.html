@@ -18,11 +18,11 @@
         <!--Mudar as # para dar as rotas com o Python -->
         <div class="nav-direita">
             <a href="{{ url_for ('devs') }}">Desenvolvedores</a>
-            <a href="#">Palestrantes</a>
+            <a href="{{ url_for ('palestrantes') }}">Palestrantes</a>
             <a href="{{ url_for ('sobreevento') }}">Sobre o Evento</a>
-            <a href="#">Programação</a>
-            <a href="#">Ajuda</a>
-            <a href="#" class="btn-primario">Inscrever-se</a>
+            <a href="{{ url_for ('programacao') }}">Programação</a>
+            <a href="{{ url_for ('ajuda') }}">Ajuda</a>
+            <a href="{{ url_for ('inscricao') }}" class="btn-primario">Inscrever-se</a>
         </div>
     </nav>
 
