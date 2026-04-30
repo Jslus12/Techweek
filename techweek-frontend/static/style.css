@@ -71,7 +71,7 @@ body {
     align-items: center;
     gap: 8px;
 
-    border: 1px solid rgba(30, 58, 138, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     background-color: rgba(23, 37, 84, 0.2);
 
     padding: 4px 16px;
@@ -87,7 +87,7 @@ body {
 .distintivo-dot {
     width: 8px;
     height: 8px;
-    background-color: #3b82f6;
+    background-color: #000000;
     border-radius: 50%;
     animation: pulse 1.5s infinite;
 }
@@ -101,6 +101,7 @@ body {
     line-height: 1.2;
     font-family: 'Courier New', Courier, monospace;
     margin-right:auto;
+    color: #000000;
 }
 
 .destaque {
@@ -112,7 +113,7 @@ body {
     text-align: left;
     margin-left: 0;
     margin-right: auto;
-    color: #ffffff;
+    color: #000000;
     margin-top: 24px;
     max-width: 700px;
     font-family:'Courier New', Courier, monospace;
@@ -145,7 +146,7 @@ body {
 .btn-secundario {
     border: 1px solid #374151;
     background: none;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 12px 24px;
     border-radius: 999px;
     cursor:pointer;
