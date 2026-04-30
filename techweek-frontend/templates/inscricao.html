@@ -1,34 +1,44 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="pt-br">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Inscrição</title>
-    <link rel='stylesheet' href="{{ url_for('static', filename='inscricao.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição - Techweek</title>
+    <!-- O Flask busca o CSS na pasta static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/devs.css') }}">
 </head>
 <body>
     <nav class="navbar">
-        <span class="logo">UniCesumar</span>
-        <span class="nome-evento">WeekTech, 1ª Edição</span>
-        <a href="{{ url_for('index') }}" class="btn-voltar" aria-label="Voltar para a página inicial">Voltar</a>
+        <a href="/" class="btn-voltar">← Voltar</a>
+        <div class="logo">Techweek 2026</div>
     </nav>
 
-    <form>
-    <label>Nome:</label><br>
-    <input type="text" name="nome"><br><br>
+    <div class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 80vh; color: white;">
+        <h1>Faça sua Inscrição</h1>
+        <p>Preencha os dados abaixo para participar do evento.</p>
 
-    <label>RA:</label><br>
-    <input type="text" name="ra"><br><br>
+        <!-- O formulário envia os dados para a rota /inscricao usando POST -->
+        <form action="/inscricao" method="POST" style="background: #111; padding: 2rem; border-radius: 8px; border: 1px solid #38bdf8; width: 300px; display: flex; flex-direction: column; gap: 1rem;">
+            
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="nome">Nome Completo:</label>
+                <!-- O atributo name="nome" é essencial para o Python capturar o dado -->
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required 
+                       style="padding: 0.8rem; border-radius: 4px; border: none; outline: none;">
+            </div>
 
-    <label>Ira participar no cafe?:</label><br>
-    <input type="checkbox" name="sim"> sim <br>
-    <input type="checkbox" name="nao"> nao <br><br>
+            <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <label for="email">E-mail:</label>
+                <!-- O atributo name="email" é essencial para o Python capturar o dado[cite: 1] -->
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required 
+                       style="padding: 0.8rem; border-radius: 4px; border: none; outline: none;">
+            </div>
 
-    <label>Gênero:</label><br>
-    <input type="radio" name="genero" value="M"> Masc
-    <input type="radio" name="genero" value="F"> Fem <br><br>
-
-    <button type="submit">Cadastrar</button>
-</form>
+            <button type="submit" 
+                    style="background-color: #38bdf8; color: black; font-weight: bold; padding: 1rem; border: none; border-radius: 4px; cursor: pointer; margin-top: 1rem;">
+                FINALIZAR INSCRIÇÃO
+            </button>
+        </form>
+    </div>
 </body>
 </html>
