@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Inscrição</title>
     <link rel='stylesheet' href="{{ url_for('static', filename='inscricao.css') }}">
 </head>
+
 <body>
     <nav class="navbar">
         <span class="logo">UniCesumar</span>
@@ -13,22 +15,38 @@
         <a href="{{ url_for('index') }}" class="btn-voltar" aria-label="Voltar para a página inicial">Voltar</a>
     </nav>
 
-    <form>
-    <label>Nome:</label><br>
-    <input type="text" name="nome"><br><br>
+     <header class="titulo-pagina">
+        <h1>INSCRIÇÃO</h1>
+        <p>Preencha os campos abaixo</p>
+    </header>
 
-    <label>RA:</label><br>
-    <input type="text" name="ra"><br><br>
 
-    <label>Ira participar no cafe?:</label><br>
-    <input type="checkbox" name="sim"> sim <br>
-    <input type="checkbox" name="nao"> nao <br><br>
+    <div class="formulario">
 
-    <label>Gênero:</label><br>
-    <input type="radio" name="genero" value="M"> Masc
-    <input type="radio" name="genero" value="F"> Fem <br><br>
+        <form>
+            <label>Nome:</label><br>
+            <input type="text" name="nome"><br><br>
 
-    <button type="submit">Cadastrar</button>
-</form>
+            <label>RA:</label><br>
+            <input type="text" name="ra"><br><br>
+
+            <label>Quero participar no café:</label><input type="checkbox" name="sim"><br><br>
+
+            <label for="cidades">Escolha seu curso e serie:</label>
+            <select id="cidades" name="cidades">
+                <option value="ads1">ADS - 1º Semestre</option>
+                <option value="ads3">ADS - 3º Semestre</option>
+                <option value="eng1">ESOFT - 1º Semestre</option>
+                <option value="eng3">ESOFT - 3º Semestre</option>
+                <option value="eng5">ESOFT - 5º Semestre</option>
+
+            </select>
+
+            <button type="submit">Cadastrar</button>
+        </form>
+    </div>
+
+
 </body>
+
 </html>
