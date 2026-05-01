@@ -7,6 +7,11 @@ body {
     padding-left: 5%;
 }
 
+/* TENTATIVA FALHA DE POR A BARRA COMPLETAMENTE */
+.navbar {
+    background: rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
 
 /* NAVBAR */
@@ -29,7 +34,7 @@ body {
 /* troquei a fonte da classe nome-evento */
 .nome-evento {
 
-    color: #9ca3af;
+    color: #242424;
     font-weight: bold;
 }
 
@@ -40,7 +45,7 @@ body {
 }
 
 .nav-direita a {
-    color: #d1d5db;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -184,6 +189,7 @@ body {
   width: 100%;
   display: block;
   margin: 20px 0;
+  color: #000000;
 }
 
 /* Centraliza o mapa */
@@ -235,8 +241,9 @@ body {
 }
 
 .texto_informacoes {
-  font-weight: bold;
-  font-size: 24px;
+    color: #000000;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 #bg-video {
