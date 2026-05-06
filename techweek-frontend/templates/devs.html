@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Conheça o time de desenvolvimento da WeekTech">
     <title>Desenvolvedores – WeekTech</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='devs.css') }}">
 </head>
 <body>
@@ -12,40 +13,57 @@
     <nav class="navbar">
         <span class="logo">UniCesumar</span>
         <span class="nome-evento">WeekTech, 1ª Edição</span>
-        <a href="{{ url_for('index') }}" class="btn-voltar" aria-label="Voltar para a página inicial">Voltar</a>
+        <a href="{{ url_for('index') }}" class="btn-voltar" aria-label="Voltar para a página inicial">
+            Voltar
+        </a>
     </nav>
 
     <header class="titulo-pagina">
         <h1>Time de Desenvolvimento</h1>
-        <p>Conheça as mentes de desenvolvimento por trás da WeekTech</p>
+        <p>Conheça as mentes por trás da WeekTech</p>
     </header>
 
+    <main class="container-devs">
 
-        <!-- Favor, mudar a bola de lugar, favor mudar pra esquerda -->
-    <main>
-        <div class="cards-devs">
-            <div class="foto-perfil"></div> <h3>Nome foda</h3>
+        <!-- CARD 1 -->
+        <div class="card-dev">
+
+            <div class="foto-perfil">
+                <img src="{{ url_for('static', filename='rafa.jpeg') }}" alt="Rafael Piasentin">            </div>
+
+            <h3>Rafael Piasentin</h3>
+
             <p class="cargo">Desenvolvedor</p>
+
+            <div class="links">
+                <a href="https://github.com/rafapiasentin" target="_blank">GitHub</a>
+
+                <a href="https://www.linkedin.com/in/rafael-piasentin-b22149256/" target="_blank">
+                    LinkedIn
+                </a>
+            </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card-dev">
+
+            <div class="foto-perfil">
+                <div class="foto-vazia"></div>
+            </div>
+
+            <h3>Nome Foda</h3>
+
+            <p class="cargo">Desenvolvedor</p>
+
             <div class="links">
                 <a href="#">GitHub</a>
                 <a href="#">LinkedIn</a>
             </div>
+
         </div>
 
-        <div class="card-devs">
-            <div class="foto-perfil"></div>
-            <h3>Nome foda</h3>
-            <p class="cargo">Desenvolvedor</p>
-            <div class="links">
-                <a href="#">GitHub</a>
-                <a href="#">LinkedIn</a>
-            </div>
-        </div>
-        </div>
     </main>
 
 </body>
 </html>
-
-
-
