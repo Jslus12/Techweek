@@ -44,7 +44,7 @@
             <label>RA:</label><br>
             <input type="text" name="ra"><br><br>
 
-            <label>Quero participar no café:</label>
+            <label>Quero participar do café:</label>
             <input type="checkbox" name="cafe"><br><br>
 
             <label for="cursos">Escolha seu curso e série:</label>
@@ -86,6 +86,14 @@
     }
 </script>
 
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="{{ url_for('static', filename='fundo-inscricao.mp4') }}" type="video/mp4">
+    </video>
+
+    <script>
+        const video = document.getElementById("bg-video");
+        video.playbackRate = 1; 
+    </script>
 
 
 </body>
