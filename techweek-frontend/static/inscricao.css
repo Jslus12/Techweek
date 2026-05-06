@@ -131,3 +131,13 @@ button[type="submit"]:hover {
 button[type="submit"]:active {
     transform: scale(0.98);
 }
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
