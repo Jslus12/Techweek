@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição - Techweek</title>
-    <!-- O Flask busca o CSS na pasta static -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/inscricao.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='inscricao.css') }}">
 </head>
 
 <body>
@@ -22,29 +21,70 @@
 
 
     <div class="formulario">
+    <!-- Seleção de Tipo de Usuário -->
+  <div class="tipo-usuario">
+        <label for="tipo-aluno">
+            <input type="radio" id="tipo-aluno" name="tipo" value="aluno" checked onclick="alternarFormulario()"> 
+            SOU ALUNO
+        </label>
+        
+        <label for="tipo-palestrante">
+            <input type="radio" id="tipo-palestrante" name="tipo" value="palestrante" onclick="alternarFormulario()"> 
+            SOU PALESTRANTE
+        </label>
+    </div>
 
-        <form>
-            <label>Nome:</label><br>
-            <input type="text" name="nome"><br><br>
+    <form action="/sua-rota-de-envio" method="POST">
+        <!-- Campos Comuns (Nome) -->
+        <label>Nome:</label><br>
+        <input type="text" name="nome" required><br><br>
 
+        <!-- Seção exclusiva para ALUNO -->
+        <div id="secao-aluno">
             <label>RA:</label><br>
             <input type="text" name="ra"><br><br>
 
-            <label>Quero participar no café:</label><input type="checkbox" name="sim"><br><br>
+            <label>Quero participar no café:</label>
+            <input type="checkbox" name="cafe"><br><br>
 
-            <label for="cidades">Escolha seu curso e serie:</label>
-            <select id="cidades" name="cidades">
+            <label for="cursos">Escolha seu curso e série:</label>
+            <select id="cursos" name="curso_serie">
                 <option value="ads1">ADS - 1º Semestre</option>
                 <option value="ads3">ADS - 3º Semestre</option>
                 <option value="eng1">ESOFT - 1º Semestre</option>
                 <option value="eng3">ESOFT - 3º Semestre</option>
                 <option value="eng5">ESOFT - 5º Semestre</option>
-
             </select>
+        </div>
 
-            <button type="submit">Cadastrar</button>
-        </form>
-    </div>
+        <!-- Seção exclusiva para PALESTRANTE (Oculta por padrão) -->
+        <div id="secao-palestrante" style="display: none;">
+            <label>Título da Palestra:</label><br>
+            <input type="text" name="titulo_palestra"><br><br>
+            
+            <label>Currículo Resumido:</label><br>
+            <textarea name="bio" rows="4" style="width: 100%"></textarea>
+        </div>
+
+        <br><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</div>
+<script>
+    function alternarFormulario() {
+        const isAluno = document.getElementById('tipo-aluno').checked;
+        const secaoAluno = document.getElementById('secao-aluno');
+        const secaoPalestrante = document.getElementById('secao-palestrante');
+
+        if (isAluno) {
+            secaoAluno.style.display = 'block';
+            secaoPalestrante.style.display = 'none';
+        } else {
+            secaoAluno.style.display = 'none';
+            secaoPalestrante.style.display = 'block';
+        }
+    }
+</script>
 
 
 

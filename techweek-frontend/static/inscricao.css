@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #000000;
+    font-family: 'Inter', sans-serif;
+    background-color: #000; /* Fundo sólido para destacar o formulário */
     color: white;
 }
 
@@ -21,35 +22,112 @@ body {
     font-weight: bold;
 }
 
-form {
-    background-color: lightblue;
-    border-radius: 15px;
-    padding: 25px;
-    width: 250px;
+
+
+.titulo-pagina h1 {
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #fff;
+    margin-bottom: 5px;
     text-align: center;
-    color: #000000;
-    transition: transform 0.3s;
-    border: 1px solid #334155;
-
-
 }
 
-.titulo-pagina {
-    text-align: center;
-    padding: 10px 20px;
+.titulo-pagina p {
+    font-weight: 300;
+    color: #888; /* Cinza suave para o subtítulo */
+    font-size: 0.9rem;
+        text-align: center;
 }
 
 .formulario {
-    font-weight: bold;
     display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
     justify-content: center;
-    align-items: center;
-    padding: 25px;
+    min-height: 60vh; /* Garante espaço vertical */
+    padding: 20px;
 }
+
+form {
+    background-color: #add8e6; /* Cor azul clara da sua imagem */
+    padding: 40px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 400px; /* Impede que o formulário fique largo demais */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    color: #333;
+}
+
+
 
 input[type="text"] {
     border: 2px solid #007bff;
     outline: none;            
     background-color: #f0f7ff; 
     border-radius: 25px;
+}
+
+.tipo-usuario {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente as opções */
+    align-items: center;     /* Alinha a bolinha com o texto verticalmente */
+    gap: 30px;               /* Espaço entre 'Aluno' e 'Palestrante' */
+    margin: 0 auto 25px auto; /* Centraliza a própria DIV na tela */
+    width: 100%;
+    max-width: 400px;        /* Mesma largura que você deu ao formulário */
+}
+
+.tipo-usuario label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;     /* Impede que o texto quebre em duas linhas */
+}
+
+.tipo-usuario input[type="radio"] {
+    margin: 0 8px 0 0;       /* Garante espaço exato à direita da bolinha */
+    cursor: pointer;
+    transform: scale(1.2);   /* Aumenta um pouco a bolinha para facilitar o clique */
+}
+input[type="text"], select {
+    width: 100%; /* Ocupa a largura total do formulário azul */
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 20px; /* Bordas arredondadas como na imagem */
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Evita que o padding aumente a largura */
+}
+
+
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+button[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s active;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
 }
