@@ -85,6 +85,16 @@
 
         </div>
     </div>
+
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="{{ url_for('static', filename='fundo4.mp4') }}" type="video/mp4">
+    </video>
+
+    <script>
+  const video = document.getElementById("bg-video");
+  video.playbackRate = 1; 
+</script>
+    
 </body>
 </html>
 </body>

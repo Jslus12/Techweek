@@ -3,11 +3,9 @@ body {
     font-family: 'Inter', sans-serif;
     color: white;
     min-height: 100vh;
-    /* Mudei a cor de fundo e adicionei um degrade usando as cores preto e roxo */
-    background: linear-gradient(135deg, #000000 0%, #000000 100%);
+    background: rgba(0, 0, 0, 0.5);
     padding-left: 5%;
 }
-
 
 
 /* NAVBAR */
@@ -30,7 +28,7 @@ body {
 /* troquei a fonte da classe nome-evento */
 .nome-evento {
 
-    color: #9ca3af;
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -41,7 +39,7 @@ body {
 }
 
 .nav-direita a {
-    color: #d1d5db;
+    color: #ffffff;
     text-decoration: none;
 }
 
@@ -72,7 +70,7 @@ body {
     align-items: center;
     gap: 8px;
 
-    border: 1px solid rgba(30, 58, 138, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.5);
     background-color: rgba(23, 37, 84, 0.2);
 
     padding: 4px 16px;
@@ -88,7 +86,7 @@ body {
 .distintivo-dot {
     width: 8px;
     height: 8px;
-    background-color: #3b82f6;
+    background-color: #000000;
     border-radius: 50%;
     animation: pulse 1.5s infinite;
 }
@@ -102,6 +100,7 @@ body {
     line-height: 1.2;
     font-family: 'Courier New', Courier, monospace;
     margin-right:auto;
+    color: #ffffff;
 }
 
 .destaque {
@@ -146,7 +145,7 @@ body {
 .btn-secundario {
     border: 1px solid #374151;
     background: none;
-    color: white;
+    color: rgb(255, 255, 255);
     padding: 12px 24px;
     border-radius: 999px;
     cursor:pointer;
@@ -184,6 +183,7 @@ body {
   width: 100%;
   display: block;
   margin: 20px 0;
+  color: #ffffff;
 }
 
 /* Centraliza o mapa */
@@ -235,6 +235,17 @@ body {
 }
 
 .texto_informacoes {
-  font-weight: bold;
-  font-size: 24px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
 }

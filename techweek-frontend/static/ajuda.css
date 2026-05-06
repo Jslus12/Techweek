@@ -1,0 +1,29 @@
+.faq-icons{
+    
+    max-width: 800px;
+    margin: 60px;
+    background: #0b1d3a;
+    padding: 40px;
+    border-radius: 16px;
+    color: floralwhite;
+}
+
+.faq-icons h2{
+    text-align: center;
+    color: #40e0d0;
+    margin-bottom: 25px;
+}
+
+details{
+    background: rgb(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-left: 5px solid rgb(255, 255, 255);
+    transition: background 0.3 ease;
+}
+
+summary{
+    font-weight: 600;
+    cursor: pointer;
+}
