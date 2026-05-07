@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeekTech 2026 - Ajuda</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='ajuda.css') }}">
 </head>
+
 <body>
 
     <!-- CANVAS: partículas e raios -->
@@ -18,139 +22,251 @@
     <div class="cursor-glow" id="cursorGlow"></div>
 
     <!-- NAV -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-brand">
-            <span class="brand-uni">UniCesumar</span>
-            <span class="brand-sep">|</span>
-            <span class="brand-event">WeekTech, 1ª Edição</span>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#">Desenvolvedores</a></li>
-            <li><a href="#">Palestrantes</a></li>
-            <li><a href="#" class="active">Ajuda</a></li>
-            <li><a href="#" class="nav-cta">Inscrever-se</a></li>
-        </ul>
+    <!-- NAV -->
+<nav class="navbar" id="navbar">
+
+    <div class="nav-brand">
+        <span class="brand-uni">UniCesumar</span>
+        <span class="brand-sep">|</span>
+        <span class="brand-event">WeekTech, 1ª Edição</span>
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">Desenvolvedores</a></li>
+        <li><a href="#">Palestrantes</a></li>
+        <li><a href="#" class="active">Ajuda</a></li>
+
+        <li>
+            <a href="{{ url_for('index') }}" class="nav-cta">
+                ← Retornar
+            </a>
+        </li>
+    </ul>
+
     </nav>
 
     <!-- HERO -->
     <div class="hero">
-        <p class="hero-label" data-reveal>Central de Ajuda · WeekTech 1ª Edição 2026</p>
+
+        <p class="hero-label" data-reveal>
+            Central de Ajuda · WeekTech 1ª Edição 2026
+        </p>
+
         <h1 class="hero-title" data-reveal data-delay="100">
-            Perguntas<br><em class="glitch" data-text="Frequentes">Frequentes</em>
+            Perguntas<br>
+            <em class="glitch" data-text="Frequentes">Frequentes</em>
         </h1>
-        <p class="hero-sub" data-reveal data-delay="220">Encontre respostas rápidas sobre o evento, inscrições e muito mais.</p>
+
+        <p class="hero-sub" data-reveal data-delay="220">
+            Encontre respostas rápidas sobre o evento, inscrições e muito mais.
+        </p>
+
         <div class="hero-line" data-reveal data-delay="340"></div>
+
     </div>
 
     <!-- FAQ SECTION -->
     <section class="faq-section">
+
         <div class="faq-container" id="faqContainer">
 
+            <!-- FAQ 01 -->
             <div class="faq-item" data-reveal data-delay="0">
+
                 <button class="faq-trigger" aria-expanded="false">
+
                     <span class="faq-num">01</span>
-                    <span class="faq-q">O que é a WeekTech e para quem é voltada?</span>
+
+                    <span class="faq-q">
+                        O que é a WeekTech e para quem é voltada?
+                    </span>
+
                     <span class="faq-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="5" x2="12" y2="19"/>
                             <line x1="5" y1="12" x2="19" y2="12"/>
                         </svg>
                     </span>
+
                 </button>
+
                 <div class="faq-body">
+
                     <div class="faq-answer">
-                        <p>A WeekTech é um evento de tecnologia promovido pela UniCesumar com foco em Inteligência Artificial e inovação. É voltada a estudantes, profissionais de TI, empreendedores e qualquer pessoa interessada em entender como a IA está transformando negócios e a sociedade.</p>
+                        <p>
+                            A WeekTech é um evento de tecnologia promovido pela UniCesumar com foco em Inteligência Artificial e inovação.
+                            É voltada a estudantes, profissionais de TI, empreendedores e qualquer pessoa interessada em entender como a IA
+                            está transformando negócios e a sociedade.
+                        </p>
                     </div>
+
                 </div>
+
             </div>
 
+            <!-- FAQ 02 -->
             <div class="faq-item" data-reveal data-delay="60">
+
                 <button class="faq-trigger" aria-expanded="false">
+
                     <span class="faq-num">02</span>
-                    <span class="faq-q">Como faço minha inscrição no evento?</span>
+
+                    <span class="faq-q">
+                        Como faço minha inscrição no evento?
+                    </span>
+
                     <span class="faq-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="5" x2="12" y2="19"/>
                             <line x1="5" y1="12" x2="19" y2="12"/>
                         </svg>
                     </span>
+
                 </button>
+
                 <div class="faq-body">
+
                     <div class="faq-answer">
-                        <p>Clique no botão <strong>"Inscrever-se"</strong> no menu superior ou em <strong>"Garanta sua vaga"</strong> na página inicial. Preencha o formulário com seus dados e você receberá a confirmação por e-mail em até 24 horas.</p>
+                        <p>
+                            Clique no botão <strong>"Inscrever-se"</strong> no menu superior
+                            ou em <strong>"Garanta sua vaga"</strong> na página inicial.
+                            Preencha o formulário com seus dados e você receberá a confirmação
+                            por e-mail em até 24 horas.
+                        </p>
                     </div>
+
                 </div>
+
             </div>
 
+            <!-- FAQ 03 -->
             <div class="faq-item" data-reveal data-delay="120">
+
                 <button class="faq-trigger" aria-expanded="false">
+
                     <span class="faq-num">03</span>
-                    <span class="faq-q">O evento é presencial, online ou híbrido?</span>
+
+                    <span class="faq-q">
+                        O evento é presencial, online ou híbrido?
+                    </span>
+
                     <span class="faq-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="5" x2="12" y2="19"/>
                             <line x1="5" y1="12" x2="19" y2="12"/>
                         </svg>
                     </span>
+
                 </button>
+
                 <div class="faq-body">
+
                     <div class="faq-answer">
-                        <p>A WeekTech 1ª Edição acontece no formato <strong>híbrido</strong>: as palestras principais serão transmitidas ao vivo pelo nosso portal, e as atividades práticas (workshops e painéis) são exclusivas para participantes presenciais no campus UniCesumar.</p>
+                        <p>
+                            A WeekTech 1ª Edição acontece no formato <strong>híbrido</strong>:
+                            as palestras principais serão transmitidas ao vivo pelo nosso portal,
+                            e as atividades práticas (workshops e painéis) são exclusivas para
+                            participantes presenciais no campus UniCesumar.
+                        </p>
                     </div>
+
                 </div>
+
             </div>
 
+            <!-- FAQ 04 -->
             <div class="faq-item" data-reveal data-delay="180">
+
                 <button class="faq-trigger" aria-expanded="false">
+
                     <span class="faq-num">04</span>
-                    <span class="faq-q">Haverá emissão de certificado de participação?</span>
+
+                    <span class="faq-q">
+                        Haverá emissão de certificado de participação?
+                    </span>
+
                     <span class="faq-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="5" x2="12" y2="19"/>
                             <line x1="5" y1="12" x2="19" y2="12"/>
                         </svg>
                     </span>
+
                 </button>
+
                 <div class="faq-body">
+
                     <div class="faq-answer">
-                        <p>Sim! Todos os participantes que cumprirem pelo menos <strong>75% da carga horária</strong> receberão certificado digital. O documento é emitido em até 10 dias úteis após o encerramento do evento e enviado para o e-mail cadastrado.</p>
+                        <p>
+                            Sim! Todos os participantes que cumprirem pelo menos
+                            <strong>75% da carga horária</strong> receberão certificado digital.
+                            O documento é emitido em até 10 dias úteis após o encerramento do evento
+                            e enviado para o e-mail cadastrado.
+                        </p>
                     </div>
+
                 </div>
+
             </div>
 
+            <!-- FAQ 05 -->
             <div class="faq-item" data-reveal data-delay="240">
+
                 <button class="faq-trigger" aria-expanded="false">
+
                     <span class="faq-num">05</span>
-                    <span class="faq-q">Qual é a programação completa do evento?</span>
+
+                    <span class="faq-q">
+                        Qual é a programação completa do evento?
+                    </span>
+
                     <span class="faq-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="5" x2="12" y2="19"/>
                             <line x1="5" y1="12" x2="19" y2="12"/>
                         </svg>
                     </span>
+
                 </button>
+
                 <div class="faq-body">
+
                     <div class="faq-answer">
-                        <p>A programação detalhada — com horários, palestrantes e temas de cada sessão — está disponível na página <strong>"Ver programação do Evento"</strong> na página inicial. Novas palestras podem ser adicionadas até 7 dias antes do início, então fique de olho!</p>
+                        <p>
+                            A programação detalhada — com horários, palestrantes e temas de cada sessão —
+                            está disponível na página <strong>"Ver programação do Evento"</strong>
+                            na página inicial. Novas palestras podem ser adicionadas até 7 dias antes
+                            do início, então fique de olho!
+                        </p>
                     </div>
+
                 </div>
+
             </div>
 
         </div>
 
         <!-- CONTACT STRIP -->
         <div class="contact-strip" data-reveal data-delay="300">
+
             <p>Não encontrou sua resposta?</p>
+
             <a href="mailto:weektech@unicesumar.edu.br" class="contact-btn">
+
                 <span>Fale com a equipe</span>
+
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
                     <line x1="5" y1="12" x2="19" y2="12"/>
                     <polyline points="12 5 19 12 12 19"/>
                 </svg>
+
             </a>
+
         </div>
+
     </section>
 
     <script src="{{ url_for('static', filename='ajuda.js') }}"></script>
+
 </body>
 </html>
