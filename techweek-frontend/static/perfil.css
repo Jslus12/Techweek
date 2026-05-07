@@ -1,0 +1,200 @@
+/* --- RESET E VARIÁVEIS CYBER --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --accent-blue: #00c3ff;
+    --accent-dourado: #ffd700;
+    --bg-dark: #030305;
+    --nav-bg: rgba(3, 3, 5, 0.9);
+}
+
+body.tech-page {
+    background-color: var(--bg-dark);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- ESTILO DO BACKGROUND (ESTRELAS) --- */
+.stars-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 50% 50%, rgba(0, 195, 255, 0.05), transparent 80%),
+        url('https://www.transparenttextures.com/patterns/stardust.png');
+    z-index: -1;
+}
+
+/* --- NAVBAR --- */
+.vantage-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.brand-unicesumar {
+    color: var(--accent-blue);
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.nav-item:hover {
+    color: var(--accent-blue);
+}
+
+/* BOTÃO RETORNAR */
+.nav-btn-retornar {
+    background-color: var(--accent-blue);
+    color: black;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+.nav-btn-retornar:hover {
+    box-shadow: 0 0 20px rgba(0, 195, 255, 0.4);
+    background-color: #00d2ff;
+}
+
+/* --- CONTEÚDO --- */
+.perfil-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 140px 40px 100px 40px;
+}
+
+.perfil-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.perfil-tag {
+    font-family: 'Space Mono', monospace;
+    color: var(--accent-blue);
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.perfil-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 10px;
+}
+
+.perfil-title span {
+    color: var(--accent-blue);
+}
+
+.perfil-subtitle {
+    color: #bbb;
+    font-size: 1.1rem;
+}
+
+.perfil-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    align-items: start;
+}
+
+.perfil-sidebar {
+    position: sticky;
+    top: 120px;
+}
+
+.perfil-img {
+    width: 100%;
+    border-radius: 15px;
+    border: 2px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.perfil-bio {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 40px;
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.section-title {
+    color: var(--accent-blue);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-family: 'Space Mono', monospace;
+}
+
+.bio-text {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.bio-text p { margin-bottom: 20px; }
+.bio-text ul { margin-left: 20px; margin-bottom: 20px; }
+.bio-text li { margin-bottom: 10px; color: #eee; }
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 900px) {
+    .perfil-content { grid-template-columns: 1fr; }
+    .perfil-sidebar { position: relative; top: 0; max-width: 300px; margin: 0 auto 40px auto; }
+    .perfil-title { font-size: 2.5rem; }
+    .nav-brand, .nav-item { font-size: 12px; }
+    .nav-links { gap: 15px; }
+}
