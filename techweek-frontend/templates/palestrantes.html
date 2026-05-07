@@ -1,12 +1,70 @@
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="pt-br">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Palestrantes</title>
-    <link rel='stylesheet' href='main.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palestrantes | TechWeek</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='palestrantes.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
 </head>
-<body>
-    
+<body class="tech-page">
+
+    <div class="stars-overlay"></div>
+
+    <nav class="vantage-navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="/" style="text-decoration:none; color:white;">
+                    <span class="brand-unicesumar">UniCesumar</span> | WeekTech, 1ª Edição
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/devs" class="nav-item">Desenvolvedores</a>
+                <a href="/palestrantes" class="nav-item">Palestrantes</a>
+                <a href="/ajuda" class="nav-item">Ajuda</a>
+                <a href="javascript:history.back()" class="nav-btn-retornar">
+                    <span>←</span> Retornar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header" style="margin-top: 100px;">
+        <span class="top-tag">CONHEÇA NOSSOS</span>
+        <h1 class="main-title">PALESTRANTES<span>.</span></h1>
+    </header>
+
+    <main class="vantage-grid">
+        <a href="/perfil/bruno" class="vantage-card">
+            <img src="{{ url_for('static', filename='Img/bruno.jpg') }}" class="vantage-img">
+            <div class="vantage-gradient"></div>
+            <div class="vantage-content-static">
+                <span class="vantage-tag">>> IA & DADOS</span>
+                <h3 class="vantage-name">Bruno Silva</h3>
+            </div>
+            <div class="vantage-overlay">
+                <span class="vantage-tag">PALESTRANTE CONFIRMADO</span>
+                <h3 class="vantage-name">Bruno Silva</h3>
+                <p class="vantage-desc">Especialista em visão computacional e processamento de linguagem natural.</p>
+                <div class="vantage-btn">VER PERFIL COMPLETO</div>
+            </div>
+        </a>
+
+        <a href="/perfil/heitor" class="vantage-card">
+            <img src="{{ url_for('static', filename='Img/heitor.jpeg') }}" class="vantage-img">
+            <div class="vantage-gradient"></div>
+            <div class="vantage-content-static">
+                <span class="vantage-tag">>> DESENVOLVIMENTO</span>
+                <h3 class="vantage-name">Heitor Santos</h3>
+            </div>
+            <div class="vantage-overlay">
+                <span class="vantage-tag">PALESTRANTE CONFIRMADO</span>
+                <h3 class="vantage-name">Heitor Santos</h3>
+                <p class="vantage-desc">Arquiteto de software focado em sistemas de alta escalabilidade.</p>
+                <div class="vantage-btn">VER PERFIL COMPLETO</div>
+            </div>
+        </a>
+    </main>
+
 </body>
 </html>
