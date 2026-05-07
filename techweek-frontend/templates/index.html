@@ -4,98 +4,171 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unicesumar WeekTech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
-    <!-- traduzi todas as classes para português -->
-    <nav class="navbar">
-        <div class="nav-esquerda">
-            <!-- Quero colocar a imagem da uni junto com o nome para ficar massa -->
-            <span class="logo">UniCesumar</span>
-            <span class="nome-evento">WeekTech, 1ª Edição</span>
-        </div>
-
-
-        <!--Mudar as # para dar as rotas com o Python -->
-        <div class="nav-direita">
-            <a href="{{ url_for ('devs') }}">Desenvolvedores</a>
-            <a href="{{ url_for ('palestrantes') }}">Palestrantes</a>
-            <a href="{{ url_for ('ajuda') }}">Ajuda</a>
-            <a href="{{ url_for ('inscricao') }}" class="btn-primario">Inscrever-se</a>
-        </div>
-    </nav>
-
-    <main class="main">
-        
-        <!-- Queremos mudar o estilo ou o jeito do layout disso -->
-        <div class="distintivo">
-            <span class="distintivo-dot"></span>
-            Inscrições para o Envento · 1ª Edição 2026
-        </div>
-
-
-        <!-- Span class siginifica uma classe colocar no CSS para dar destaque -->
-        <h1 class="titulo">
-           O futuro é a <span class="destaque">IA.</span> <br>
-            Potencializando negócios <br> e <span class="destaque">Tecnologias </span>com  <br>
-            inteligência de dados
-        </h1>
-
-        <p class="descricao">
-          A Tech Week propõe uma abordagem prática e contemporânea sobre o uso da Inteligência Artificial (IA), 
-          destacando sua aplicação real em diferentes contextos organizacionais e sociais. O tema “Inteligência Artificial em Ação” 
-          enfatiza não apenas a compreensão teórica, 
-          mas principalmente a vivência e experimentação das tecnologias que estão moldando o presente.
-        </p>
-
-        <!-- Area principal para os botões de incrição e programação do evento-->
-        <div class="botao">
-
-            <!-- não foi IA, eu mesmo coloquei. ​✨ -->
-            <button class="btn-main">Garanta sua vaga ​✨​</button>
-            <button class="btn-secundario">Ver programação do Evento</button>
-        </div>
-
-        
-        <!-- ainda tentando fazer, quero pular uma linha nos botoes para colocar mais informações sobre o evento -->
-        <p class = "texto_informacoes">
-            informações pikas  
-        </p>
-    </main>
-
-        
-    <p class = "texto_informacoes">
-            informações importantes
-        </p>
-    </main>
-
-    <div class="localizacao">
-        <div class="mapa-container">
-            <h1 class="titulo-mapa">Localização</h1>
-    
-            <iframe 
-                src="https://www.google.com/maps?q=-23.3036894,-51.1407595&output=embed">
-            </iframe>
-
-            <a 
-                href="https://www.google.com/maps?q=-23.3036894,-51.1407595" 
-                target="_blank" 
-                class="btn-maps">
-            Abrir no Google Maps
-            </a>
-
-        </div>
-    </div>
 
     <video autoplay muted loop playsinline id="bg-video">
         <source src="{{ url_for('static', filename='fundo-principal.mp4') }}" type="video/mp4">
     </video>
 
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-esquerda">
+            <img src="{{ url_for('static', filename='logo-unicesumar.png') }}" width="140" alt="UniCesumar">
+            <span class="nome-evento">WeekTech, 1ª Edição</span>
+        </div>
+        <div class="nav-direita">
+            <a href="{{ url_for('devs') }}">Desenvolvedores</a>
+            <a href="{{ url_for('palestrantes') }}">Palestrantes</a>
+            <a href="{{ url_for('ajuda') }}">Ajuda</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <main class="main">
+
+        <div class="distintivo">
+            <span class="distintivo-dot"></span>
+            Inscrições para o Evento · 1ª Edição 2026
+        </div>
+
+        <h1 class="titulo">
+            O futuro é a <span class="destaque">IA.</span><br>
+            Potencializando negócios<br>
+            e <span class="destaque">Tecnologias</span> com<br>
+            inteligência de dados
+        </h1>
+
+        <p class="descricao">
+            A Tech Week propõe uma abordagem prática e contemporânea sobre o uso da
+            Inteligência Artificial (IA), destacando sua aplicação real em diferentes
+            contextos organizacionais e sociais. O tema "Inteligência Artificial em Ação"
+            enfatiza não apenas a compreensão teórica, mas principalmente a vivência e
+            experimentação das tecnologias que estão moldando o presente.
+        </p>
+
+        <div class="botao">
+            <a href="{{ url_for('inscricao') }}" class="btn-main">Garanta sua vaga ✨</a>
+            <button class="btn-secundario">Ver programação do Evento</button>
+        </div>
+
+    </main>
+
+    <!-- SEÇÃO: AGENDA + MAPA -->
+    <section class="secao-agenda-mapa">
+
+        <!-- AGENDA -->
+        <div class="agenda">
+            <div class="agenda-header">
+                <span class="agenda-tag">// agenda</span>
+                <h2 class="agenda-titulo">Maio <span class="destaque">2026</span></h2>
+            </div>
+
+            <div class="agenda-lista">
+
+                <div class="agenda-item destaque-item">
+                    <div class="agenda-data">
+                        <span class="dia">05</span>
+                        <span class="dia-semana">SEG</span>
+                    </div>
+                    <div class="agenda-info">
+                        <span class="agenda-evento-titulo">Abertura Oficial</span>
+                        <span class="agenda-hora">19h00 · Auditório Principal</span>
+                        <span class="agenda-badge">🔴 AO VIVO</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-data">
+                        <span class="dia">06</span>
+                        <span class="dia-semana">TER</span>
+                    </div>
+                    <div class="agenda-info">
+                        <span class="agenda-evento-titulo">IA no Mercado Financeiro</span>
+                        <span class="agenda-hora">19h00 · Sala Tech A</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-data">
+                        <span class="dia">07</span>
+                        <span class="dia-semana">QUA</span>
+                    </div>
+                    <div class="agenda-info">
+                        <span class="agenda-evento-titulo">Workshop: Prompt Engineering</span>
+                        <span class="agenda-hora">14h00 · Lab de Inovação</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-data">
+                        <span class="dia">08</span>
+                        <span class="dia-semana">QUI</span>
+                    </div>
+                    <div class="agenda-info">
+                        <span class="agenda-evento-titulo">IA & Saúde: Cases Reais</span>
+                        <span class="agenda-hora">19h00 · Auditório B</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-data">
+                        <span class="dia">09</span>
+                        <span class="dia-semana">SEX</span>
+                    </div>
+                    <div class="agenda-info">
+                        <span class="agenda-evento-titulo">Hackathon de IA</span>
+                        <span class="agenda-hora">08h00 · Campus Inteiro</span>
+                        <span class="agenda-badge badge-yellow">⚡ DIA INTEIRO</span>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-data">
+                        <span class="dia">10</span>
+                        <span class="dia-semana">SÁB</span>
+                    </div>
+                    <div class="agenda-info">
+                        <span class="agenda-evento-titulo">Encerramento & Premiação</span>
+                        <span class="agenda-hora">17h00 · Auditório Principal</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- MAPA -->
+        <div class="mapa-wrapper">
+            <div class="agenda-header">
+                <span class="agenda-tag">// localização</span>
+                <h2 class="agenda-titulo">Onde <span class="destaque">estamos</span></h2>
+            </div>
+
+            <div class="mapa-container">
+                <iframe
+                    src="https://www.google.com/maps?q=-23.3036894,-51.1407595&output=embed"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+            </div>
+
+            
+                href="https://www.google.com/maps?q=-23.3036894,-51.1407595"
+                target="_blank"
+                class="btn-maps">
+                Abrir no Google Maps ↗
+            </a>
+        </div>
+
+    </section>
+
     <script>
-  const video = document.getElementById("bg-video");
-  video.playbackRate = 1; 
-</script>
-    
-</body>
-</html>
+        document.getElementById("bg-video").playbackRate = 1;
+    </script>
+
 </body>
 </html>
