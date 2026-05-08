@@ -1,13 +1,23 @@
 from flask import Flask, render_template, request, abort
-import psycopg2
 import os
+import urllib.request
+import json
 
 app = Flask(__name__, 
         template_folder='techweek-frontend/templates', 
         static_folder='techweek-frontend/static')
 
-def get_db():
-    return psycopg2.connect(os.environ.get('DATABASE_URL'))
+SUPABASE_URL = os.environ.get('SUPABASE_URL')
+SUPABASE_KEY = os.environ.get('SUPABASE_KEY')
+
+def inserir_inscrito(dados):
+    url = f"{SUPABASE_URL}/rest/v1/inscritos"
+    body = json.dumps(dados).encode('utf-8')
+    req = urllib.request.Request(url, data=body, method='POST')
+    req.add_header('Content-Type', 'application/json')
+    req.add_header('apikey', SUPABASE_KEY)
+    req.add_header('Authorization', f'Bearer {SUPABASE_KEY}')
+    urllib.request.urlopen(req)
 
 @app.route("/")
 def index(): 
@@ -32,27 +42,18 @@ def ajuda():
 @app.route("/inscricao", methods=['GET', 'POST'])
 def inscricao():
     if request.method == 'POST':
-        tipo            = request.form.get('tipo')
-        nome            = request.form.get('nome')
-        whatsapp        = request.form.get('whatsapp')
-        ra              = request.form.get('ra')
-        cafe            = request.form.get('cafe')
-        curso_serie     = request.form.get('curso_serie')
-        titulo_palestra = request.form.get('titulo_palestra')
-        bio             = request.form.get('bio')
-
+        dados = {
+            'tipo':             request.form.get('tipo'),
+            'nome_completo':    request.form.get('nome'),
+            'whatsapp':         request.form.get('whatsapp'),
+            'ra':               request.form.get('ra'),
+            'cafe':             request.form.get('cafe'),
+            'curso_serie':      request.form.get('curso_serie'),
+            'titulo_palestra':  request.form.get('titulo_palestra'),
+            'bio':              request.form.get('bio'),
+        }
         try:
-            conn = get_db()
-            cursor = conn.cursor()
-            query = """
-                INSERT INTO inscritos 
-                (tipo, nome_completo, whatsapp, ra, cafe, curso_serie, titulo_palestra, bio)
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-            """
-            cursor.execute(query, (tipo, nome, whatsapp, ra, cafe, curso_serie, titulo_palestra, bio))
-            conn.commit()
-            cursor.close()
-            conn.close()
+            inserir_inscrito(dados)
             return "Inscrição realizada com sucesso!"
         except Exception as e:
             return f"Erro ao gravar no banco: {e}"
