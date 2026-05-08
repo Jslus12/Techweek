@@ -198,3 +198,66 @@ body.tech-page {
     .nav-brand, .nav-item { font-size: 12px; }
     .nav-links { gap: 15px; }
 }
+
+/* =========================
+   RESPONSIVIDADE CELULAR
+========================= */
+
+@media (max-width: 768px) {
+
+    .vantage-navbar {
+        height: auto;
+        padding: 15px 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .page-header {
+        margin-top: 180px !important;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .main-title {
+        font-size: 42px;
+        line-height: 1;
+    }
+
+    .top-tag {
+        font-size: 12px;
+    }
+
+    .vantage-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 25px;
+    }
+
+    .vantage-card {
+        height: 400px;
+    }
+
+    .vantage-name {
+        font-size: 22px;
+    }
+
+    .vantage-overlay {
+        padding: 20px;
+    }
+
+    .nav-btn-retornar {
+        width: 100%;
+        justify-content: center;
+    }
+}
