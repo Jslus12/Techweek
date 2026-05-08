@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, abort
-import mysql.connector
+import psycopg2
 import os
 
 app = Flask(__name__, 
@@ -7,13 +7,7 @@ app = Flask(__name__,
         static_folder='techweek-frontend/static')
 
 def get_db():
-    return mysql.connector.connect(
-        host=os.environ.get('MYSQLHOST', 'localhost'),
-        port=int(os.environ.get('MYSQLPORT', 3307)),
-        user=os.environ.get('MYSQLUSER', 'root'),
-        password=os.environ.get('MYSQLPASSWORD', '1234'),
-        database=os.environ.get('MYSQLDATABASE', 'teckweek_db')
-    )
+    return psycopg2.connect(os.environ.get('DATABASE_URL'))
 
 @app.route("/")
 def index(): 
