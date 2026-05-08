@@ -380,6 +380,37 @@ a.btn-main {
         0 18px 36px rgba(19, 166, 224, 0.2);
 }
 
+/* Container que segura o carrossel na Nav */
+.logos-overflow {
+    flex: 1;
+    max-width: 450px;
+    margin: 0 30px;
+    overflow: hidden;
+    position: relative;
+    /* Isso cria um efeito de transparência nas pontas das logos */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logos-slide {
+    display: inline-block;
+    white-space: nowrap;
+    animation: deslizarInfinito 12s linear infinite;
+}
+
+.logos-slide img {
+    height: 38px; /* Ajuste a altura para caber na sua navbar */
+    width: auto;
+    margin: 0 25px;
+    vertical-align: middle;
+    opacity: 0.8;
+}
+
+@keyframes deslizarInfinito {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
 
 @media (max-width: 860px) {
     .navbar { padding: 16px 24px; }

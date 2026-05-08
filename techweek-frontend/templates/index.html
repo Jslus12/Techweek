@@ -11,22 +11,42 @@
 </head>
 <body>
 
-    <video autoplay muted loop playsinline id="bg-video">
-        <source src="{{ url_for('static', filename='fundo-principal.mp4') }}" type="video/mp4">
-    </video>
+   <video autoplay muted loop playsinline id="bg-video">
+    <!-- Ajustado para buscar na pasta img dentro de static -->
+    <source src="{{ url_for('static', filename='fundo-principal.mp4') }}" type="video/mp4">
+</video>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-        <div class="nav-esquerda">
-            <img src="{{ url_for('static', filename='logo-unicesumar.png') }}" width="140" alt="UniCesumar">
-            <span class="nome-evento">WeekTech, 1ª Edição</span>
+   <!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-esquerda">
+        <!-- Logo principal ajustada -->
+        <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
+        <span class="nome-evento">WeekTech, 1ª Edição</span>
+    </div>
+
+    <!-- CARROSSEL DE PATROCINADORES -->
+    <div class="logos-overflow">
+        <div class="logos-slide">
+            <!-- CONJUNTO 1 -->
+            <img src="{{ url_for('static', filename='img/caco.png') }}" alt="Logo 1">
+            <img src="{{ url_for('static', filename='img/custodio.png') }}" alt="Logo 2">
+            <img src="{{ url_for('static', filename='img/vitorios.png') }}" alt="Logo 3">
+            <img src="{{ url_for('static', filename='img/unicesumar.png') }}" alt="Logo 4">
+            
+            <!-- CONJUNTO 2 (Para o loop infinito) -->
+            <img src="{{ url_for('static', filename='img/caco.png') }}" alt="Logo 1">
+            <img src="{{ url_for('static', filename='img/custodio.png') }}" alt="Logo 2">
+            <img src="{{ url_for('static', filename='img/vitorios.png') }}" alt="Logo 3">
+            <img src="{{ url_for('static', filename='img/unicesumar.png') }}" alt="Logo 4">
         </div>
-        <div class="nav-direita">
-            <a href="{{ url_for('devs') }}">Desenvolvedores</a>
-            <a href="{{ url_for('palestrantes') }}">Palestrantes</a>
-            <a href="{{ url_for('ajuda') }}">Ajuda</a>
-        </div>
-    </nav>
+    </div>
+
+    <div class="nav-direita">
+        <a href="{{ url_for('devs') }}">Desenvolvedores</a>
+        <a href="{{ url_for('palestrantes') }}">Palestrantes</a>
+        <a href="{{ url_for('ajuda') }}">Ajuda</a>
+    </div>
+</nav>
 
     <!-- HERO -->
     <main class="main">
