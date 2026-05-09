@@ -28,6 +28,73 @@ body {
 
     z-index: 999;
 }
+.campo-toggle{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.campo-toggle label{
+    margin-top: 0 !important; 
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.texto-checkbox {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #555;
+    margin-left: 10px;
+    text-transform: uppercase;
+}
+
+#secao-projeto textarea {
+    font-family: 'Inter', sans-serif;
+    resize: none; /* Impede o usuário de deformar o layout */
+    margin-top: 5px;
+}
+
+/* Ajuste opcional para o checkbox ficar maior */
+#toggle-projeto {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+#toggle-cafe {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+
+
+
+textarea {
+    resize: none; /* Mantém o layout fixo */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px; /* Bordas arredondadas suaves como na imagem */
+    border: 1px solid #fff; /* Borda branca para sumir com o padrão do navegador */
+    background-color: #f9f9f9;
+    box-sizing: border-box; 
+    margin-bottom: 5px; /* Pequeno respiro abaixo da caixa */
+}
+
+textarea {
+    resize: none; /* Mantém o tamanho fixo da caixa para não quebrar o layout azul */
+}
+
+
+
 .logo {
     font-size: 1.2rem;
     font-weight: bold;
@@ -88,12 +155,13 @@ body {
     align-items: center; /* Centraliza horizontalmente */
     justify-content: center;
     min-height: 60vh; /* Garante espaço vertical */
-    padding: 20px;
+    padding: 12px;
+    font-size: 2rem;
 }
 
 form {
     background-color: #add8e6; /* Cor azul clara da sua imagem */
-    padding: 40px;
+    padding: 30px;
     border-radius: 15px;
     width: 100%;
     max-width: 400px; /* Impede que o formulário fique largo demais */
@@ -103,12 +171,6 @@ form {
 
 
 
-input[type="text"] {
-    border: 2px solid #007bff;
-    outline: none;            
-    background-color: #f0f7ff; 
-    border-radius: 25px;
-}
 
 .tipo-usuario {
     display: flex;
@@ -135,25 +197,9 @@ input[type="text"] {
     cursor: pointer;
     transform: scale(1.2);   /* Aumenta um pouco a bolinha para facilitar o clique */
 }
-input[type="text"], select {
-    width: 100%; /* Ocupa a largura total do formulário azul */
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 20px; /* Bordas arredondadas como na imagem */
-    border: 1px solid #ccc;
-    box-sizing: border-box; /* Evita que o padding aumente a largura */
-}
 
 
 
-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: #555;
-    margin-bottom: 8px;
-    display: inline-block;
-}
 button[type="submit"] {
     width: 100%;
     background-color: #007bff;
@@ -184,7 +230,19 @@ button[type="submit"]:active {
     object-fit: cover;
     z-index: -1;
 }
+.formulario form label {
+    display: block;
+    margin-top: 20px;    /* Espaço padrão acima de cada título de campo */
+    margin-bottom: 8px;  /* Espaço padrão entre o título e a caixa branca */
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #444;
+}
 
+/* Para o primeiro label do form não ter margem exagerada no topo */
+.formulario form label:first-of-type {
+    margin-top: 10px;
+}
 /* =========================
    RESPONSIVIDADE CELULAR
 ========================= */
