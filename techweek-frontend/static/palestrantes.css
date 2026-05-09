@@ -22,6 +22,7 @@ body.tech-page {
     z-index: -1;
 }
 
+<<<<<<< HEAD
 /* ── NAVBAR ── */
 .navbar {
     position: fixed;
@@ -103,6 +104,99 @@ body.tech-page {
     font-weight: 700;
     letter-spacing: 0.2em;
     margin-bottom: 10px;
+=======
+/* NAVBAR */
+.navbar{
+    width:100%;
+    padding:24px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    background:rgba(0,0,0,0.45);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(255,255,255,0.04);
+}
+
+.nav-brand{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-size:14px;
+    font-family:'Space Mono', monospace;
+}
+
+.brand-uni{
+    color:#00c3ff;
+    font-weight:700;
+}
+
+.brand-event{
+    color:#ffffff;
+    opacity:0.75;
+}
+
+.nav-links{
+    display:flex;
+    list-style:none;
+    gap:32px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#00c3ff;
+}
+.hero{
+    padding-top:180px;
+    padding-bottom:90px;
+    text-align:center;
+}
+
+.hero-label{
+    color:#00c3ff;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+    font-family:'Space Mono', monospace;
+}
+
+.hero-title{
+    font-size:88px;
+    line-height:0.9;
+    font-weight:800;
+    margin-bottom:30px;
+}
+
+.hero-title em{
+    color:#00c3ff;
+    font-style:italic;
+}
+
+.hero-sub{
+    max-width:700px;
+    margin:auto;
+    color:rgba(255,255,255,0.7);
+    line-height:1.7;
+    font-size:18px;
+}
+
+.hero-line{
+    width:220px;
+    height:1px;
+    background:#00c3ff;
+    margin:50px auto 0;
+>>>>>>> 212a5ee (ajustes pagina palestrantes)
 }
 .main-title {
     font-size: clamp(2.5rem, 6vw, 5rem);
