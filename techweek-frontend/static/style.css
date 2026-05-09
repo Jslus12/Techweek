@@ -47,12 +47,14 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    gap: 20px; 
 }
 
 .nav-esquerda {
     display: flex;
     align-items: center;
     gap: 14px;
+    flex-shrink: 0; 
 }
 
 .nome-evento {
@@ -70,6 +72,7 @@ body {
     gap: 32px;
     font-size: 13px;
     font-family: var(--fonte-mono);
+    flex-shrink: 0; 
 }
 
 .nav-direita a {
@@ -383,11 +386,10 @@ a.btn-main {
 /* Container que segura o carrossel na Nav */
 .logos-overflow {
     flex: 1;
-    max-width: 450px;
+    max-width: 380px;        /* reduz um pouco */
     margin: 0 30px;
     overflow: hidden;
     position: relative;
-    /* Isso cria um efeito de transparência nas pontas das logos */
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
