@@ -4,47 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscrição Confirmada - WeekTech</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='inscricao.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <span class="logo">UniCesumar</span>
+        <span class="nome-evento">WeekTech, 1ª Edição</span>
+        <a href="{{ url_for('index') }}" class="btn-voltar">Retornar</a>
+    </nav>
+
+    <div class="container-sucesso">
+
+        <p class="sucesso-tag">INSCRIÇÃO · WEEKTECH 1ª EDIÇÃO</p>
+
+        <h1 class="sucesso-titulo">
+            Tudo<br>
+            <em>Confirmado!</em>
+        </h1>
+
+        <p class="sucesso-sub">
+            Sua inscrição foi realizada com sucesso.<br>
+            Nos vemos no evento!
+        </p>
+
+        <a href="{{ url_for('index') }}" class="btn-voltar-home">← Voltar para o início</a>
+
+    </div>
+
     <style>
         .container-sucesso {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 70vh;
+            min-height: 80vh;
             text-align: center;
-            color: white;
+            padding: 60px 24px;
+            position: relative;
         }
-        .container-sucesso h1 {
-            font-size: 3rem;
-            color: #00aaff;
-            margin-bottom: 1rem;
+
+        .container-sucesso::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(ellipse, rgba(0, 200, 255, 0.07) 0%, transparent 70%);
+            pointer-events: none;
         }
-        .container-sucesso p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+
+        .sucesso-tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.22em;
+            color: #00c8ff;
+            opacity: 0.75;
+            margin-bottom: 28px;
         }
+
+        .sucesso-titulo {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3.5rem, 10vw, 6.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            color: #f0f4f8;
+            margin-bottom: 0;
+        }
+
+        .sucesso-titulo em {
+            font-style: italic;
+            color: #00c8ff;
+            display: block;
+        }
+
+        .sucesso-divisor {
+            width: 260px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0,200,255,0.25), transparent);
+            margin: 36px auto;
+        }
+
+        .sucesso-sub {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.98rem;
+            font-weight: 300;
+            color: #7a8fa6;
+            line-height: 1.8;
+            margin-top: 32px;
+            margin-bottom: 40px;
+            max-width: 320px;
+        }
+
         .btn-voltar-home {
-            padding: 12px 30px;
-            background-color: #00aaff;
-            color: white;
+            padding: 13px 36px;
+            background: transparent;
+            color: #00c8ff;
             text-decoration: none;
             border-radius: 8px;
-            font-weight: bold;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            border: 1px solid #00c8ff;
+            transition: all 0.25s ease;
+            display: inline-block;
+        }
+
+        .btn-voltar-home:hover {
+            background: rgba(0, 200, 255, 0.08);
+            box-shadow: 0 0 24px rgba(0, 200, 255, 0.15);
         }
     </style>
-</head>
-<body>
-    <nav class="navbar">
-        <span class="logo">UniCesumar</span>
-        <span class="nome-evento">WeekTech, 1ª Edição</span>
-        <a href="{{ url_for('index') }}" class="btn-voltar">Voltar</a>
-    </nav>
 
-    <div class="container-sucesso">
-        <h1>✅ Inscrição Confirmada!</h1>
-        <p>Sua inscrição foi realizada com sucesso.<br>Até o evento!</p>
-        <a href="{{ url_for('index') }}" class="btn-voltar-home">Voltar para o início</a>
-    </div>
 </body>
 </html>
