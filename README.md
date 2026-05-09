@@ -1,33 +1,117 @@
-### 🚀 WeekTech - 2ª Edição 2026
+# 🖥️ TechWeek 1ª Edição — UniCesumar
 
-### 📝 Como rodar este projeto
+Site oficial do evento **TechWeek**, organizado pela UniCesumar.
 
-    Clone o repositório para sua máquina local:
-    Bash
+---
 
-    git clone https://github.com/seu-usuario/seu-projeto.git
+## 🛠️ Tecnologias
 
-### OBS - Todos os documentos estão com comentários para facilitar a leitura, eu e piva comentamos os documentos com oque cada mudou e oque queremos mudar
+- **HTML5**
+- **CSS3**
+- **JavaScript**
+- **Python** (back-end com `app.py`)
+- **Node.js** (dependências via `package.json`)
 
-### Atualizações de 27.04.2026
-> Criei e separei os arquivos para facilitar na hora de codar as paginas, o app.py é onde as rotas funcionam, cadas rota tem um app e no html o flask busca por essa url que está
-no href.
+---
 
-> Dicas ai para usar no terminal: <br>
-    - !!Favor usar, quando for dar commit, entra na pasta com o cd (nome da pasta) e da o git add no arquivo <br>
-    - !!Para voltar é cd.. ai vc volta pra pasta anterior <br>
-    - Daqui pra frente vamos criar varios arquivos, então peço que na hora que for dar o commit, se for muita coisa que vc mudou, faça o commit arquivo por arquivo 
-    para não ter perigo de corromper ou perder alguma coisa. Se for pouca coisa ta suave, ai pode dar o git add . <br>
-    - Mais um ponto, as cores podem ser outras, mas o foco é preto, azul e branco.
+## 📁 Estrutura do Projeto
 
+```
+Techweek/
+├── techweek-frontend/
+│   ├── static/
+│   │   ├── img/                    # Imagens do projeto
+│   │   ├── ajuda.css
+│   │   ├── ajuda.js
+│   │   ├── devs.css
+│   │   ├── inscricao.css
+│   │   ├── palestrantes.css
+│   │   ├── perfil.css
+│   │   ├── style.css               # Estilos globais
+│   │   ├── fundo-inscricao.mp4     # Vídeo de fundo (inscrição)
+│   │   └── fundo-principal.mp4     # Vídeo de fundo (principal)
+│   └── templates/
+│       ├── index.html              # Landing page
+│       ├── ajuda.html              # FAQ
+│       ├── dashboard.html          # Dashboard
+│       ├── devs.html               # Time de desenvolvimento
+│       ├── inscricao.html          # Página de inscrição
+│       ├── login.html              # Login
+│       ├── palestrantes.html       # Palestrantes
+│       ├── perfil.html             # Perfil do usuário
+│       └── sucesso.html            # Confirmação de inscrição
+├── app.py                          # Back-end Python
+├── requirements.txt                # Dependências Python
+├── package.json                    # Dependências Node
+└── README.md
+```
 
->> Na area de DeV's a minha ideia é colocar a foto de cada um e as redes sociais, caso queitam aderir só ajudar <3
+---
 
-#### Como instalar os arquivos do python: <br>
-    - Favor instalar o python na versão mais recente 
-    - depois de instalar, no vscode instala as extensões 
-    - no terminal: pip install flask 
-    - pronto 
+## 📄 Páginas
 
+| Arquivo | Descrição |
+|---------|-----------|
+| `index.html` | Landing page com hero, agenda e localização |
+| `devs.html` | Time de desenvolvimento |
+| `ajuda.html` | Perguntas frequentes (FAQ) |
+| `palestrantes.html` | Palestrantes do evento |
+| `inscricao.html` | Formulário de inscrição |
+| `login.html` | Autenticação |
+| `perfil.html` | Perfil do participante |
+| `dashboard.html` | Painel interno |
+| `sucesso.html` | Confirmação de inscrição |
 
-    
+---
+
+## 🚀 Como rodar
+
+### Front-end
+Abra `templates/index.html` diretamente no navegador.
+
+### Back-end (Python)
+1. Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
+
+2. Execute o servidor:
+```bash
+python app.py
+```
+
+---
+
+## 📅 Evento
+
+**Quando:** Junho de 2026
+**Onde:** Auditório Principal — UniCesumar, Londrina/PR
+**Horário:** 19h00 às 22h00
+
+### Programação
+| Dia | Data | Descrição |
+|-----|------|-----------|
+| 01 | SEG | Abertura Oficial |
+| 02 | TER | TechWeek |
+| 03 | QUA | TechWeek |
+
+---
+
+## 👨‍💻 Time de Desenvolvimento
+
+| Nome | Função |
+|------|--------|
+| Rafael Piasentin | Desenvolvedor Front-End / QA |
+| Felipe Piva | Desenvolvedor Fullstack |
+| Rafael Koti | Desenvolvedor Fullstack |
+| Nicollas Azalim | Desenvolvedor |
+| Heitor Henrique | Desenvolvedor |
+| João Lucas Delbianco | Desenvolvedor Front-End |
+| Roberto Muller | Desenvolvedor |
+| Bruno Stainski | Desenvolvedor |
+
+---
+
+## 📝 Licença
+
+Projeto acadêmico — UniCesumar © 2026
