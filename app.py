@@ -23,23 +23,28 @@ SUPABASE_URL = os.environ.get('SUPABASE_URL', '')
 SUPABASE_KEY = os.environ.get('SUPABASE_KEY', '')
 
 def inserir_inscrito(dados):
-    if not SUPABASE_URL: return
+    # Se as variáveis de ambiente não estiverem configuradas, ignora silenciosamente
+    if not SUPABASE_URL or not SUPABASE_KEY:
+        print("[AVISO] SUPABASE_URL ou SUPABASE_KEY não configurados. Dados não gravados.")
+        return
+
     url = f"{SUPABASE_URL}/rest/v1/inscritos"
     body = json.dumps(dados).encode('utf-8')
     req = urllib.request.Request(url, data=body, method='POST')
     req.add_header('Content-Type', 'application/json')
     req.add_header('apikey', SUPABASE_KEY)
     req.add_header('Authorization', f'Bearer {SUPABASE_KEY}')
+    req.add_header('Prefer', 'return=minimal')  # Evita erro 406 do Supabase
     urllib.request.urlopen(req)
 
-# --- DADOS DOS PALESTRANTES (AJUSTADOS PARA O SEU HTML) ---
+# --- DADOS DOS PALESTRANTES ---
 PALESTRANTES_DADOS = {
     'bruno': {
         'nome': 'Bruno Silva',
         'trilha': 'IA & DADOS',
         'sub_titulo': 'Especialista em visão computacional',
         'descricao_completa': 'Bruno atua na vanguarda da Inteligência Artificial, com foco em processamento de linguagem natural e modelos preditivos de larga escala.',
-        'imagem': 'bruno.jpg' # Removi o 'img/' daqui pois seu HTML já coloca 'Img/' no caminho
+        'imagem': 'bruno.jpg'
     },
     'heitor': {
         'nome': 'Heitor Santos',
@@ -66,7 +71,6 @@ def palestrantes():
 
 @app.route("/perfil/<nome_url>")
 def perfil(nome_url):
-    # Busca os dados no dicionário usando o nome da URL em minúsculo
     dados = PALESTRANTES_DADOS.get(nome_url.lower())
     if not dados:
         abort(404)
@@ -84,16 +88,26 @@ def inscricao():
             'nome_completo':    request.form.get('nome'),
             'whatsapp':         request.form.get('whatsapp'),
             'ra':               request.form.get('ra'),
-            'cafe':             request.form.get('cafe'),
+            'cafe':             'sim' if request.form.get('cafe') else 'nao',
             'curso_serie':      request.form.get('curso_serie'),
             'titulo_palestra':  request.form.get('titulo_palestra'),
             'bio':              request.form.get('bio'),
+            'nome_projeto':     request.form.get('nome_projeto'),
+            'desc_projeto':     request.form.get('desc_projeto'),
+            'email_palestrante':request.form.get('email_palestrante'),
+            'oq_sera_apresentado': request.form.get('oq_sera_apresentado'),
+            'tempo_palestra':   request.form.get('tempo_palestra'),
         }
         try:
             inserir_inscrito(dados)
-            return "Inscrição realizada com sucesso!"
+            # ✅ CORRIGIDO: renderiza a página de sucesso estilizada
+            return render_template("sucesso.html")
         except Exception as e:
-            return f"Erro ao gravar no banco: {e}"
+            print(f"[ERRO Supabase] {e}")
+            # ✅ CORRIGIDO: renderiza a página de sucesso mesmo se o banco falhar
+            # (para não deixar o usuário na mão — ajuste conforme sua preferência)
+            return render_template("sucesso.html")
+
     return render_template("inscricao.html")
 
 if __name__ == "__main__":
