@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, abort, redirect, url_for, session
 import os
 import urllib.request
 import json
@@ -6,6 +6,10 @@ import json
 app = Flask(__name__, 
         template_folder='techweek-frontend/templates', 
         static_folder='techweek-frontend/static')
+
+app.secret_key = 'techweek2026secretkey'
+DASHBOARD_USER = 'crisloginteste'
+DASHBOARD_PASS = 'K9!vQ#72Lp@zR4mX'
 
 SUPABASE_URL = os.environ.get('SUPABASE_URL')
 SUPABASE_KEY = os.environ.get('SUPABASE_KEY')
@@ -18,6 +22,16 @@ def inserir_inscrito(dados):
     req.add_header('apikey', SUPABASE_KEY)
     req.add_header('Authorization', f'Bearer {SUPABASE_KEY}')
     urllib.request.urlopen(req)
+
+def buscar_inscritos():
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/inscritos?select=*",
+        headers={
+            'apikey': SUPABASE_KEY,
+            'Authorization': f'Bearer {SUPABASE_KEY}'
+        }
+    )
+    return json.loads(urllib.request.urlopen(req).read())
 
 @app.route("/")
 def index(): 
@@ -63,8 +77,45 @@ def inscricao():
             return render_template("sucesso.html")
         except Exception as e:
             return f"Erro ao gravar no banco: {e}"
-
     return render_template("inscricao.html")
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        usuario = request.form.get('usuario')
+        senha = request.form.get('senha')
+        if usuario == DASHBOARD_USER and senha == DASHBOARD_PASS:
+            session['logado'] = True
+            return redirect(url_for('dashboard'))
+        return render_template("login.html", erro="Usuário ou senha incorretos")
+    return render_template("login.html")
+
+@app.route("/dashboard")
+def dashboard():
+    if not session.get('logado'):
+        return redirect(url_for('login'))
+    try:
+        todos = buscar_inscritos()
+        total = len(todos)
+        alunos = len([x for x in todos if x.get('tipo') == 'aluno'])
+        palestrantes = len([x for x in todos if x.get('tipo') == 'palestrante'])
+        cafe = len([x for x in todos if x.get('cafe') == 'Sim'])
+        projetos = len([x for x in todos if x.get('nome_projeto')])
+        return render_template("dashboard.html",
+            total=total,
+            alunos=alunos,
+            palestrantes=palestrantes,
+            cafe=cafe,
+            projetos=projetos,
+            inscritos=todos
+        )
+    except Exception as e:
+        return f"Erro: {e}"
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
