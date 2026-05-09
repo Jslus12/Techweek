@@ -52,6 +52,30 @@ body {
 
 /* NAVBAR */
 
+/* Quando a tela for menor que 768px (celulares e tablets) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links "quebrem" para a linha de baixo se não couberem */
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        font-size: 14px; /* Diminui um pouco a letra para caber melhor */
+    }
+
+    .brand-unicesumar {
+        font-size: 18px;
+    }
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -584,25 +608,33 @@ body {
     }
 }
 
+/* Configurações para Celular */
 @media (max-width: 768px) {
-
-    .titulo {
-        font-size: 40px;
-    }
-
-    .agenda-item {
+    .perfil-container {
         padding: 20px;
     }
 
-    .dia {
-        font-size: 32px;
+    .perfil-content {
+        flex-direction: column; /* Faz a foto ficar em cima e o texto embaixo */
+        align-items: center;
+        text-align: center;
     }
 
-    .agenda-evento-titulo {
-        font-size: 16px;
+    .perfil-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
     }
 
-    .mapa-container iframe {
-        height: 300px;
+    .perfil-img {
+        max-width: 200px; /* Diminui a foto no celular */
+        margin: 0 auto;
+    }
+
+    .perfil-title {
+        font-size: 2.5rem; /* Diminui o tamanho da fonte do nome */
+    }
+
+    .nav-links {
+        display: none; /* Dica: Em celulares, links longos costumam virar um "menu hambúrguer" */
     }
 }

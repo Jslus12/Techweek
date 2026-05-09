@@ -26,6 +26,31 @@ body.tech-page {
 }
 
 /* ── NAVBAR ── */
+
+/* Quando a tela for menor que 768px (celulares e tablets) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links "quebrem" para a linha de baixo se não couberem */
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        font-size: 14px; /* Diminui um pouco a letra para caber melhor */
+    }
+
+    .brand-unicesumar {
+        font-size: 18px;
+    }
+}
+
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -146,10 +171,33 @@ body.tech-page {
     text-align: center; border-radius: 4px; font-size: 11px; font-weight: 700;
 }
 
-/* ── RESPONSIVIDADE ── */
+/* Configurações para Celular */
 @media (max-width: 768px) {
-    .navbar { padding: 0 1.2rem; }
-    .brand-event, .brand-sep { display: none; }
-    .main-title { font-size: 42px; }
-    .vantage-grid { grid-template-columns: 1fr; padding: 20px; }
+    .perfil-container {
+        padding: 20px;
+    }
+
+    .perfil-content {
+        flex-direction: column; /* Faz a foto ficar em cima e o texto embaixo */
+        align-items: center;
+        text-align: center;
+    }
+
+    .perfil-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .perfil-img {
+        max-width: 200px; /* Diminui a foto no celular */
+        margin: 0 auto;
+    }
+
+    .perfil-title {
+        font-size: 2.5rem; /* Diminui o tamanho da fonte do nome */
+    }
+
+    .nav-links {
+        display: none; /* Dica: Em celulares, links longos costumam virar um "menu hambúrguer" */
+    }
 }

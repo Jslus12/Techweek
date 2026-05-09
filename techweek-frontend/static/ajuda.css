@@ -39,6 +39,31 @@ body {
 
 
 /* ── NAVBAR ── */
+
+/* Quando a tela for menor que 768px (celulares e tablets) */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
+        padding: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Permite que os links "quebrem" para a linha de baixo se não couberem */
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-item {
+        font-size: 14px; /* Diminui um pouco a letra para caber melhor */
+    }
+
+    .brand-unicesumar {
+        font-size: 18px;
+    }
+}
+
 .navbar {
     position: fixed;
     top: 0; left: 0; right: 0;
