@@ -14,8 +14,11 @@
     <nav class="vantage-navbar">
         <div class="nav-container">
             <div class="nav-brand">
-                <a href="/" style="text-decoration: none; color: inherit;">
-                    <span class="brand-unicesumar">UniCesumar</span> | WeekTech, 1ª Edição
+                <a href="/" style="text-decoration: none; display: flex; align-items: center; gap: 12px;">
+                    <!-- Logo no lugar do texto -->
+                    <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" alt="UniCesumar" class="brand-logo">
+                    <span class="brand-sep">|</span> 
+                    <span class="brand-event">WeekTech, 1ª Edição</span>
                 </a>
             </div>
             <div class="nav-links">
@@ -23,14 +26,13 @@
                 <a href="/palestrantes" class="nav-item">Palestrantes</a>
                 <a href="/ajuda" class="nav-item">Ajuda</a>
                 <a href="javascript:history.back()" class="nav-btn-retornar">
-                    <span>←</span> Retornar
+                    ← Retornar
                 </a>
             </div>
         </div>
     </nav>
 
     <main class="perfil-container">
-        
         <header class="perfil-header">
             <span class="perfil-tag">{{ palestrante.trilha }}</span>
             <h1 class="perfil-title">{{ palestrante.nome }}<span>.</span></h1>
@@ -38,7 +40,6 @@
         </header>
 
         <section class="perfil-content">
-            
             <div class="perfil-sidebar">
                 <img src="{{ url_for('static', filename='Img/' + palestrante.imagem) }}" alt="{{ palestrante.nome }}" class="perfil-img">
             </div>
@@ -49,9 +50,7 @@
                     {{ palestrante.descricao_completa | safe }}
                 </div>
             </article>
-
         </section>
-
     </main>
 
 </body>
