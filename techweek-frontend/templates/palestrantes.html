@@ -10,59 +10,29 @@
 <body class="tech-page">
     <div class="stars-overlay"></div>
 
-   <nav class="navbar" id="navbar">
-    <div class="nav-brand">
-        <span class="brand-uni">UniCesumar</span>
-        <span class="brand-sep">|</span>
-        <span class="brand-event">TechWeek, 1ª Edição</span>
-    </div>
-
-    <ul class="nav-links">
-        <li><a href="{{ url_for('devs') }}">Desenvolvedores</a></li>
-        <li><a href="{{ url_for('palestrantes') }}">Palestrantes</a></li>
-        <li><a href="{{ url_for('ajuda') }}">Ajuda</a></li>
-        <li><a href="{{ url_for('index') }}">← Retornar</a></li>
-    </ul>
-   </nav>
-
-    <div class="hero">
-    <p class="hero-label">
-        TechWeek · Palestrantes Oficiais
-    </p>
-
-    <h1 class="hero-title">
-        Nossos<br>
-        <em>Palestrantes</em>
-    </h1>
-
-    <p class="hero-sub">
-        Conheça os especialistas e profissionais que irão compartilhar experiências e inovação durante o evento.
-    </p>
-
-    <div class="hero-line"></div>
-    </div>
-
-    <nav class="navbar" id="navbar">
+    <nav class="navbar visible" id="navbar">
         <div class="nav-brand">
-             <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
+            <span class="brand-uni">UniCesumar</span>
             <span class="brand-sep">|</span>
             <span class="brand-event">TechWeek, 1ª Edição</span>
         </div>
+
         <ul class="nav-links">
-            <li><a href="/devs">Desenvolvedores</a></li>
-            <li><a href="/palestrantes">Palestrantes</a></li>
-            <li><a href="/ajuda">Ajuda</a></li>
-            <li><a href="javascript:history.back()">← Retornar</a></li>
+            <li><a href="{{ url_for('devs') }}">Desenvolvedores</a></li>
+            <li><a href="{{ url_for('palestrantes') }}">Palestrantes</a></li>
+            <li><a href="{{ url_for('ajuda') }}">Ajuda</a></li>
+            <li><a href="{{ url_for('index') }}">← Retornar</a></li>
         </ul>
     </nav>
-    <header class="page-header" style="margin-top: 100px;">
+
+    <header class="page-header" style="margin-top: 120px;">
         <span class="top-tag">CONHEÇA NOSSOS</span>
         <h1 class="main-title">PALESTRANTES<span>.</span></h1>
     </header>
 
     <main class="vantage-grid">
         <a href="/perfil/bruno" class="vantage-card">
-            <img src="{{ url_for('static', filename='Img/bruno.jpg') }}" class="vantage-img">
+            <img src="{{ url_for('static', filename='img/bruno.jpg') }}" class="vantage-img">
             <div class="vantage-gradient"></div>
             <div class="vantage-content-static">
                 <span class="vantage-tag">>> IA & DADOS</span>
@@ -75,8 +45,9 @@
                 <div class="vantage-btn">VER PERFIL COMPLETO</div>
             </div>
         </a>
+
         <a href="/perfil/heitor" class="vantage-card">
-            <img src="{{ url_for('static', filename='Img/heitor.jpeg') }}" class="vantage-img">
+            <img src="{{ url_for('static', filename='img/heitor.jpeg') }}" class="vantage-img">
             <div class="vantage-gradient"></div>
             <div class="vantage-content-static">
                 <span class="vantage-tag">>> DESENVOLVIMENTO</span>
@@ -92,7 +63,6 @@
     </main>
 
     <script>
-        // Navbar slide in — igual ao ajuda.js
         setTimeout(() => {
             document.getElementById('navbar').classList.add('visible');
         }, 200);
