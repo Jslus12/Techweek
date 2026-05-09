@@ -12,7 +12,9 @@
 
  <nav class="navbar" id="navbar">
         <div class="nav-brand">
-             <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
+            </a>
             <span class="brand-sep">|</span>
             <span class="brand-event">TechWeek, 1ª Edição</span>
         </div>
@@ -24,7 +26,6 @@
         </ul>
     </nav>
 
-
     <header class="titulo-pagina">
         <h1>Time de Desenvolvimento</h1>
         <p>Conheça as mentes por trás da Techweek</p>
@@ -34,150 +35,106 @@
 
         <!-- CARD 1 -->
         <div class="card-dev">
-
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/rafa.jpeg') }}" alt="Rafael Piasentin">   
             </div>
             <h3>Rafael Piasentin</h3>
-
             <p class="cargo">Desenvolvedor Front-End | QA</p>
-
             <div class="links">
                 <a href="https://github.com/rafapiasentin" target="_blank">GitHub</a>
-
-                <a href="https://www.linkedin.com/in/rafael-piasentin-b22149256/" target="_blank">
-                    LinkedIn
-                </a>
+                <a href="https://www.linkedin.com/in/rafael-piasentin-b22149256/" target="_blank">LinkedIn</a>
             </div>
-
         </div>
 
         <!-- CARD 2 -->
         <div class="card-dev">
-
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/Piva.jpg') }}" alt="Felipe Piva">
             </div>
-
             <h3>Felipe Piva</h3>
-
-            <p class="cargo">Desenvolvedor Fullstack </p>
-
+            <p class="cargo">Desenvolvedor Fullstack</p>
             <div class="links">
                 <a href="https://github.com/Felipepiv">GitHub</a>
                 <a href="https://www.linkedin.com/in/felipe-piva-8646232ab/">LinkedIn</a>
             </div>
-
         </div>
-
 
         <!-- CARD 3 -->
         <div class="card-dev">
-
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/Japa.jpg') }}" alt="Rafael Koti">
             </div>
-
             <h3>Rafael Koti</h3>
-
-            <p class="cargo">Desenvolvedor Fullstack </p>
-
+            <p class="cargo">Desenvolvedor Fullstack</p>
             <div class="links">
                 <a href="https://github.com/kotynn">GitHub</a>
                 <a href="https://www.linkedin.com/in/rafael-koti-b046b8352?utm_source=share_via&utm_content=profile&utm_medium=member_ios">LinkedIn</a>
             </div>
-
         </div>
 
-              <!-- CARD 4 -->
+        <!-- CARD 4 -->
         <div class="card-dev">
-
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/nicollas.jpg') }}" alt="Nicollas Azalim">
             </div>
-
             <h3>Nicollas Azalim</h3>
-
             <p class="cargo">Desenvolvedor</p>
-
             <div class="links">
                 <a href="https://github.com/Nicollas-devhub">GitHub</a>
                 <a href="https://www.linkedin.com/in/nicollas-azalim-283478352/">LinkedIn</a>
             </div>
-
         </div>
 
-              <!-- CARD 5 -->
-         <div class="card-dev">
-
+        <!-- CARD 5 -->
+        <div class="card-dev">
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/heitor.jpeg') }}" alt="Heitor henrique">
             </div>
-
             <h3>Heitor henrique</h3>
-
             <p class="cargo">Desenvolvedor</p>
-
             <div class="links">
                 <a href="https://github.com/Heitor26Henrique">GitHub</a>
                 <a href="https://www.linkedin.com/in/heitor-henrique-9b514736b?utm_source=share_via&utm_content=profile&utm_medium=member_ios">LinkedIn</a>
             </div>
-
         </div>
 
-                <!-- CARD 6 -->
-         <div class="card-dev">
-
+        <!-- CARD 6 -->
+        <div class="card-dev">
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/jao.jpg') }}" alt="João Lucas Delbianco">
             </div>
-
             <h3>João Lucas Delbianco</h3>
-
             <p class="cargo">Desenvolvedor Front-End</p>
-
             <div class="links">
                 <a href="https://github.com/Jslus12">GitHub</a>
                 <a href="https://www.linkedin.com/in/joão-lucas-d-ba44923b0?utm_source=share_via&utm_content=profile&utm_medium=member_android">LinkedIn</a>
             </div>
-
         </div>
 
-
-                <!-- CARD 7 -->
-         <div class="card-dev">
-
+        <!-- CARD 7 -->
+        <div class="card-dev">
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/roberto.jpg') }}" alt="Roberto Muller">
             </div>
-
             <h3>Roberto Muller</h3>
-
             <p class="cargo">Desenvolvedor</p>
-
             <div class="links">
                 <a href="https://github.com/Robersos">GitHub</a>
                 <a href="https://www.linkedin.com/in/roberto-muller-sanches-83b722295/">LinkedIn</a>
             </div>
-
         </div>
 
-                <!-- CARD 8 -->
-         <div class="card-dev">
-
+        <!-- CARD 8 -->
+        <div class="card-dev">
             <div class="foto-perfil">
                 <img src="{{ url_for('static', filename='img/bruno.jpg') }}" alt="Bruno Stainski">
             </div>
-
             <h3>Bruno Stainski</h3>
-
             <p class="cargo">Desenvolvedor</p>
-
             <div class="links">
                 <a href="https://github.com/BrunoStainski">GitHub</a>
                 <a href="https://www.linkedin.com/in/bruno-stainski-bb8479352?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a>
             </div>
-
         </div>
 
     </main>

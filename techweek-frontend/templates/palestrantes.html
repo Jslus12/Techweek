@@ -12,11 +12,12 @@
 
     <nav class="navbar visible" id="navbar">
         <div class="nav-brand">
-            <span class="brand-uni">UniCesumar</span>
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
+            </a>
             <span class="brand-sep">|</span>
             <span class="brand-event">TechWeek, 1ª Edição</span>
         </div>
-
         <ul class="nav-links">
             <li><a href="{{ url_for('devs') }}">Desenvolvedores</a></li>
             <li><a href="{{ url_for('palestrantes') }}">Palestrantes</a></li>
