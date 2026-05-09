@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito – WeekTech</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #050510;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        .login-box {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(0,170,255,0.2);
+            border-radius: 16px;
+            padding: 48px 40px;
+            width: 380px;
+            text-align: center;
+        }
+        .login-box h1 { color: #00aaff; font-size: 1.6rem; margin-bottom: 6px; }
+        .login-box p { color: #aaa; font-size: 0.85rem; margin-bottom: 32px; }
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(0,170,255,0.3);
+            border-radius: 8px;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        input:focus { border-color: #00aaff; }
+        button {
+            width: 100%;
+            padding: 13px;
+            background: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover { background: #0088cc; }
+        .erro { color: #ff4444; font-size: 0.85rem; margin-bottom: 16px; }
+        .rodape { color: white; font-size: 0.8rem; margin-top: 24px; opacity: 0.4; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>🔒 Área Administrativa</h1>
+        <p>Acesso exclusivo para coordenação WeekTech</p>
+        {% if erro %}<p class="erro">{{ erro }}</p>{% endif %}
+        <form method="POST">
+            <input type="text" name="usuario" placeholder="Usuário" required>
+            <input type="password" name="senha" placeholder="Senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+        <p class="rodape">WeekTech © 2026 — UniCesumar</p>
+    </div>
+</body>
+</html>
