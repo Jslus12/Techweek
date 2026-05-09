@@ -24,12 +24,48 @@ body {
 
     background-color: rgba(0, 0, 0, 0.95);
 
-    border-bottom: 2px solid #38bdf8;
+    /* border-bottom: 2px solid #38bdf8; */
 
     position: sticky;
     top: 0;
 
     z-index: 999;
+}
+
+/* NAVBAR - links */
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    list-style: none;   /* remove os bullets */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    list-style: none;   /* garante que cada item também não tenha bullet */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+.nav-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .logo {

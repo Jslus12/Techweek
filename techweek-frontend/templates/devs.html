@@ -10,12 +10,19 @@
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="nav-esquerda">
-        <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
-        <span class="nome-evento">WeekTech, 1ª Edição</span>
-    </div>
-</nav>
+ <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+             <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
+            <span class="brand-sep">|</span>
+            <span class="brand-event">TechWeek, 1ª Edição</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/devs">Desenvolvedores</a></li>
+            <li><a href="/palestrantes">Palestrantes</a></li>
+            <li><a href="/ajuda">Ajuda</a></li>
+            <li><a href="javascript:history.back()">← Retornar</a></li>
+        </ul>
+    </nav>
 
 
 

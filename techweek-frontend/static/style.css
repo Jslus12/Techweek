@@ -74,6 +74,16 @@ body {
     -webkit-backdrop-filter: blur(12px);
 }
 
+.nav-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
 .nav-esquerda {
     display: flex;
     align-items: center;
