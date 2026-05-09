@@ -372,3 +372,24 @@ body {
         font-size: 14px;
     }
 }
+
+/* NAVBAR */
+.nav-esquerda {
+    display: flex;
+    align-items: center;     
+    gap: 12px;              
+    white-space: nowrap;
+}
+
+.brand-sep {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 2px;     
+}
+
+.nome-evento {
+    font-family: var(--fonte-mono);
+    font-size: 14px;
+    color: var(--texto);
+}
