@@ -33,7 +33,8 @@ def palestrantes():
 
 @app.route("/perfil/<nome_url>")
 def perfil(nome_url):
-    abort(404)
+    # Removido abort(404) para permitir o carregamento da página de perfil
+    return render_template("perfil.html", palestrante=nome_url)
 
 @app.route("/ajuda")
 def ajuda(): 
