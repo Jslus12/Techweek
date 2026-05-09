@@ -47,7 +47,7 @@ body::after {
     pointer-events: none;
 }
 
-/* ── NAVBAR (Alinhamento Total e Cores da Referência) ── */
+/* ── NAVBAR ── */
 .vantage-navbar {
     position: fixed;
     top: 0;
@@ -76,10 +76,11 @@ body::after {
     gap: 12px;
 }
 
-.brand-unicesumar {
-    color: var(--cyan);
-    font-weight: 700;
-    font-size: 0.95rem;
+/* Ajuste da Logo */
+.brand-logo {
+    height: 32px; /* Altura ideal para a navbar de 64px */
+    width: auto;
+    display: block;
 }
 
 .brand-sep {
@@ -126,8 +127,6 @@ body::after {
 
 .nav-btn-retornar:hover {
     color: var(--white) !important;
-    box-shadow: none !important;
-    transform: none !important;
 }
 
 /* ── CONTEÚDO ── */
