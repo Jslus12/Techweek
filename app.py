@@ -33,7 +33,8 @@ def palestrantes():
 
 @app.route("/perfil/<nome_url>")
 def perfil(nome_url):
-    abort(404)
+    # Removido abort(404) para permitir o carregamento da página de perfil
+    return render_template("perfil.html", palestrante=nome_url)
 
 @app.route("/ajuda")
 def ajuda(): 
@@ -43,18 +44,23 @@ def ajuda():
 def inscricao():
     if request.method == 'POST':
         dados = {
-            'tipo':             request.form.get('tipo'),
-            'nome_completo':    request.form.get('nome'),
-            'whatsapp':         request.form.get('whatsapp'),
-            'ra':               request.form.get('ra'),
-            'cafe':             request.form.get('cafe'),
-            'curso_serie':      request.form.get('curso_serie'),
-            'titulo_palestra':  request.form.get('titulo_palestra'),
-            'bio':              request.form.get('bio'),
+            'tipo':                 request.form.get('tipo'),
+            'nome_completo':        request.form.get('nome'),
+            'whatsapp':             request.form.get('whatsapp'),
+            'ra':                   request.form.get('ra'),
+            'cafe':                 request.form.get('cafe'),
+            'curso_serie':          request.form.get('curso_serie'),
+            'titulo_palestra':      request.form.get('titulo_palestra'),
+            'bio':                  request.form.get('bio'),
+            'email_palestrante':    request.form.get('email_palestrante'),
+            'oq_sera_apresentado':  request.form.get('oq_sera_apresentado'),
+            'tempo_palestra':       request.form.get('tempo_palestra'),
+            'nome_projeto':         request.form.get('nome_projeto'),
+            'desc_projeto':         request.form.get('desc_projeto'),
         }
         try:
             inserir_inscrito(dados)
-            return "Inscrição realizada com sucesso!"
+            return render_template("sucesso.html")
         except Exception as e:
             return f"Erro ao gravar no banco: {e}"
 

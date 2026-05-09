@@ -25,33 +25,40 @@
 
     <div class="formulario">
         <form action="/inscricao" method="POST">
-            
+
             <div class="tipo-usuario">
                 <label for="tipo-aluno">
-                    <input type="radio" id="tipo-aluno" name="tipo" value="aluno" checked onclick="alternarFormulario()"> 
+                    <input type="radio" id="tipo-aluno" name="tipo" value="aluno" checked
+                        onclick="alternarFormulario()">
                     SOU ALUNO
                 </label>
-                
+
                 <label for="tipo-palestrante">
-                    <input type="radio" id="tipo-palestrante" name="tipo" value="palestrante" onclick="alternarFormulario()"> 
+                    <input type="radio" id="tipo-palestrante" name="tipo" value="palestrante"
+                        onclick="alternarFormulario()">
                     SOU PALESTRANTE
                 </label>
             </div>
-
+            
             <label>Nome Completo:</label>
-            <input type="text" name="nome" required> 
+            <input type="text" name="nome" required>
+            
 
             <label>WhatsApp:</label>
             <input type="text" name="whatsapp">
 
             <div id="secao-aluno">
-                <br>
-                <label>RA:</label><br>
-                <input type="text" name="ra"><br><br>
-
-                <label>Quero participar do café:</label>
-                <input type="checkbox" name="cafe" value="Sim"><br><br>
-
+                
+                <label>RA:</label>
+                <input type="text" name="ra">
+                
+                <div class="campo-toggle">
+                <label class="switch-container">
+                    <input type="checkbox" id="toggle-cafe">
+                    <span class="texto-checkbox">Participará do café?</span>
+                </label>
+                </div>
+                
                 <label for="cursos">Escolha seu curso e série:</label>
                 <select id="cursos" name="curso_serie">
                     <option value="ads1">ADS - 1º Semestre</option>
@@ -60,18 +67,51 @@
                     <option value="esoft3">ESOFT - 3º Semestre</option>
                     <option value="esoft5">ESOFT - 5º Semestre</option>
                 </select>
+                
+
+                <div class="campo-toggle">
+                    <label class="switch-container">
+                        <input type="checkbox" id="toggle-projeto" onclick="alternarProjeto()">
+                        <span class="texto-checkbox">APRESENTARÁ PROJETO?</span>
+                    </label>
+                </div>
+
+                <!-- Seção Oculta do Projeto -->
+                <div id="secao-projeto" style="display: none; margin-top: 15px;">
+                    <label>NOME DO PROJETO:</label>
+                    <input type="text" name="nome_projeto" placeholder="Ex: App de Gestão">
+                    
+                    <label style="margin-top: 10px;">DESCRIÇÃO DO PROJETO:</label>
+                    <textarea name="desc_projeto" rows="3"
+                        style="width: 100%; border-radius: 8px; padding: 8px; border: 1.5px solid #e1e1e1; background-color: #f9f9f9;"></textarea>
+                </div>
+
             </div>
 
             <div id="secao-palestrante" style="display: none;">
-                <br>
-                <label>Título da Palestra:</label><br>
-                <input type="text" name="titulo_palestra"><br><br>
                 
-                <label>Currículo Resumido:</label><br>
-                <textarea name="bio" rows="4" style="width: 100%"></textarea>
+                <label>E-MAIL PARA CONTATO:</label>
+                <input type="email" name="email_palestrante" placeholder="exemplo@email.com">
+                
+                <label style="margin-top: 15px;">CURRÍCULO RESUMIDO / BIO:</label>
+                <textarea name="bio" rows="3"
+                    placeholder="Conte um pouco sobre sua experiência profissional..."></textarea>
+                
+                <label>Título da Palestra:</label>
+                <input type="text" name="titulo_palestra">
+                
+
+                <label style="margin-top: 15px;">DESCRIÇÃO DA PALESTRA / CONTEÚDO:</label>
+                <textarea name="oq_sera_apresentado" rows="4"
+                    placeholder="Descreva brevemente os tópicos que serão abordados..."></textarea>
+                
+                <label style="margin-top: 15px;">TEMPO DE DURAÇÃO (MÁX. 60 MIN):</label>
+                <input type="text" name="tempo_palestra" placeholder="Ex: 50 minutos" maxlength="20">
+
+
             </div>
 
-            <br><br>
+            
             <button type="submit" class="btn-cadastrar">Finalizar Inscrição</button>
         </form>
     </div>
@@ -90,6 +130,17 @@
                 secaoPalestrante.style.display = 'block';
             }
         }
+
+        function alternarProjeto() {
+            const checkBox = document.getElementById("toggle-projeto");
+            const secaoProjeto = document.getElementById("secao-projeto");
+
+            if (checkBox.checked == true) {
+                secaoProjeto.style.display = "block";
+            } else {
+                secaoProjeto.style.display = "none";
+            }
+        }
     </script>
 
     <video autoplay muted loop playsinline id="bg-video">
@@ -102,4 +153,5 @@
     </script>
 
 </body>
+
 </html>

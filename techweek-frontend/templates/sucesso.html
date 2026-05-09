@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscrição Confirmada - WeekTech</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .container-sucesso {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+            text-align: center;
+            color: white;
+        }
+        .container-sucesso h1 {
+            font-size: 3rem;
+            color: #00aaff;
+            margin-bottom: 1rem;
+        }
+        .container-sucesso p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .btn-voltar-home {
+            padding: 12px 30px;
+            background-color: #00aaff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <span class="logo">UniCesumar</span>
+        <span class="nome-evento">WeekTech, 1ª Edição</span>
+        <a href="{{ url_for('index') }}" class="btn-voltar">Voltar</a>
+    </nav>
+
+    <div class="container-sucesso">
+        <h1>✅ Inscrição Confirmada!</h1>
+        <p>Sua inscrição foi realizada com sucesso.<br>Até o evento!</p>
+        <a href="{{ url_for('index') }}" class="btn-voltar-home">Voltar para o início</a>
+    </div>
+</body>
+</html>
