@@ -1,490 +1,598 @@
 :root {
-    --azul:     #13a6e0;
-    --azul-dark:#0d7aad;
-    --fundo:    rgba(0, 0, 0, 0.55);
-    --card:     rgba(255, 255, 255, 0.04);
-    --borda:    rgba(255, 255, 255, 0.08);
-    --texto:    #ffffff;
-    --muted:    #94a3b8;
+    --azul: #13a6e0;
+    --azul-dark: #0d7aad;
+    --fundo: rgba(0, 0, 0, 0.55);
+    --card: rgba(255, 255, 255, 0.04);
+    --borda: rgba(255, 255, 255, 0.08);
+    --texto: #ffffff;
+    --muted: #94a3b8;
+
     --fonte-display: 'Syne', sans-serif;
-    --fonte-mono:    'JetBrains Mono', monospace;
+    --fonte-mono: 'JetBrains Mono', monospace;
 }
 
-*, *::before, *::after {
+/* RESET */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: var(--fonte-display);
     color: var(--texto);
+
     min-height: 100vh;
+
     background: var(--fundo);
+
+    overflow-x: hidden;
 }
 
+/* VIDEO */
 
 #bg-video {
     position: fixed;
     inset: 0;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     z-index: -1;
 }
 
+/* NAVBAR */
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    gap: 20px;
+
     padding: 20px 56px;
-    backdrop-filter: blur(12px);
-    background: rgba(0,0,0,0.3);
-    border-bottom: 1px solid var(--borda);
+
     position: sticky;
     top: 0;
+
     z-index: 100;
-    gap: 20px; 
+
+    background: rgba(0, 0, 0, 0.3);
+
+    border-bottom: 1px solid var(--borda);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .nav-esquerda {
     display: flex;
     align-items: center;
+
     gap: 14px;
-    flex-shrink: 0; 
+
+    flex-shrink: 0;
 }
 
 .nome-evento {
     font-family: var(--fonte-mono);
-    font-weight: 700;
+
     font-size: 13px;
+    font-weight: 700;
+
     color: var(--azul);
-    letter-spacing: 0.05em;
+
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .nav-direita {
     display: flex;
     align-items: center;
+
     gap: 32px;
-    font-size: 13px;
+
+    flex-shrink: 0;
+
     font-family: var(--fonte-mono);
-    flex-shrink: 0; 
+    font-size: 13px;
 }
 
 .nav-direita a {
     color: var(--muted);
+
     text-decoration: none;
-    transition: color 0.2s;
-    letter-spacing: 0.03em;
+
+    transition: 0.2s;
 }
 
-.nav-direita a:hover { color: var(--texto); }
-
-.btn-primaria {
-    background: var(--azul);
-    padding: 8px 20px;
-    border-radius: 999px;
-    color: white;
-    font-weight: 700;
-    transition: background 0.2s, transform 0.2s;
+.nav-direita a:hover {
+    color: var(--texto);
 }
 
-.btn-primaria:hover {
-    background: var(--azul-dark);
-    transform: translateY(-2px);
+/* CARROSSEL */
+
+.logos-overflow {
+    flex: 1;
+
+    max-width: 380px;
+
+    margin: 0 30px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
 }
 
+.logos-slide {
+    display: inline-block;
+
+    white-space: nowrap;
+
+    animation: deslizarInfinito 12s linear infinite;
+}
+
+.logos-slide img {
+    height: 38px;
+
+    width: auto;
+
+    margin: 0 25px;
+
+    vertical-align: middle;
+
+    opacity: 0.8;
+}
+
+@keyframes deslizarInfinito {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* HERO */
 
 .main {
     display: flex;
     flex-direction: column;
-    padding: 100px 56px 80px;
+
     max-width: 960px;
+
+    padding: 100px 56px 80px;
 }
 
 .distintivo {
     display: inline-flex;
     align-items: center;
+
     gap: 10px;
-    border: 1px solid var(--borda);
-    background: rgba(19, 166, 224, 0.08);
+
+    width: fit-content;
+
+    margin-bottom: 36px;
+
     padding: 6px 18px;
-    border-radius: 9999px;
+
+    border-radius: 999px;
+
+    border: 1px solid var(--borda);
+
+    background: rgba(19, 166, 224, 0.08);
+
     font-family: var(--fonte-mono);
     font-size: 11px;
+
     color: var(--azul);
+
     letter-spacing: 0.08em;
-    margin-bottom: 36px;
-    width: fit-content;
 }
 
 .distintivo-dot {
     width: 7px;
     height: 7px;
-    background: #22c55e;
+
     border-radius: 50%;
+
+    background: #22c55e;
+
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50%       { opacity: 0.4; transform: scale(0.8); }
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.8);
+    }
 }
 
 .titulo {
-    font-family: var(--fonte-display);
-    font-size: clamp(36px, 5vw, 58px);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: var(--texto);
     margin-bottom: 28px;
 
-    /* Contorno escuro colado em cada letra */
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800;
+
+    line-height: 1.15;
+
+    letter-spacing: -0.02em;
+
     text-shadow:
-        2px  2px  6px rgba(0,0,0,0.95),
-       -2px -2px  6px rgba(0,0,0,0.95),
-        2px -2px  6px rgba(0,0,0,0.95),
-       -2px  2px  6px rgba(0,0,0,0.95),
-        0px  0px 12px rgba(0,0,0,0.9),
-        0px  0px 22px rgba(0,0,0,0.75);
+        2px 2px 6px rgba(0, 0, 0, 0.95),
+        -2px -2px 6px rgba(0, 0, 0, 0.95),
+        0 0 12px rgba(0, 0, 0, 0.9);
 }
 
 .destaque {
     color: var(--azul);
+
     font-style: italic;
 }
 
 .descricao {
-    font-family: var(--fonte-mono);
-    font-size: 13px;
-    line-height: 1.8;
-    color: var(--muted);
     max-width: 640px;
+
     margin-bottom: 40px;
 
-    /* Contorno mais suave na descrição */
+    font-family: var(--fonte-mono);
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+    color: var(--muted);
+
     text-shadow:
-        1px  1px  4px rgba(0,0,0,0.95),
-       -1px -1px  4px rgba(0,0,0,0.95),
-        1px -1px  4px rgba(0,0,0,0.95),
-       -1px  1px  4px rgba(0,0,0,0.95),
-        0px  0px  8px rgba(0,0,0,0.9),
-        0px  0px 16px rgba(0,0,0,0.7);
+        1px 1px 4px rgba(0, 0, 0, 0.95),
+        0 0 8px rgba(0, 0, 0, 0.9);
 }
 
+/* BOTÕES */
 
 .botao {
     display: flex;
-    gap: 16px;
     flex-wrap: wrap;
+
+    gap: 16px;
 }
 
-a.btn-main {
-    background: var(--azul);
-    color: white;
-    font-family: var(--fonte-mono);
-    font-weight: 700;
-    font-size: 13px;
+.btn-main {
     padding: 14px 28px;
+
     border-radius: 999px;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 0.03em;
-    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+
+    background: var(--azul);
+
+    color: white;
+
     text-decoration: none;
+
+    font-family: var(--fonte-mono);
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.25s;
 }
 
 .btn-main:hover {
-    background: #a020f0;
+    background: var(--azul-dark);
+
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(160, 32, 240, 0.35);
+
+    box-shadow: 0 12px 28px rgba(19, 166, 224, 0.35);
 }
 
-.btn-main:active { transform: translateY(-1px); }
-
 .btn-secundario {
+    padding: 14px 28px;
+
+    border-radius: 999px;
+
     background: transparent;
+
     border: 1px solid var(--borda);
+
     color: var(--muted);
+
     font-family: var(--fonte-mono);
     font-size: 13px;
-    padding: 14px 28px;
-    border-radius: 999px;
+
     cursor: pointer;
-    transition: border-color 0.2s, color 0.2s, background 0.2s;
+
+    transition: 0.25s;
 }
 
 .btn-secundario:hover {
-    border-color: #800080;
-    color: #cc77ff;
-    background: rgba(128, 0, 128, 0.08);
+    border-color: var(--azul);
+
+    color: white;
+
+    background: rgba(19, 166, 224, 0.08);
 }
 
-.btn-secundario:active { transform: scale(0.98); }
-
+/* SEÇÃO */
 
 .secao-agenda-mapa {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 40px;
+
     padding: 60px 56px 80px;
-    backdrop-filter: blur(8px);
-    background: rgba(0,0,0,0.25);
+
+    background: rgba(0, 0, 0, 0.25);
+
     border-top: 1px solid var(--borda);
+
+    backdrop-filter: blur(8px);
 }
 
-/* --- CABEÇALHO DAS DUAS COLUNAS --- */
+/* TITULOS */
+
 .agenda-header {
     margin-bottom: 28px;
 }
 
 .agenda-tag {
+    display: block;
+
+    margin-bottom: 8px;
+
     font-family: var(--fonte-mono);
     font-size: 11px;
+
     color: var(--azul);
-    letter-spacing: 0.12em;
+
     text-transform: uppercase;
-    display: block;
-    margin-bottom: 8px;
+    letter-spacing: 0.12em;
 }
 
 .agenda-titulo {
-    font-family: var(--fonte-display);
     font-size: 28px;
     font-weight: 800;
+
     letter-spacing: -0.02em;
 }
 
-/* --- LISTA DE EVENTOS --- */
+/* =========================
+   AGENDA
+========================= */
+
+.agenda {
+    width: 100%;
+}
+
 .agenda-lista {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+
+    gap: 16px;
 }
 
 .agenda-item {
+    width: 100%;
+
     display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 16px 20px;
-    border-radius: 10px;
-    border: 1px solid transparent;
-    background: var(--card);
-    transition: background 0.2s, border-color 0.2s;
-    cursor: default;
+    align-items: center;
+
+    gap: 24px;
+
+    padding: 24px 28px;
+
+    border-radius: 22px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border: 1px solid rgba(255,255,255,0.05);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: 0.25s ease;
 }
 
 .agenda-item:hover {
-    background: rgba(19, 166, 224, 0.07);
-    border-color: rgba(19, 166, 224, 0.25);
-}
+    transform: translateY(-2px);
 
-.destaque-item {
-    border-color: rgba(19, 166, 224, 0.3);
-    background: rgba(19, 166, 224, 0.06);
+    border-color: rgba(19,166,224,0.28);
+
+    background: rgba(19,166,224,0.07);
 }
 
 .agenda-data {
+    min-width: 70px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 40px;
+    justify-content: center;
 }
 
 .dia {
     font-family: var(--fonte-mono);
-    font-size: 22px;
+
+    font-size: 42px;
     font-weight: 700;
-    color: var(--azul);
+
     line-height: 1;
+
+    color: var(--azul);
 }
 
 .dia-semana {
+    margin-top: 6px;
+
     font-family: var(--fonte-mono);
-    font-size: 9px;
+
+    font-size: 11px;
+
+    letter-spacing: 0.15em;
+
     color: var(--muted);
-    letter-spacing: 0.1em;
-    margin-top: 3px;
 }
 
 .agenda-info {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+
+    gap: 8px;
 }
 
 .agenda-evento-titulo {
     font-family: var(--fonte-display);
-    font-size: 15px;
+
+    font-size: 18px;
     font-weight: 700;
-    color: var(--texto);
+
+    color: white;
 }
 
 .agenda-hora {
     font-family: var(--fonte-mono);
-    font-size: 11px;
+
+    font-size: 13px;
+
     color: var(--muted);
 }
 
-.agenda-badge {
-    font-family: var(--fonte-mono);
-    font-size: 10px;
-    color: #22c55e;
-    letter-spacing: 0.06em;
-}
+/* MAPA */
 
-.badge-yellow { color: #facc15; }
-
-/* --- MAPA --- */
 .mapa-wrapper {
     display: flex;
     flex-direction: column;
 }
 
-.mapa-container {
-    flex: 1;
-}
-
 .mapa-container iframe {
     width: 100%;
     height: 360px;
+
     border: 0;
-    border-radius: 12px;
+    border-radius: 18px;
+
     box-shadow:
         0 0 18px rgba(19, 166, 224, 0.4),
         0 0 40px rgba(19, 166, 224, 0.15),
-        0 12px 30px rgba(0,0,0,0.4);
+        0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 .btn-maps {
     display: inline-block;
+
+    width: fit-content;
+
     margin-top: 16px;
+
     padding: 12px 24px;
-    text-decoration: none;
-    color: white;
+
+    border-radius: 10px;
+
     background: var(--azul);
-    border-radius: 8px;
+
+    color: white;
+
+    text-decoration: none;
+
     font-family: var(--fonte-mono);
     font-size: 13px;
     font-weight: 700;
-    width: fit-content;
-    transition: transform 0.2s, box-shadow 0.2s;
+
+    transition: 0.25s;
 }
 
 .btn-maps:hover {
     transform: translateY(-2px);
+
     box-shadow:
         0 10px 24px rgba(19, 166, 224, 0.45),
         0 18px 36px rgba(19, 166, 224, 0.2);
 }
 
-/* Container que segura o carrossel na Nav */
-.logos-overflow {
-    flex: 1;
-    max-width: 380px;        /* reduz um pouco */
-    margin: 0 30px;
-    overflow: hidden;
-    position: relative;
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-}
-
-.logos-slide {
-    display: inline-block;
-    white-space: nowrap;
-    animation: deslizarInfinito 12s linear infinite;
-}
-
-.logos-slide img {
-    height: 38px; /* Ajuste a altura para caber na sua navbar */
-    width: auto;
-    margin: 0 25px;
-    vertical-align: middle;
-    opacity: 0.8;
-}
-
-@keyframes deslizarInfinito {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
+/* RESPONSIVIDADE */
 
 @media (max-width: 860px) {
-    .navbar { padding: 16px 24px; }
-    .main   { padding: 60px 24px 60px; }
+
+    .navbar {
+        flex-direction: column;
+
+        padding: 20px;
+    }
+
+    .nav-direita {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        gap: 16px;
+    }
+
+    .logos-overflow {
+        max-width: 100%;
+
+        margin: 0;
+    }
+
+    .main {
+        padding: 60px 24px;
+    }
 
     .secao-agenda-mapa {
         grid-template-columns: 1fr;
+
         padding: 40px 24px 60px;
     }
-
-    .nav-direita { gap: 16px; }
 }
-
-/* =========================
-   RESPONSIVIDADE CELULAR
-========================= */
 
 @media (max-width: 768px) {
 
-    .vantage-navbar {
-        height: auto;
-        padding: 15px 0;
+    .titulo {
+        font-size: 40px;
     }
 
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 20px;
-        text-align: center;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .page-header {
-        margin-top: 180px !important;
-        padding: 0 20px;
-        text-align: center;
-    }
-
-    .main-title {
-        font-size: 42px;
-        line-height: 1;
-    }
-
-    .top-tag {
-        font-size: 12px;
-    }
-
-    .vantage-grid {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 25px;
-    }
-
-    .vantage-card {
-        height: 400px;
-    }
-
-    .vantage-name {
-        font-size: 22px;
-    }
-
-    .vantage-overlay {
+    .agenda-item {
         padding: 20px;
     }
 
-    .nav-btn-retornar {
-        width: 100%;
-        justify-content: center;
+    .dia {
+        font-size: 32px;
+    }
+
+    .agenda-evento-titulo {
+        font-size: 16px;
+    }
+
+    .mapa-container iframe {
+        height: 300px;
     }
 }
