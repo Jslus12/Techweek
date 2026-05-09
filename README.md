@@ -112,6 +112,12 @@ python app.py
 
 ---
 
+## Metodologia e arquivos de interesse
+
+[Metodologia](https://docs.google.com/document/d/1nLaYoqU4FvLWo15j-F2dBl1xWsD5u8eJKYmqEJ5cYq8/edit?tab=t.0)
+
+---
+
 ## 📝 Licença
 
 Projeto acadêmico — UniCesumar © 2026
