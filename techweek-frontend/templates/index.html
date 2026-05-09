@@ -1,152 +1,282 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unicesumar WeekTech</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
-   <video autoplay muted loop playsinline id="bg-video">
-    <!-- Ajustado para buscar na pasta img dentro de static -->
-    <source src="{{ url_for('static', filename='fundo-principal.mp4') }}" type="video/mp4">
-</video>
+    <!-- VIDEO FUNDO -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="{{ url_for('static', filename='fundo-principal.mp4') }}" type="video/mp4">
+    </video>
 
-   <!-- NAVBAR -->
-<nav class="navbar">
-    <div class="nav-esquerda">
-        <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
-        <span class="nome-evento">WeekTech, 1ª Edição</span>
-    </div>
+    <!-- NAVBAR -->
+    <nav class="navbar">
 
-    <div class="logos-overflow">
-        <div class="logos-slide">
-            <img src="{{ url_for('static', filename='img/caco.png') }}" alt="Caco">
-            <img src="{{ url_for('static', filename='img/custodio.png') }}" alt="Custódio">
-            <img src="{{ url_for('static', filename='img/vitorios.png') }}" alt="Vitórios">
-            <img src="{{ url_for('static', filename='img/unicesumar.png') }}" alt="Unicesumar">
+        <div class="nav-esquerda">
 
-            <img src="{{ url_for('static', filename='img/caco.png') }}" alt="Caco">
-            <img src="{{ url_for('static', filename='img/custodio.png') }}" alt="Custódio">
-            <img src="{{ url_for('static', filename='img/vitorios.png') }}" alt="Vitórios">
-            <img src="{{ url_for('static', filename='img/unicesumar.png') }}" alt="Unicesumar">
+            <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}"
+                width="140"
+                alt="UniCesumar">
+
+            <span class="nome-evento">
+                WeekTech, 1ª Edição
+            </span>
+
         </div>
-    </div>  
 
-    <div class="nav-direita">
-        <a href="{{ url_for('devs') }}">Desenvolvedores</a>
-        <a href="{{ url_for('palestrantes') }}">Palestrantes</a>
-        <a href="{{ url_for('ajuda') }}">Ajuda</a>
-    </div>
-</nav>
+        <!-- LOGOS -->
+        <div class="logos-overflow">
+
+            <div class="logos-slide">
+
+                <img src="{{ url_for('static', filename='img/caco.png') }}" alt="Caco">
+                <img src="{{ url_for('static', filename='img/custodio.png') }}" alt="Custódio">
+                <img src="{{ url_for('static', filename='img/vitorios.png') }}" alt="Vitórios">
+                <img src="{{ url_for('static', filename='img/unicesumar.png') }}" alt="Unicesumar">
+
+                <!-- DUPLICAÇÃO -->
+                <img src="{{ url_for('static', filename='img/caco.png') }}" alt="Caco">
+                <img src="{{ url_for('static', filename='img/custodio.png') }}" alt="Custódio">
+                <img src="{{ url_for('static', filename='img/vitorios.png') }}" alt="Vitórios">
+                <img src="{{ url_for('static', filename='img/unicesumar.png') }}" alt="Unicesumar">
+
+            </div>
+
+        </div>
+
+        <!-- LINKS -->
+        <div class="nav-direita">
+
+            <a href="{{ url_for('devs') }}">
+                Desenvolvedores
+            </a>
+
+            <a href="{{ url_for('palestrantes') }}">
+                Palestrantes
+            </a>
+
+            <a href="{{ url_for('ajuda') }}">
+                Ajuda
+            </a>
+
+        </div>
+
+    </nav>
 
     <!-- HERO -->
     <main class="main">
 
         <div class="distintivo">
+
             <span class="distintivo-dot"></span>
+
             Inscrições para o Evento · 1ª Edição 2026
+
         </div>
 
         <h1 class="titulo">
+
             O futuro é a <span class="destaque">IA.</span><br>
+
             Potencializando negócios<br>
+
             e <span class="destaque">Tecnologias</span> com<br>
+
             inteligência de dados
+
         </h1>
 
         <p class="descricao">
+
             A Tech Week propõe uma abordagem prática e contemporânea sobre o uso da
             Inteligência Artificial (IA), destacando sua aplicação real em diferentes
-            contextos organizacionais e sociais. O tema "Inteligência Artificial em Ação"
+            contextos organizacionais e sociais.
+
+            O tema "Inteligência Artificial em Ação"
             enfatiza não apenas a compreensão teórica, mas principalmente a vivência e
             experimentação das tecnologias que estão moldando o presente.
+
         </p>
 
+        <!-- BOTÕES -->
         <div class="botao">
-            <a href="{{ url_for('inscricao') }}" class="btn-main">Garanta sua vaga ✨</a>
-            <button class="btn-secundario">Botão do like 👍 </button>
+
+            <a href="{{ url_for('inscricao') }}"
+                class="btn-main">
+
+                Garanta sua vaga ✨
+
+            </a>
+
+            <button class="btn-secundario">
+
+                Botão do like 👍
+
+            </button>
+
         </div>
 
     </main>
 
-    <!-- SEÇÃO: AGENDA + MAPA -->
+    <!-- AGENDA + MAPA -->
     <section class="secao-agenda-mapa">
 
         <!-- AGENDA -->
         <div class="agenda">
+
             <div class="agenda-header">
-                <span class="agenda-tag">// agenda</span>
-                <h2 class="agenda-titulo">Junho<span class="destaque">2026</span></h2>
+
+                <span class="agenda-tag">
+                    // agenda
+                </span>
+
+                <h2 class="agenda-titulo">
+
+                    Junho<span class="destaque">2026</span>
+
+                </h2>
+
             </div>
 
+            <!-- LISTA -->
             <div class="agenda-lista">
-                
+
+                <!-- ITEM 1 -->
+                <div class="agenda-item">
+
                     <div class="agenda-data">
-                        <span class="dia">01</span>
-                        <span class="dia-semana">SEG</span>
+
+                        <span class="dia">
+                            01
+                        </span>
+
+                        <span class="dia-semana">
+                            SEG
+                        </span>
+
                     </div>
+
                     <div class="agenda-info">
-                        <span class="agenda-evento-titulo">Abertura Oficial</span>
-                        <span class="agenda-hora">19h00 às 22h00 Auditório Principal</span>
+
+                        <span class="agenda-evento-titulo">
+                            Abertura Oficial
+                        </span>
+
+                        <span class="agenda-hora">
+                            19h00 às 22h00 • Auditório Principal
+                        </span>
+
                     </div>
+
                 </div>
 
+                <!-- ITEM 2 -->
                 <div class="agenda-item">
+
                     <div class="agenda-data">
-                        <span class="dia">02</span>
-                        <span class="dia-semana">TER</span>
+
+                        <span class="dia">
+                            02
+                        </span>
+
+                        <span class="dia-semana">
+                            TER
+                        </span>
+
                     </div>
+
                     <div class="agenda-info">
-                        <span class="agenda-evento-titulo">Techweek Auditório Principal</span>
-                        <span class="agenda-hora">19h00 às 22h00</span>
+
+                        <span class="agenda-evento-titulo">
+                            Techweek Auditório Principal
+                        </span>
+
+                        <span class="agenda-hora">
+                            19h00 às 22h00
+                        </span>
+
                     </div>
+
                 </div>
 
+                <!-- ITEM 3 -->
                 <div class="agenda-item">
+
                     <div class="agenda-data">
-                        <span class="dia">03</span>
-                        <span class="dia-semana">QUA</span>
+
+                        <span class="dia">
+                            03
+                        </span>
+
+                        <span class="dia-semana">
+                            QUA
+                        </span>
+
                     </div>
+
                     <div class="agenda-info">
-                        <span class="agenda-evento-titulo">Techweek Auditório Principal</span>
-                        <span class="agenda-hora">19h00 às 22h00</span>
+
+                        <span class="agenda-evento-titulo">
+                            Techweek Auditório Principal
+                        </span>
+
+                        <span class="agenda-hora">
+                            19h00 às 22h00
+                        </span>
+
                     </div>
-                </div>
-                    </div>
+
                 </div>
 
             </div>
+
         </div>
 
         <!-- MAPA -->
         <div class="mapa-wrapper">
 
-        <div class="agenda-header">
-            <span class="agenda-tag">// localização</span>
-            <h2 class="agenda-titulo">
-                Onde <span class="destaque">estamos</span>
-            </h2>
-        </div>
+            <div class="agenda-header">
 
-        <div class="mapa-container">
-            <iframe
-                src="https://www.google.com/maps?q=-23.3036894,-51.1407595&output=embed"
-                allowfullscreen
-                loading="lazy">
-            </iframe>
-        </div>
+                <span class="agenda-tag">
+                    // localização
+                </span>
 
-            <a
-                href="https://www.google.com/maps?q=-23.3036894,-51.1407595"
+                <h2 class="agenda-titulo">
+
+                    Onde <span class="destaque">estamos</span>
+
+                </h2>
+
+            </div>
+
+            <div class="mapa-container">
+
+                <iframe
+                    src="https://www.google.com/maps?q=-23.3036894,-51.1407595&output=embed"
+                    allowfullscreen
+                    loading="lazy">
+                </iframe>
+
+            </div>
+
+            <a href="https://www.google.com/maps?q=-23.3036894,-51.1407595"
                 target="_blank"
                 class="btn-maps">
 
-             Abrir no Google Maps ↗
+                Abrir no Google Maps ↗
 
             </a>
 
@@ -154,9 +284,13 @@
 
     </section>
 
+    <!-- JS -->
     <script>
+
         document.getElementById("bg-video").playbackRate = 1;
+
     </script>
 
 </body>
+
 </html>
