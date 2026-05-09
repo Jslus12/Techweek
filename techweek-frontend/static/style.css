@@ -47,12 +47,14 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    gap: 20px; 
 }
 
 .nav-esquerda {
     display: flex;
     align-items: center;
     gap: 14px;
+    flex-shrink: 0; 
 }
 
 .nome-evento {
@@ -70,6 +72,7 @@ body {
     gap: 32px;
     font-size: 13px;
     font-family: var(--fonte-mono);
+    flex-shrink: 0; 
 }
 
 .nav-direita a {
@@ -378,6 +381,36 @@ a.btn-main {
     box-shadow:
         0 10px 24px rgba(19, 166, 224, 0.45),
         0 18px 36px rgba(19, 166, 224, 0.2);
+}
+
+/* Container que segura o carrossel na Nav */
+.logos-overflow {
+    flex: 1;
+    max-width: 380px;        /* reduz um pouco */
+    margin: 0 30px;
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.logos-slide {
+    display: inline-block;
+    white-space: nowrap;
+    animation: deslizarInfinito 12s linear infinite;
+}
+
+.logos-slide img {
+    height: 38px; /* Ajuste a altura para caber na sua navbar */
+    width: auto;
+    margin: 0 25px;
+    vertical-align: middle;
+    opacity: 0.8;
+}
+
+@keyframes deslizarInfinito {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 
