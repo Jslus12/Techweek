@@ -7,12 +7,11 @@
     --texto: #ffffff;
     --muted: #94a3b8;
 
-    --fonte-display: 'Syne', sans-serif;
-    --fonte-mono: 'JetBrains Mono', monospace;
+    --fonte-display: 'Inter', sans-serif;
+    --fonte-mono: 'Space Mono', monospace;
 }
 
 /* RESET */
-
 *,
 *::before,
 *::after {
@@ -28,79 +27,39 @@ html {
 body {
     font-family: var(--fonte-display);
     color: var(--texto);
-
     min-height: 100vh;
-
     background: var(--fundo);
-
     overflow-x: hidden;
 }
 
-/* VIDEO */
-
+/* VIDEO DE FUNDO */
 #bg-video {
     position: fixed;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
-
     z-index: -1;
 }
 
 /* NAVBAR */
-
-/* Quando a tela for menor que 768px (celulares e tablets) */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
-        padding: 10px;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap; /* Permite que os links "quebrem" para a linha de baixo se não couberem */
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .nav-item {
-        font-size: 14px; /* Diminui um pouco a letra para caber melhor */
-    }
-
-    .brand-unicesumar {
-        font-size: 18px;
-    }
-}
-
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     gap: 20px;
-
     padding: 20px 56px;
-
     position: sticky;
     top: 0;
-
     z-index: 100;
-
     background: rgba(0, 0, 0, 0.3);
-
     border-bottom: 1px solid var(--borda);
-
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
 }
 
 .nav-brand {
     display: flex;
-    flex-direction: row;
     align-items: center;
     gap: 0.55rem;
     font-size: 0.9rem;
@@ -108,44 +67,22 @@ body {
     flex-shrink: 0;
 }
 
-.nav-esquerda {
-    display: flex;
-    align-items: center;
-
-    gap: 14px;
-
-    flex-shrink: 0;
-}
-
-.nome-evento {
-    font-family: var(--fonte-mono);
-
-    font-size: 13px;
-    font-weight: 700;
-
+.brand-unicesumar {
     color: var(--azul);
-
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-weight: 700;
 }
 
 .nav-direita {
     display: flex;
     align-items: center;
-
     gap: 32px;
-
-    flex-shrink: 0;
-
     font-family: var(--fonte-mono);
     font-size: 13px;
 }
 
 .nav-direita a {
     color: var(--muted);
-
     text-decoration: none;
-
     transition: 0.2s;
 }
 
@@ -153,138 +90,80 @@ body {
     color: var(--texto);
 }
 
-/* CARROSSEL */
-
+/* CARROSSEL DE LOGOS */
 .logos-overflow {
     flex: 1;
-
     max-width: 380px;
-
     margin: 0 30px;
-
     overflow: hidden;
-
     position: relative;
-
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-    );
-
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-    );
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
 .logos-slide {
     display: inline-block;
-
     white-space: nowrap;
-
     animation: deslizarInfinito 12s linear infinite;
 }
 
 .logos-slide img {
     height: 38px;
-
     width: auto;
-
     margin: 0 25px;
-
     vertical-align: middle;
-
     opacity: 0.8;
 }
 
 @keyframes deslizarInfinito {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
-/* HERO */
-
+/* HERO SECTION */
 .main {
     display: flex;
     flex-direction: column;
-
     max-width: 960px;
-
     padding: 100px 56px 80px;
 }
 
 .distintivo {
     display: inline-flex;
     align-items: center;
-
     gap: 10px;
-
     width: fit-content;
-
     margin-bottom: 36px;
-
     padding: 6px 18px;
-
     border-radius: 999px;
-
     border: 1px solid var(--borda);
-
     background: rgba(19, 166, 224, 0.08);
-
     font-family: var(--fonte-mono);
     font-size: 11px;
-
     color: var(--azul);
-
     letter-spacing: 0.08em;
 }
 
 .distintivo-dot {
     width: 7px;
     height: 7px;
-
     border-radius: 50%;
-
     background: #22c55e;
-
     animation: pulse 1.5s infinite;
 }
 
 @keyframes pulse {
-    0%,
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    50% {
-        opacity: 0.4;
-        transform: scale(0.8);
-    }
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.8); }
 }
 
 .titulo {
     margin-bottom: 28px;
-
     font-size: clamp(36px, 5vw, 58px);
     font-weight: 800;
-
     line-height: 1.15;
-
     letter-spacing: -0.02em;
-
-    text-shadow:
+    text-shadow: 
         2px 2px 6px rgba(0, 0, 0, 0.95),
         -2px -2px 6px rgba(0, 0, 0, 0.95),
         0 0 12px rgba(0, 0, 0, 0.9);
@@ -292,349 +171,144 @@ body {
 
 .destaque {
     color: var(--azul);
-
     font-style: italic;
 }
 
 .descricao {
     max-width: 640px;
-
     margin-bottom: 40px;
-
     font-family: var(--fonte-mono);
-
     font-size: 13px;
-
     line-height: 1.8;
-
-    color: var(--muted);
-
-    text-shadow:
-        1px 1px 4px rgba(0, 0, 0, 0.95),
-        0 0 8px rgba(0, 0, 0, 0.9);
+    color: var(--texto);
+    /* Efeito de Blur atrás das letras igual ao título */
+    text-shadow: 
+        2px 2px 6px rgba(0, 0, 0, 0.95),
+        -2px -2px 6px rgba(0, 0, 0, 0.95),
+        0 0 15px rgba(0, 0, 0, 1),
+        0 0 25px rgba(0, 0, 0, 0.8);
 }
 
 /* BOTÕES */
-
 .botao {
     display: flex;
     flex-wrap: wrap;
-
     gap: 16px;
 }
 
 .btn-main {
     padding: 14px 28px;
-
     border-radius: 999px;
-
     background: var(--azul);
-
     color: white;
-
     text-decoration: none;
-
     font-family: var(--fonte-mono);
     font-size: 13px;
     font-weight: 700;
-
     transition: 0.25s;
 }
 
 .btn-main:hover {
     background: var(--azul-dark);
-
     transform: translateY(-3px);
-
     box-shadow: 0 12px 28px rgba(19, 166, 224, 0.35);
 }
 
 .btn-secundario {
     padding: 14px 28px;
-
     border-radius: 999px;
-
     background: transparent;
-
     border: 1px solid var(--borda);
-
     color: var(--muted);
-
     font-family: var(--fonte-mono);
     font-size: 13px;
-
     cursor: pointer;
-
     transition: 0.25s;
+    text-decoration: none;
 }
 
 .btn-secundario:hover {
     border-color: var(--azul);
-
     color: white;
-
     background: rgba(19, 166, 224, 0.08);
 }
 
-/* SEÇÃO */
-
+/* AGENDA E MAPA */
 .secao-agenda-mapa {
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-
     gap: 40px;
-
     padding: 60px 56px 80px;
-
     background: rgba(0, 0, 0, 0.25);
-
     border-top: 1px solid var(--borda);
-
     backdrop-filter: blur(8px);
 }
 
-/* TITULOS */
-
-.agenda-header {
-    margin-bottom: 28px;
-}
-
-.agenda-tag {
-    display: block;
-
-    margin-bottom: 8px;
-
-    font-family: var(--fonte-mono);
-    font-size: 11px;
-
-    color: var(--azul);
-
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-}
-
-.agenda-titulo {
-    font-size: 28px;
-    font-weight: 800;
-
-    letter-spacing: -0.02em;
-}
-
-/* =========================
-   AGENDA
-========================= */
-
-.agenda {
-    width: 100%;
-}
-
-.agenda-lista {
-    display: flex;
-    flex-direction: column;
-
-    gap: 16px;
-}
-
 .agenda-item {
-    width: 100%;
-
     display: flex;
     align-items: center;
-
     gap: 24px;
-
     padding: 24px 28px;
-
     border-radius: 22px;
-
     background: rgba(0, 0, 0, 0.45);
-
     border: 1px solid rgba(255,255,255,0.05);
-
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
     transition: 0.25s ease;
+    margin-bottom: 16px;
 }
 
 .agenda-item:hover {
     transform: translateY(-2px);
-
     border-color: rgba(19,166,224,0.28);
-
     background: rgba(19,166,224,0.07);
-}
-
-.agenda-data {
-    min-width: 70px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .dia {
     font-family: var(--fonte-mono);
-
     font-size: 42px;
     font-weight: 700;
-
-    line-height: 1;
-
     color: var(--azul);
-}
-
-.dia-semana {
-    margin-top: 6px;
-
-    font-family: var(--fonte-mono);
-
-    font-size: 11px;
-
-    letter-spacing: 0.15em;
-
-    color: var(--muted);
-}
-
-.agenda-info {
-    display: flex;
-    flex-direction: column;
-
-    gap: 8px;
-}
-
-.agenda-evento-titulo {
-    font-family: var(--fonte-display);
-
-    font-size: 18px;
-    font-weight: 700;
-
-    color: white;
-}
-
-.agenda-hora {
-    font-family: var(--fonte-mono);
-
-    font-size: 13px;
-
-    color: var(--muted);
-}
-
-/* MAPA */
-
-.mapa-wrapper {
-    display: flex;
-    flex-direction: column;
 }
 
 .mapa-container iframe {
     width: 100%;
     height: 360px;
-
     border: 0;
     border-radius: 18px;
-
-    box-shadow:
-        0 0 18px rgba(19, 166, 224, 0.4),
-        0 0 40px rgba(19, 166, 224, 0.15),
-        0 12px 30px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 18px rgba(19, 166, 224, 0.4);
 }
 
-.btn-maps {
-    display: inline-block;
-
-    width: fit-content;
-
-    margin-top: 16px;
-
-    padding: 12px 24px;
-
-    border-radius: 10px;
-
-    background: var(--azul);
-
-    color: white;
-
-    text-decoration: none;
-
-    font-family: var(--fonte-mono);
-    font-size: 13px;
-    font-weight: 700;
-
-    transition: 0.25s;
-}
-
-.btn-maps:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 24px rgba(19, 166, 224, 0.45),
-        0 18px 36px rgba(19, 166, 224, 0.2);
-}
-
-/* RESPONSIVIDADE */
-
+/* RESPONSIVIDADE (MOBILE) */
 @media (max-width: 860px) {
-
     .navbar {
         flex-direction: column;
-
         padding: 20px;
+    }
+
+    .logos-overflow {
+        max-width: 100%;
+        margin: 20px 0;
     }
 
     .nav-direita {
         flex-wrap: wrap;
         justify-content: center;
-
         gap: 16px;
-    }
-
-    .logos-overflow {
-        max-width: 100%;
-
-        margin: 0;
     }
 
     .main {
         padding: 60px 24px;
+        text-align: center;
+        align-items: center;
     }
 
     .secao-agenda-mapa {
         grid-template-columns: 1fr;
-
-        padding: 40px 24px 60px;
-    }
-}
-
-/* Configurações para Celular */
-@media (max-width: 768px) {
-    .perfil-container {
-        padding: 20px;
+        padding: 40px 24px;
     }
 
-    .perfil-content {
-        flex-direction: column; /* Faz a foto ficar em cima e o texto embaixo */
-        align-items: center;
-        text-align: center;
-    }
-
-    .perfil-sidebar {
+    .btn-main, .btn-secundario {
         width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .perfil-img {
-        max-width: 200px; /* Diminui a foto no celular */
-        margin: 0 auto;
-    }
-
-    .perfil-title {
-        font-size: 2.5rem; /* Diminui o tamanho da fonte do nome */
-    }
-
-    .nav-links {
-        display: none; /* Dica: Em celulares, links longos costumam virar um "menu hambúrguer" */
+        text-align: center;
     }
 }
