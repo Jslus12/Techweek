@@ -5,33 +5,81 @@
     box-sizing: border-box;
 }
 
+/* ROOT */
+:root {
+    --bg: #020510;
+    --bg2: #060d1c;
+
+    --cyan: #00d4ff;
+    --cyan-20: rgba(0, 212, 255, 0.20);
+    --cyan-08: rgba(0, 212, 255, 0.08);
+
+    --white: #e8f0ff;
+    --muted: #5a6a88;
+
+    --border: rgba(0, 212, 255, 0.10);
+
+    --card: rgba(7, 15, 32, 0.95);
+
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 /* BODY */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #000000, #0f172a);
-    color: white;
+    font-family: 'Outfit', sans-serif;
+
+    background: var(--bg);
+
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0, 100, 180, 0.04) 0%, transparent 60%);
+
+    color: var(--white);
+
     min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+/* Overlay sutil WeekTech */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+
+    z-index: 200;
+
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.02) 3px,
+        rgba(0,0,0,0.02) 4px
+    );
 }
 
 /* NAVBAR */
 
-/* Quando a tela for menor que 768px (celulares e tablets) */
+/* Quando a tela for menor que 768px */
 @media (max-width: 768px) {
+
     .nav-container {
-        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
+        flex-direction: column;
         padding: 10px;
     }
 
     .nav-links {
         display: flex;
-        flex-wrap: wrap; /* Permite que os links "quebrem" para a linha de baixo se não couberem */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
         margin-top: 10px;
     }
 
     .nav-item {
-        font-size: 14px; /* Diminui um pouco a letra para caber melhor */
+        font-size: 14px;
     }
 
     .brand-unicesumar {
@@ -41,15 +89,20 @@ body {
 
 .navbar {
     width: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    padding: 20px 5%;
+    padding: 0 3rem;
 
-    background-color: rgba(0, 0, 0, 0.95);
+    height: 64px;
 
-    /* border-bottom: 2px solid #38bdf8; */
+    background: rgba(2, 5, 16, 0.7);
+
+    backdrop-filter: blur(20px);
+
+    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
 
     position: sticky;
     top: 0;
@@ -57,70 +110,98 @@ body {
     z-index: 999;
 }
 
-/* NAVBAR - links */
+/* NAV LINKS */
 .nav-links {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     gap: 30px;
-    list-style: none;   /* remove os bullets */
+
+    list-style: none;
+
     margin: 0;
     padding: 0;
 }
 
 .nav-links li {
-    list-style: none;   /* garante que cada item também não tenha bullet */
+    list-style: none;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #cbd5e1;
-    font-size: 0.95rem;
-    transition: color 0.3s;
+
+    color: var(--muted);
+
+    font-size: 0.92rem;
+
+    transition: color 0.25s ease;
 }
 
 .nav-links a:hover {
-    color: #38bdf8;
+    color: var(--white);
 }
 
+/* BRAND */
 .nav-brand {
     display: flex;
     flex-direction: row;
     align-items: center;
+
     gap: 0.55rem;
+
     font-size: 0.9rem;
+
     white-space: nowrap;
+
     flex-shrink: 0;
 }
 
 .logo {
     font-size: 1.2rem;
-    font-weight: bold;
-    color: #38bdf8;
+    font-weight: 700;
+
+    color: var(--cyan);
 }
 
 .nome-evento {
     font-size: 1rem;
-    color: #cbd5e1;
+
+    color: var(--muted);
 }
 
+/* BOTÃO */
 .btn-voltar {
     text-decoration: none;
-    color: #38bdf8;
-    font-weight: bold;
 
-    border: 1px solid #38bdf8;
+    color: var(--cyan);
+
+    font-weight: 600;
+
+    border: 1px solid var(--cyan);
 
     padding: 10px 18px;
 
-    border-radius: 10px;
+    border-radius: 999px;
 
-    transition: 0.3s;
+    background: rgba(0, 212, 255, 0.05);
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .btn-voltar:hover {
-    background-color: #38bdf8;
-    color: black;
+    background: rgba(0, 212, 255, 0.15);
+
+    color: var(--white);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 15px rgba(0,212,255,0.25),
+        0 0 30px rgba(0,212,255,0.10);
 }
 
 .nav-esquerda {
@@ -138,21 +219,29 @@ body {
 .titulo-pagina {
     text-align: center;
 
-    padding: 70px 20px 40px;
+    padding: 90px 20px 50px;
 }
 
 .titulo-pagina h1 {
-    font-size: 3rem;
+    font-size: clamp(2.6rem, 6vw, 5rem);
 
-    margin-bottom: 15px;
+    line-height: 1.05;
 
-    color: #ffffff;
+    letter-spacing: -0.02em;
+
+    margin-bottom: 1rem;
+
+    color: var(--white);
 }
 
 .titulo-pagina p {
-    color: #94a3b8;
+    color: var(--muted);
 
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+
+    max-width: 550px;
+
+    margin: 0 auto;
 }
 
 /* CONTAINER */
@@ -176,17 +265,22 @@ body {
 .card-dev {
     width: 300px;
 
-    background: rgba(30, 41, 59, 0.95);
+    background: var(--card);
 
-    border: 1px solid #334155;
+    border: 1px solid var(--border);
 
-    border-radius: 20px;
+    backdrop-filter: blur(14px);
+
+    border-radius: 18px;
 
     padding: 30px 25px;
 
     text-align: center;
 
-    transition: 0.4s;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 
     position: relative;
 
@@ -204,19 +298,21 @@ body {
     width: 220px;
     height: 220px;
 
-    background: #38bdf8;
+    background: var(--cyan);
 
     border-radius: 50%;
 
-    opacity: 0.08;
+    opacity: 0.06;
 }
 
 .card-dev:hover {
-    transform: translateY(-10px) scale(1.02);
+    transform: translateY(-6px);
 
-    border-color: #38bdf8;
+    border-color: rgba(0, 212, 255, 0.22);
 
-    box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
+    box-shadow:
+        0 0 25px rgba(0, 212, 255, 0.08),
+        0 0 60px rgba(0, 212, 255, 0.04);
 }
 
 /* FOTO */
@@ -230,7 +326,10 @@ body {
 
     overflow: hidden;
 
-    border: 4px solid #38bdf8;
+    border: 3px solid rgba(0, 212, 255, 0.8);
+
+    box-shadow:
+        0 0 20px rgba(0,212,255,0.12);
 
     position: relative;
 
@@ -262,7 +361,7 @@ body {
 }
 
 .cargo {
-    color: #38bdf8;
+    color: var(--cyan);
 
     font-size: 1rem;
 
@@ -287,23 +386,28 @@ body {
 .links a {
     text-decoration: none;
 
-    color: #cbd5e1;
+    color: var(--muted);
 
-    border: 1px solid #475569;
+    border: 1px solid rgba(0, 212, 255, 0.10);
 
     padding: 10px 16px;
 
-    border-radius: 10px;
+    border-radius: 999px;
 
-    transition: 0.3s;
+    background: rgba(0, 212, 255, 0.04);
+
+    transition: 0.25s;
 }
 
 .links a:hover {
-    background-color: #38bdf8;
+    background: rgba(0, 212, 255, 0.14);
 
-    color: black;
+    border-color: var(--cyan);
 
-    border-color: #38bdf8;
+    color: var(--white);
+
+    box-shadow:
+        0 0 15px rgba(0,212,255,0.18);
 }
 
 /* RESPONSIVO */
@@ -312,34 +416,22 @@ body {
     .navbar {
         flex-direction: column;
         gap: 15px;
+
+        height: auto;
+
+        padding: 15px 20px;
     }
 
     .titulo-pagina h1 {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
+    }
+
+    .titulo-pagina {
+        padding-top: 120px;
     }
 
     .container-devs {
         padding: 20px;
-    }
-
-}
-
-/* =========================
-   RESPONSIVIDADE CELULAR
-========================= */
-
-@media (max-width: 768px) {
-
-    .vantage-navbar {
-        height: auto;
-        padding: 15px 0;
-    }
-
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 20px;
-        text-align: center;
     }
 
     .nav-links {
@@ -348,41 +440,4 @@ body {
         gap: 15px;
     }
 
-    .page-header {
-        margin-top: 180px !important;
-        padding: 0 20px;
-        text-align: center;
-    }
-
-    .main-title {
-        font-size: 42px;
-        line-height: 1;
-    }
-
-    .top-tag {
-        font-size: 12px;
-    }
-
-    .vantage-grid {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 25px;
-    }
-
-    .vantage-card {
-        height: 400px;
-    }
-
-    .vantage-name {
-        font-size: 22px;
-    }
-
-    .vantage-overlay {
-        padding: 20px;
-    }
-
-    .nav-btn-retornar {
-        width: 100%;
-        justify-content: center;
-    }
 }

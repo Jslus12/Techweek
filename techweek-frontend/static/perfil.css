@@ -1,288 +1,212 @@
-/* --- RESET E VARIÁVEIS CYBER --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =============================================
+   WEEKTECH 2026 — Estilo Global e Perfil
+   ============================================= */
+
+*, *::before, *::after { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
 }
 
 :root {
-    --accent-blue: #00c3ff;
-    --accent-dourado: #ffd700;
-    --bg-dark: #030305;
-    --nav-bg: rgba(3, 3, 5, 0.9);
+    --bg:       #020510;
+    --cyan:     #00d4ff;
+    --cyan-20:  rgba(0, 212, 255, 0.20);
+    --white:    #e8f0ff;
+    --muted:    #5a6a88;
+    --border:   rgba(0, 212, 255, 0.10);
+    --card:     rgba(7, 15, 32, 0.95);
+    --mono:     'Space Mono', monospace;
+    --body:     'Outfit', sans-serif;
 }
 
-body.tech-page {
-    background-color: var(--bg-dark);
-    color: white;
-    font-family: 'Inter', sans-serif;
+body {
+    background-color: var(--bg);
+    color: var(--white);
+    font-family: var(--body);
+    line-height: 1.7;
     min-height: 100vh;
     overflow-x: hidden;
+    background-image:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0, 100, 180, 0.04) 0%, transparent 60%);
 }
 
-/* --- ESTILO DO BACKGROUND (ESTRELAS) --- */
-.stars-overlay {
+body::after {
+    content: '';
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 50% 50%, rgba(0, 195, 255, 0.05), transparent 80%),
-        url('https://www.transparenttextures.com/patterns/stardust.png');
-    z-index: -1;
+    inset: 0;
+    z-index: 200;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.02) 3px,
+        rgba(0,0,0,0.02) 4px
+    );
+    pointer-events: none;
 }
 
-/* --- NAVBAR --- */
-
-/* Quando a tela for menor que 768px (celulares e tablets) */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
-        padding: 10px;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap; /* Permite que os links "quebrem" para a linha de baixo se não couberem */
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .nav-item {
-        font-size: 14px; /* Diminui um pouco a letra para caber melhor */
-    }
-
-    .brand-unicesumar {
-        font-size: 18px;
-    }
-}
-
+/* ── NAVBAR (Alinhamento Total e Cores da Referência) ── */
 .vantage-navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    z-index: 100;
+    right: 0;
+    z-index: 1000;
+    height: 64px;
+    background: rgba(2, 5, 16, 0.7);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
+    padding: 0 4rem;
 }
 
 .nav-container {
     width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .nav-brand {
-    color: white;
-    font-size: 14px;
-    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .brand-unicesumar {
-    color: var(--accent-blue);
+    color: var(--cyan);
     font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.brand-sep {
+    color: var(--muted);
+    opacity: 0.5;
+}
+
+.brand-event {
+    color: var(--white);
+    font-weight: 400;
+    font-size: 0.9rem;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 2.5rem;
+    list-style: none;
 }
 
 .nav-item {
     text-decoration: none;
-    color: white;
-    font-size: 14px;
-    transition: color 0.3s;
+    color: var(--muted);
+    font-size: 0.88rem;
+    transition: color 0.2s ease;
 }
 
 .nav-item:hover {
-    color: var(--accent-blue);
+    color: var(--white);
 }
 
-/* BOTÃO RETORNAR */
 .nav-btn-retornar {
-    background-color: var(--accent-blue);
-    color: black;
     text-decoration: none;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-size: 14px;
-    font-weight: 700;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: var(--muted) !important;
+    font-size: 0.88rem;
     display: flex;
     align-items: center;
     gap: 8px;
-    transition: box-shadow 0.3s, background-color 0.3s;
+    transition: color 0.2s ease;
 }
 
 .nav-btn-retornar:hover {
-    box-shadow: 0 0 20px rgba(0, 195, 255, 0.4);
-    background-color: #00d2ff;
+    color: var(--white) !important;
+    box-shadow: none !important;
+    transform: none !important;
 }
 
-/* --- CONTEÚDO --- */
+/* ── CONTEÚDO ── */
 .perfil-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 140px 40px 100px 40px;
+    padding: 9rem 2rem 5rem;
 }
 
 .perfil-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 4rem;
 }
 
 .perfil-tag {
-    font-family: 'Space Mono', monospace;
-    color: var(--accent-blue);
-    letter-spacing: 4px;
-    font-size: 0.8rem;
+    font-family: var(--mono);
+    color: var(--cyan);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .perfil-title {
-    font-size: 3.5rem;
-    font-weight: 900;
-    letter-spacing: -2px;
-    margin-bottom: 10px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
 }
 
 .perfil-title span {
-    color: var(--accent-blue);
-}
-
-.perfil-subtitle {
-    color: #bbb;
-    font-size: 1.1rem;
+    color: var(--cyan);
+    font-style: italic;
 }
 
 .perfil-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 50px;
+    grid-template-columns: 320px 1fr;
+    gap: 4rem;
     align-items: start;
-}
-
-.perfil-sidebar {
-    position: sticky;
-    top: 120px;
 }
 
 .perfil-img {
     width: 100%;
-    border-radius: 15px;
-    border: 2px solid rgba(255,255,255,0.05);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
 .perfil-bio {
-    background-color: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 40px;
-    border-radius: 15px;
-    backdrop-filter: blur(5px);
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
 }
 
 .section-title {
-    color: var(--accent-blue);
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    font-weight: 700;
+    font-family: var(--mono);
+    color: var(--cyan);
+    font-size: 0.85rem;
     text-transform: uppercase;
-    margin-bottom: 30px;
-    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
 }
 
 .bio-text {
-    color: #ccc;
+    color: var(--muted);
     font-size: 1rem;
-    line-height: 1.8;
 }
 
-.bio-text p { margin-bottom: 20px; }
-.bio-text ul { margin-left: 20px; margin-bottom: 20px; }
-.bio-text li { margin-bottom: 10px; color: #eee; }
+.bio-text p { margin-bottom: 1.5rem; }
 
-/* --- RESPONSIVIDADE --- */
+/* ── RESPONSIVIDADE ── */
 @media (max-width: 900px) {
     .perfil-content { grid-template-columns: 1fr; }
-    .perfil-sidebar { position: relative; top: 0; max-width: 300px; margin: 0 auto 40px auto; }
-    .perfil-title { font-size: 2.5rem; }
-    .nav-brand, .nav-item { font-size: 12px; }
-    .nav-links { gap: 15px; }
+    .vantage-navbar { padding: 0 1.5rem; }
+    .nav-links { gap: 1.2rem; }
 }
 
-/* =========================
-   RESPONSIVIDADE CELULAR
-========================= */
-
 @media (max-width: 768px) {
-
-    .vantage-navbar {
-        height: auto;
-        padding: 15px 0;
-    }
-
-    .nav-container {
-        flex-direction: column;
-        gap: 15px;
-        padding: 0 20px;
-        text-align: center;
-    }
-
-    .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .page-header {
-        margin-top: 180px !important;
-        padding: 0 20px;
-        text-align: center;
-    }
-
-    .main-title {
-        font-size: 42px;
-        line-height: 1;
-    }
-
-    .top-tag {
-        font-size: 12px;
-    }
-
-    .vantage-grid {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 25px;
-    }
-
-    .vantage-card {
-        height: 400px;
-    }
-
-    .vantage-name {
-        font-size: 22px;
-    }
-
-    .vantage-overlay {
-        padding: 20px;
-    }
-
-    .nav-btn-retornar {
-        width: 100%;
-        justify-content: center;
-    }
+    .brand-event { display: none; }
 }
