@@ -1,283 +1,506 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --cyan: #00c8ff;
+    --cyan-dim: rgba(0, 200, 255, 0.06);
+    --cyan-glow: rgba(0, 200, 255, 0.15);
+    --border-soft: rgba(255,255,255,0.07);
+    --border-input: rgba(255,255,255,0.12);
+    --border-input-focus: rgba(0,200,255,0.5);
+    --text-primary: #f0f4f8;
+    --text-secondary: #7a8fa6;
+    --text-muted: #4a6070;
+    --surface: rgba(255,255,255,0.04);
+    --surface-hover: rgba(255,255,255,0.07);
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #000000, #0f172a);
-    color: white;
+    font-family: 'DM Sans', sans-serif;
+    background:
+        radial-gradient(ellipse 80% 40% at 50% -10%, rgba(0, 180, 255, 0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 30% at 90% 80%, rgba(0, 120, 200, 0.05) 0%, transparent 60%),
+        linear-gradient(180deg, #050b12 0%, #070d16 30%, #08101a 60%, #070d14 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
     min-height: 100vh;
 }
-/* Navbar */
 
-/* Quando a tela for menor que 768px (celulares e tablets) */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column; /* Coloca a logo em cima e os links embaixo */
-        padding: 10px;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap; /* Permite que os links "quebrem" para a linha de baixo se não couberem */
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .nav-item {
-        font-size: 14px; /* Diminui um pouco a letra para caber melhor */
-    }
-
-    .brand-unicesumar {
-        font-size: 18px;
-    }
-}
-
+/* =====================
+   NAVBAR
+===================== */
 .navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding: 20px 5%;
-
-    background-color: rgba(0, 0, 0, 0.95);
-
-    border-bottom: 2px solid #38bdf8;
-
+    padding: 22px 6%;
+    background: rgba(5, 10, 18, 0.92);
+    border-bottom: 1px solid var(--border-soft);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
-
     z-index: 999;
 }
-.campo-toggle{
-    margin-top: 15px;
-    margin-bottom: 15px;
+
+.logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--cyan);
+    letter-spacing: -0.02em;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
 }
 
-.campo-toggle label{
-    margin-top: 0 !important; 
-    display: flex;
+.logo::after {
+    content: '|';
+    color: var(--border-soft);
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.nome-evento {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    letter-spacing: 0.04em;
+    margin-left: -20px;
+}
+
+.btn-voltar {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--border-soft);
+    padding: 9px 20px;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    display: inline-flex;
     align-items: center;
+    gap: 8px;
+}
+
+.btn-voltar::before {
+    content: '←';
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+}
+
+.btn-voltar:hover {
+    background: var(--cyan-dim);
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.btn-voltar:hover::before {
+    transform: translateX(-3px);
+}
+
+/* =====================
+   HEADER / TÍTULO
+===================== */
+.titulo-pagina {
+    text-align: center;
+    padding: 80px 20px 50px;
+    position: relative;
+}
+
+.titulo-pagina::before {
+    content: 'INSCRIÇÃO · WEEKTECH 1ª EDIÇÃO';
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--cyan);
+    margin-bottom: 24px;
+    opacity: 0.75;
+}
+
+.titulo-pagina h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    color: var(--text-primary);
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.titulo-pagina p {
+    font-size: 0.92rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-top: 28px;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.titulo-pagina::after {
+    content: '';
+    display: block;
+    width: 260px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0,200,255,0.25), transparent);
+    margin: 40px auto 0;
+}
+
+/* =====================
+   FORMULÁRIO — sem card, integrado ao fundo escuro
+===================== */
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 20px 80px;
+}
+
+form {
+    background: transparent;
+    border: 1px solid rgba(0,200,255,0.12);
+    border-radius: 16px;
+    padding: 36px 32px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: 0 0 60px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(255,255,255,0.03);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--text-primary);
+}
+
+/* =====================
+   TOGGLE TIPO USUÁRIO
+===================== */
+.tipo-usuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-input);
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 24px;
+    box-sizing: border-box;
+}
+
+.tipo-usuario > label {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     cursor: pointer;
-}
-
-.texto-checkbox {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #555;
-    margin-left: 10px;
+    color: var(--text-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    white-space: nowrap;
     text-transform: uppercase;
+    flex: 1;
+    padding: 10px 12px;
+    border-radius: 7px;
+    transition: all 0.2s ease;
+    user-select: none;
 }
 
-#secao-projeto textarea {
-    font-family: 'Inter', sans-serif;
-    resize: none; /* Impede o usuário de deformar o layout */
-    margin-top: 5px;
+.tipo-usuario > label:has(input:checked) {
+    background: var(--cyan);
+    color: #020d14;
+    box-shadow: 0 2px 14px rgba(0,200,255,0.25);
 }
 
-/* Ajuste opcional para o checkbox ficar maior */
-#toggle-projeto {
-    transform: scale(1.3);
-    cursor: pointer;
+.tipo-usuario > label:not(:has(input:checked)):hover {
+    background: var(--surface-hover);
+    color: var(--text-secondary);
 }
 
-#toggle-cafe {
-    transform: scale(1.3);
-    cursor: pointer;
+.tipo-usuario input[type="radio"] {
+    display: none !important;
 }
 
-
-
-
-textarea {
-    resize: none; /* Mantém o layout fixo */
+/* =====================
+   LABELS DOS CAMPOS
+===================== */
+form > label,
+#secao-aluno > label,
+#secao-palestrante > label,
+#secao-projeto > label {
+    display: block !important;
+    margin-top: 20px !important;
+    margin-bottom: 7px !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 0.68rem !important;
+    letter-spacing: 0.16em !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase !important;
 }
 
+/* =====================
+   INPUTS
+===================== */
 input[type="text"],
 input[type="email"],
 input[type="number"],
 select,
 textarea {
     width: 100%;
-    padding: 12px;
-    border-radius: 10px; /* Bordas arredondadas suaves como na imagem */
-    border: 1px solid #fff; /* Borda branca para sumir com o padrão do navegador */
-    background-color: #f9f9f9;
-    box-sizing: border-box; 
-    margin-bottom: 5px; /* Pequeno respiro abaixo da caixa */
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-input);
+    background: rgba(255,255,255,0.05);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    outline: none;
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+    color: var(--text-muted);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--border-input-focus);
+    background: rgba(0,200,255,0.04);
+    box-shadow: 0 0 0 3px rgba(0, 200, 255, 0.08);
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300c8ff' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+select option {
+    background: #0a1628;
+    color: var(--text-primary);
 }
 
 textarea {
-    resize: none; /* Mantém o tamanho fixo da caixa para não quebrar o layout azul */
+    resize: none;
 }
 
-
-
-.logo {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #38bdf8;
-}
-
-.nome-evento {
-    font-size: 1rem;
-    color: #cbd5e1;
-}
-
-.btn-voltar {
-    text-decoration: none;
-    color: #38bdf8;
-    font-weight: bold;
-
-    border: 1px solid #38bdf8;
-
-    padding: 10px 18px;
-
-    border-radius: 10px;
-
-    transition: 0.3s;
-}
-
-.btn-voltar:hover {
-    background-color: #38bdf8;
-    color: black;
-}
-
-
-
-.titulo-pagina h1 {
-    font-weight: 600;
-    letter-spacing: 2px;
-    color: #fff;
-    margin-top: 60px;
-    margin-bottom: 20px;
-    text-align: center;
-    width: 100%;
-}
-
-.titulo-pagina p {
-    font-weight: 300;
-    color: #888; /* Cinza suave para o subtítulo */
-    font-size: 0.9rem;
-    text-align: center;
-}
-
-.nome-evento {
-    font-size: 1rem;
-    color: #cbd5e1;
-}
-
-.formulario {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente */
-    justify-content: center;
-    min-height: 60vh; /* Garante espaço vertical */
-    padding: 12px;
-    font-size: 2rem;
-}
-
-form {
-    background-color: #add8e6; /* Cor azul clara da sua imagem */
-    padding: 30px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 400px; /* Impede que o formulário fique largo demais */
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    color: #333;
-}
-
-
-
-
-.tipo-usuario {
-    display: flex;
-    justify-content: center; /* Centraliza horizontalmente as opções */
-    align-items: center;     /* Alinha a bolinha com o texto verticalmente */
-    gap: 30px;               /* Espaço entre 'Aluno' e 'Palestrante' */
-    margin: 0 auto 25px auto; /* Centraliza a própria DIV na tela */
-    width: 100%;
-    max-width: 400px;        /* Mesma largura que você deu ao formulário */
-}
-
-.tipo-usuario label {
+/* =====================
+   CAMPO TOGGLE (CHECKBOX)
+===================== */
+.campo-toggle {
+    margin-top: 16px;
+    margin-bottom: 4px;
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.campo-toggle label,
+.switch-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     cursor: pointer;
-    color: white;
-    font-size: 14px;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    font-size: 0.82rem;
+    gap: 10px;
+}
+
+.texto-checkbox {
+    font-size: 0.68rem;
     font-weight: 600;
-    white-space: nowrap;     /* Impede que o texto quebre em duas linhas */
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
 }
 
-.tipo-usuario input[type="radio"] {
-    margin: 0 8px 0 0;       /* Garante espaço exato à direita da bolinha */
+#toggle-projeto,
+#toggle-cafe {
+    transform: scale(1.2);
     cursor: pointer;
-    transform: scale(1.2);   /* Aumenta um pouco a bolinha para facilitar o clique */
+    accent-color: var(--cyan);
+    width: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    margin-bottom: 0 !important;
 }
 
+/* =====================
+   SEÇÃO PROJETO
+===================== */
+#secao-projeto textarea {
+    font-family: 'DM Sans', sans-serif;
+    resize: none;
+    margin-top: 4px;
+}
 
-
-button[type="submit"] {
+/* =====================
+   BOTÃO SUBMIT
+===================== */
+button[type="submit"],
+.btn-cadastrar {
     width: 100%;
-    background-color: #007bff;
-    color: white;
+    background: var(--cyan);
+    color: #020d14;
     border: none;
-    padding: 12px;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 1rem;
+    padding: 14px;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.1s active;
+    transition: all 0.25s ease;
+    margin-top: 32px;
+    text-transform: uppercase;
 }
 
-button[type="submit"]:hover {
-    background-color: #0056b3;
+button[type="submit"]:hover,
+.btn-cadastrar:hover {
+    background: #33d4ff;
+    box-shadow: 0 6px 28px rgba(0, 200, 255, 0.3);
+    transform: translateY(-1px);
 }
 
-button[type="submit"]:active {
+button[type="submit"]:active,
+.btn-cadastrar:active {
     transform: scale(0.98);
 }
 
-#bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-}
-.formulario form label {
-    display: block;
-    margin-top: 20px;    /* Espaço padrão acima de cada título de campo */
-    margin-bottom: 8px;  /* Espaço padrão entre o título e a caixa branca */
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: #444;
+/* =====================
+   PÁGINA DE SUCESSO
+===================== */
+.container-sucesso {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    text-align: center;
+    color: var(--text-primary);
+    padding: 40px 20px;
 }
 
-/* Para o primeiro label do form não ter margem exagerada no topo */
-.formulario form label:first-of-type {
-    margin-top: 10px;
+.container-sucesso h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    margin-bottom: 1.2rem;
+    line-height: 0.95;
 }
-/* =========================
-   RESPONSIVIDADE CELULAR
-========================= */
 
+.container-sucesso p {
+    font-size: 0.98rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    max-width: 360px;
+}
+
+.btn-voltar-home {
+    padding: 13px 36px;
+    background: transparent;
+    color: var(--cyan);
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid var(--cyan);
+    transition: all 0.25s ease;
+}
+
+.btn-voltar-home:hover {
+    background: var(--cyan-dim);
+    box-shadow: 0 0 24px var(--cyan-glow);
+}
+
+/* =====================
+   RESPONSIVIDADE
+===================== */
 @media (max-width: 768px) {
-
-    .vantage-navbar {
-        height: auto;
-        padding: 15px 0;
+    .navbar {
+        padding: 16px 5%;
     }
+
+    .nome-evento {
+        display: none;
+    }
+
+    .titulo-pagina {
+        padding: 60px 20px 40px;
+    }
+
+    .titulo-pagina h1 {
+        font-size: clamp(2.5rem, 13vw, 4rem);
+    }
+
+    form {
+        padding: 24px 18px;
+    }
+
+    .tipo-usuario {
+        gap: 4px;
+        padding: 4px;
+    }
+
+    .nav-btn-retornar {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .vantage-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 25px;
+    }
+
+    .vantage-card { height: 400px; }
+    .vantage-name { font-size: 22px; }
+    .vantage-overlay { padding: 20px; }
+    .main-title { font-size: 42px; line-height: 1; }
+    .top-tag { font-size: 12px; }
 
     .nav-container {
         flex-direction: column;
@@ -296,37 +519,5 @@ button[type="submit"]:active {
         margin-top: 180px !important;
         padding: 0 20px;
         text-align: center;
-    }
-
-    .main-title {
-        font-size: 42px;
-        line-height: 1;
-    }
-
-    .top-tag {
-        font-size: 12px;
-    }
-
-    .vantage-grid {
-        grid-template-columns: 1fr;
-        padding: 20px;
-        gap: 25px;
-    }
-
-    .vantage-card {
-        height: 400px;
-    }
-
-    .vantage-name {
-        font-size: 22px;
-    }
-
-    .vantage-overlay {
-        padding: 20px;
-    }
-
-    .nav-btn-retornar {
-        width: 100%;
-        justify-content: center;
     }
 }
