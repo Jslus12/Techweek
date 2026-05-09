@@ -312,3 +312,63 @@ body {
         text-align: center;
     }
 }
+
+/* ESTILIZAÇÃO DO BOTÃO ABRIR NO MAPS */
+.btn-maps {
+    /* Layout e Alinhamento */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    margin-top: 24px;
+    padding: 14px 32px;
+    
+    /* Design Glassmorphism (Efeito de Vidro) */
+    background: rgba(19, 166, 224, 0.1); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    
+    /* Borda e Cores */
+    border: 1px solid var(--azul); /* Usa a variável definida no seu :root */
+    border-radius: 12px;
+    color: var(--azul);
+    
+    /* Tipografia */
+    font-family: var(--fonte-mono); /* Usa a fonte mono do seu projeto */
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    
+    /* Interação */
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito ao passar o mouse */
+.btn-maps:hover {
+    background: var(--azul);
+    color: white;
+    
+    transform: translateY(-3px);
+    box-shadow: 
+        0 0 20px rgba(19, 166, 224, 0.4),
+        0 0 40px rgba(19, 166, 224, 0.2);
+}
+
+/* Efeito ao clicar */
+.btn-maps:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0 10px rgba(19, 166, 224, 0.3);
+}
+
+/* Ajuste de Responsividade (Mobile) */
+@media (max-width: 768px) {
+    .btn-maps {
+        width: 100%;
+        padding: 16px;
+        font-size: 14px;
+    }
+}
