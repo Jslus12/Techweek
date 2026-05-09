@@ -11,18 +11,17 @@
 </head>
 <body>
 
-    <!-- NAV -->
-    <nav class="navbar" id="navbar">
+   <nav class="navbar" id="navbar">
         <div class="nav-brand">
-            <span class="brand-uni">UniCesumar</span>
+             <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
             <span class="brand-sep">|</span>
             <span class="brand-event">TechWeek, 1ª Edição</span>
         </div>
         <ul class="nav-links">
-            <li><a href="{{ url_for('devs') }}">Desenvolvedores</a></li>
-            <li><a href="{{ url_for('palestrantes') }}">Palestrantes</a></li>
-            <li><a href="#">Ajuda</a></li>
-            <li><a href="{{ url_for('index') }}">← Retornar</a></li>
+            <li><a href="/devs">Desenvolvedores</a></li>
+            <li><a href="/palestrantes">Palestrantes</a></li>
+            <li><a href="/ajuda">Ajuda</a></li>
+            <li><a href="javascript:history.back()">← Retornar</a></li>
         </ul>
     </nav>
 
