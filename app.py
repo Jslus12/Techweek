@@ -1,9 +1,8 @@
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, abort, redirect, url_for, session
 import os
 import urllib.request
 import json
 
-# --- CONFIGURAÇÃO DE CAMINHOS ---
 base_dir = os.path.abspath(os.path.dirname(__file__))
 path_projeto = os.path.join(base_dir, 'techweek-frontend')
 
@@ -18,26 +17,35 @@ app = Flask(__name__,
             template_folder=template_dir, 
             static_folder=static_dir)
 
-# --- BANCO DE DADOS (SUPABASE) ---
+app.secret_key = 'techweek2026secretkey'
+DASHBOARD_USER = 'crisloginteste'
+DASHBOARD_PASS = 'K9!vQ#72Lp@zR4mX'
+
 SUPABASE_URL = os.environ.get('SUPABASE_URL', '')
 SUPABASE_KEY = os.environ.get('SUPABASE_KEY', '')
 
 def inserir_inscrito(dados):
-    # Se as variáveis de ambiente não estiverem configuradas, ignora silenciosamente
     if not SUPABASE_URL or not SUPABASE_KEY:
-        print("[AVISO] SUPABASE_URL ou SUPABASE_KEY não configurados. Dados não gravados.")
         return
-
     url = f"{SUPABASE_URL}/rest/v1/inscritos"
     body = json.dumps(dados).encode('utf-8')
     req = urllib.request.Request(url, data=body, method='POST')
     req.add_header('Content-Type', 'application/json')
     req.add_header('apikey', SUPABASE_KEY)
     req.add_header('Authorization', f'Bearer {SUPABASE_KEY}')
-    req.add_header('Prefer', 'return=minimal')  # Evita erro 406 do Supabase
+    req.add_header('Prefer', 'return=minimal')
     urllib.request.urlopen(req)
 
-# --- DADOS DOS PALESTRANTES ---
+def buscar_inscritos():
+    req = urllib.request.Request(
+        f"{SUPABASE_URL}/rest/v1/inscritos?select=*",
+        headers={
+            'apikey': SUPABASE_KEY,
+            'Authorization': f'Bearer {SUPABASE_KEY}'
+        }
+    )
+    return json.loads(urllib.request.urlopen(req).read())
+
 PALESTRANTES_DADOS = {
     'bruno': {
         'nome': 'Bruno Silva',
@@ -54,8 +62,6 @@ PALESTRANTES_DADOS = {
         'imagem': 'heitor.jpeg'
     }
 }
-
-# --- ROTAS ---
 
 @app.route("/")
 def index(): 
@@ -84,31 +90,64 @@ def ajuda():
 def inscricao():
     if request.method == 'POST':
         dados = {
-            'tipo':             request.form.get('tipo'),
-            'nome_completo':    request.form.get('nome'),
-            'whatsapp':         request.form.get('whatsapp'),
-            'ra':               request.form.get('ra'),
-            'cafe':             'sim' if request.form.get('cafe') else 'nao',
-            'curso_serie':      request.form.get('curso_serie'),
-            'titulo_palestra':  request.form.get('titulo_palestra'),
-            'bio':              request.form.get('bio'),
-            'nome_projeto':     request.form.get('nome_projeto'),
-            'desc_projeto':     request.form.get('desc_projeto'),
-            'email_palestrante':request.form.get('email_palestrante'),
-            'oq_sera_apresentado': request.form.get('oq_sera_apresentado'),
-            'tempo_palestra':   request.form.get('tempo_palestra'),
+            'tipo':                 request.form.get('tipo'),
+            'nome_completo':        request.form.get('nome'),
+            'whatsapp':             request.form.get('whatsapp'),
+            'ra':                   request.form.get('ra'),
+            'cafe':                 'sim' if request.form.get('cafe') else 'nao',
+            'curso_serie':          request.form.get('curso_serie'),
+            'titulo_palestra':      request.form.get('titulo_palestra'),
+            'bio':                  request.form.get('bio'),
+            'nome_projeto':         request.form.get('nome_projeto'),
+            'desc_projeto':         request.form.get('desc_projeto'),
+            'email_palestrante':    request.form.get('email_palestrante'),
+            'oq_sera_apresentado':  request.form.get('oq_sera_apresentado'),
+            'tempo_palestra':       request.form.get('tempo_palestra'),
         }
         try:
             inserir_inscrito(dados)
-            # ✅ CORRIGIDO: renderiza a página de sucesso estilizada
             return render_template("sucesso.html")
         except Exception as e:
-            print(f"[ERRO Supabase] {e}")
-            # ✅ CORRIGIDO: renderiza a página de sucesso mesmo se o banco falhar
-            # (para não deixar o usuário na mão — ajuste conforme sua preferência)
             return render_template("sucesso.html")
-
     return render_template("inscricao.html")
+
+@app.route("/login", methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        usuario = request.form.get('usuario')
+        senha = request.form.get('senha')
+        if usuario == DASHBOARD_USER and senha == DASHBOARD_PASS:
+            session['logado'] = True
+            return redirect(url_for('dashboard'))
+        return render_template("login.html", erro="Usuário ou senha incorretos")
+    return render_template("login.html")
+
+@app.route("/dashboard")
+def dashboard():
+    if not session.get('logado'):
+        return redirect(url_for('login'))
+    try:
+        todos = buscar_inscritos()
+        total = len(todos)
+        alunos = len([x for x in todos if x.get('tipo') == 'aluno'])
+        palestrantes = len([x for x in todos if x.get('tipo') == 'palestrante'])
+        cafe = len([x for x in todos if x.get('cafe') == 'sim'])
+        projetos = len([x for x in todos if x.get('nome_projeto')])
+        return render_template("dashboard.html",
+            total=total,
+            alunos=alunos,
+            palestrantes=palestrantes,
+            cafe=cafe,
+            projetos=projetos,
+            inscritos=todos
+        )
+    except Exception as e:
+        return f"Erro: {e}"
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return redirect(url_for('login'))
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
