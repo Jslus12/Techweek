@@ -223,24 +223,21 @@ body::after {
 }
 
 .titulo-pagina h1 {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 700;
     font-size: clamp(2.6rem, 6vw, 5rem);
-
     line-height: 1.05;
-
     letter-spacing: -0.02em;
-
     margin-bottom: 1rem;
-
     color: var(--white);
 }
 
 .titulo-pagina p {
+    font-family: 'Oxanium', sans-serif;
+    font-weight: 400;
     color: var(--muted);
-
     font-size: 1.05rem;
-
     max-width: 550px;
-
     margin: 0 auto;
 }
 
