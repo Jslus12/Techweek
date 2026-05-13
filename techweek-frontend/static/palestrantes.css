@@ -1,495 +1,151 @@
-/* =============================================
-   WEEKTECH 2026 — PADRÃO VISUAL
-   ============================================= */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
     --bg: #020510;
     --bg2: #060d1c;
-
     --cyan: #00d4ff;
     --cyan-20: rgba(0, 212, 255, 0.20);
     --cyan-08: rgba(0, 212, 255, 0.08);
-
     --white: #e8f0ff;
     --muted: #5a6a88;
-
     --border: rgba(0, 212, 255, 0.10);
-
     --card: rgba(7, 15, 32, 0.95);
-
     --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* =============================================
-   BODY
-   ============================================= */
-
-body.tech-page {
+body {
     background: var(--bg);
-
     background-image:
-        radial-gradient(
-            ellipse 80% 50% at 50% 0%,
-            rgba(0, 212, 255, 0.05) 0%,
-            transparent 70%
-        ),
-        radial-gradient(
-            ellipse 60% 40% at 80% 80%,
-            rgba(0, 100, 180, 0.04) 0%,
-            transparent 60%
-        );
-
-    min-height: 100vh;
-
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0, 212, 255, 0.05) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0, 100, 180, 0.04) 0%, transparent 60%);
     font-family: 'Outfit', sans-serif;
-
     color: var(--white);
-
+    min-height: 100vh;
     overflow-x: hidden;
 }
 
-/* Overlay sutil WeekTech */
-body.tech-page::after {
-    content: '';
-
-    position: fixed;
-    inset: 0;
-
-    z-index: 200;
-
-    pointer-events: none;
-
-    background: repeating-linear-gradient(
-        to bottom,
-        transparent 0px,
-        transparent 3px,
-        rgba(0,0,0,0.02) 3px,
-        rgba(0,0,0,0.02) 4px
-    );
-}
-
-/* Removido padrão de estrelas */
-.stars-overlay {
-    display: none;
-}
-
-/* =============================================
-   NAVBAR
-   ============================================= */
-
-@media (max-width: 768px) {
-
-    .nav-container {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    .nav-item {
-        font-size: 14px;
-    }
-
-    .brand-unicesumar {
-        font-size: 18px;
-    }
-}
-
+/* NAVBAR */
 .navbar {
     position: fixed;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    z-index: 1000;
-
+    top: 0; left: 0; right: 0;
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 3rem;
-
+    padding: 0 2rem;
     height: 64px;
-
-    background: rgba(2, 5, 16, 0.7);
-
-    backdrop-filter: blur(20px);
-
-    border-bottom: 1px solid rgba(0, 212, 255, 0.08);
-
-    transform: translateY(-100%);
-
-    transition: transform 0.55s var(--ease-out);
+    background: rgba(2, 5, 16, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-.navbar.visible {
-    transform: translateY(0);
-}
+.navbar.visible { opacity: 1; }
 
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.55rem;
+.nav-brand { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+.brand-sep { color: var(--muted); }
 
-    font-size: 0.9rem;
-}
+.nav-links { list-style: none; display: flex; gap: 2rem; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
 
-.brand-uni {
-    color: var(--cyan);
-    font-weight: 700;
-}
-
-.brand-sep {
-    color: var(--muted);
-}
-
-.brand-event {
-    color: var(--white);
-    font-weight: 400;
-}
-
-.nav-links {
-    list-style: none;
-
-    display: flex;
-    align-items: center;
-
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: var(--muted);
-
-    text-decoration: none;
-
-    font-size: 0.88rem;
-
-    transition: color 0.2s ease;
-}
-
-.nav-links a:hover {
-    color: var(--white);
-}
-
-/* =============================================
-   HEADER
-   ============================================= */
-
-.page-header {
-    text-align: center;
-
-    padding: 120px 40px 60px;
-}
+/* HEADER */
+.page-header { text-align: center; padding: 180px 40px 60px; }
 
 .top-tag {
     display: block;
-
     color: var(--cyan);
-
     font-size: 12px;
     font-weight: 700;
-
     letter-spacing: 0.2em;
-
-    margin-bottom: 14px;
+    margin-bottom: 12px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .main-title {
-    font-size: clamp(2.8rem, 6vw, 5rem);
-
+    font-size: clamp(2.5rem, 6vw, 5rem);
     font-weight: 700;
-
-    line-height: 1.05;
-
     letter-spacing: -0.02em;
-
-    color: var(--white);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
-.main-title span {
-    color: var(--cyan);
-}
+.main-title span { color: var(--cyan); }
+.top-tag.show, .main-title.show { opacity: 1; }
 
-/* =============================================
-   GRID
-   ============================================= */
-
+/* GRID */
 .vantage-grid {
     display: grid;
-
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-
-    gap: 30px;
-
+    gap: 24px;
     max-width: 1200px;
-
     margin: 0 auto;
-
-    padding: 40px;
+    padding: 0 40px 60px;
 }
 
-/* =============================================
-   CARD
-   ============================================= */
-
+/* CARD */
 .vantage-card {
     position: relative;
-
-    height: 450px;
-
-    border-radius: 18px;
-
+    height: 420px;
+    border-radius: 16px;
     overflow: hidden;
-
     text-decoration: none;
-
     color: var(--white);
-
-    display: block;
-
-    background: var(--card);
-
-    backdrop-filter: blur(14px);
-
     border: 1px solid var(--border);
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
+    opacity: 0;
+    transition: opacity 0.4s ease, border-color 0.3s, box-shadow 0.3s;
 }
 
-.vantage-card:hover {
-    transform: translateY(-6px);
+.vantage-card.show { opacity: 1; }
+.vantage-card.show:hover { border-color: rgba(0,212,255,0.25); box-shadow: 0 0 30px rgba(0,212,255,0.08); }
 
-    border-color: rgba(0, 212, 255, 0.22);
-
-    box-shadow:
-        0 0 25px rgba(0, 212, 255, 0.08),
-        0 0 60px rgba(0, 212, 255, 0.04);
-}
-
-/* =============================================
-   IMAGEM
-   ============================================= */
-
-.vantage-img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: cover;
-
-    transition: transform 0.8s ease;
-}
-
-.vantage-card:hover .vantage-img {
-    transform: scale(1.08);
-}
-
-/* =============================================
-   GRADIENTE
-   ============================================= */
+.vantage-img { width: 100%; height: 100%; object-fit: cover; }
 
 .vantage-gradient {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,0.92) 0%,
-            rgba(0,0,0,0.4) 45%,
-            transparent 75%
-        );
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 65%);
 }
-
-/* =============================================
-   CONTEÚDO ESTÁTICO
-   ============================================= */
 
 .vantage-content-static {
-    position: absolute;
-
-    bottom: 25px;
-    left: 25px;
-
-    z-index: 2;
-
-    transition: 0.4s ease;
+    position: absolute; bottom: 22px; left: 22px; z-index: 2;
+    transition: opacity 0.3s;
 }
-
-.vantage-card:hover .vantage-content-static {
-    opacity: 0;
-
-    transform: translateY(-10px);
-}
-
-/* =============================================
-   OVERLAY
-   ============================================= */
+.vantage-card:hover .vantage-content-static { opacity: 0; }
 
 .vantage-overlay {
-    position: absolute;
-    inset: 0;
-
+    position: absolute; inset: 0;
     background: rgba(2, 8, 20, 0.88);
-
-    backdrop-filter: blur(14px);
-
-    padding: 30px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
-    transform: translateY(100%);
-
-    transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    backdrop-filter: blur(12px);
+    padding: 24px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+.vantage-card:hover .vantage-overlay { opacity: 1; }
 
-.vantage-card:hover .vantage-overlay {
-    transform: translateY(0);
-}
-
-/* =============================================
-   TEXTOS
-   ============================================= */
-
-.vantage-tag {
-    color: var(--cyan);
-
-    font-size: 11px;
-    font-weight: 700;
-
-    display: block;
-
-    margin-bottom: 8px;
-}
-
-.vantage-name {
-    font-size: 24px;
-
-    font-weight: 700;
-
-    margin-bottom: 10px;
-}
-
-/* =============================================
-   BOTÃO
-   ============================================= */
+.vantage-tag { color: var(--cyan); font-size: 11px; font-weight: 700; display: block; margin-bottom: 6px; }
+.vantage-name { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+.vantage-desc { font-size: 13px; color: rgba(232,240,255,0.7); line-height: 1.5; margin-bottom: 16px; }
 
 .vantage-btn {
     border: 1px solid var(--cyan);
-
-    padding: 10px;
-
+    padding: 9px;
     text-align: center;
-
     border-radius: 999px;
-
     font-size: 11px;
     font-weight: 700;
-
     color: var(--cyan);
-
-    background: rgba(0, 212, 255, 0.05);
-
-    transition:
-        background 0.25s ease,
-        box-shadow 0.25s ease,
-        transform 0.25s ease,
-        color 0.25s ease;
+    background: rgba(0,212,255,0.05);
+    transition: background 0.2s, color 0.2s;
 }
+.vantage-btn:hover { background: rgba(0,212,255,0.15); color: var(--white); }
 
-.vantage-btn:hover {
-    background: rgba(0, 212, 255, 0.14);
-
-    color: var(--white);
-
-    box-shadow:
-        0 0 15px rgba(0,212,255,0.18);
-
-    transform: translateY(-2px);
-}
-
-/* =============================================
-   RESPONSIVO
-   ============================================= */
-
+/* MOBILE */
 @media (max-width: 768px) {
-
-    .perfil-container {
-        padding: 20px;
-    }
-
-    .perfil-content {
-        flex-direction: column;
-
-        align-items: center;
-
-        text-align: center;
-    }
-
-    .perfil-sidebar {
-        width: 100%;
-
-        margin-bottom: 20px;
-    }
-
-    .perfil-img {
-        max-width: 200px;
-
-        margin: 0 auto;
-    }
-
-    .perfil-title {
-        font-size: 2.5rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .page-header {
-        padding: 110px 20px 40px;
-    }
-
-    .main-title {
-        font-size: 42px;
-
-        line-height: 1;
-    }
-
-    .vantage-grid {
-        grid-template-columns: 1fr;
-
-        padding: 20px;
-
-        gap: 25px;
-    }
-
-    .vantage-card {
-        height: 400px;
-    }
-
-    .vantage-name {
-        font-size: 22px;
-    }
-
-    .vantage-overlay {
-        padding: 20px;
-    }
+    .nav-links { display: none; }
+    .page-header { padding: 140px 20px 40px; }
+    .vantage-grid { grid-template-columns: 1fr; padding: 0 20px 40px; }
+    .vantage-card { height: 380px; }
 }

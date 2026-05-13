@@ -178,7 +178,7 @@ body {
     max-width: 640px;
     margin-bottom: 40px;
     font-family: var(--fonte-mono);
-    font-size: 13px;
+    font-size: 17px;
     line-height: 1.8;
     color: var(--texto);
     /* Efeito de Blur atrás das letras igual ao título */
