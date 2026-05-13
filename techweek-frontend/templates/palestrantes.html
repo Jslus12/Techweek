@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Palestrantes | TechWeek</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='palestrantes.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="tech-page">
-    <div class="stars-overlay"></div>
+<body>
 
-    <nav class="navbar visible" id="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-brand">
             <a href="{{ url_for('index') }}">
                 <img src="{{ url_for('static', filename='img/logo-unicesumar.png') }}" width="140" alt="UniCesumar">
             </a>
             <span class="brand-sep">|</span>
-            <span class="brand-event">TechWeek, 1ª Edição</span>
+            <span>TechWeek, 1ª Edição</span>
         </div>
         <ul class="nav-links">
             <li><a href="{{ url_for('devs') }}">Desenvolvedores</a></li>
@@ -26,14 +25,14 @@
         </ul>
     </nav>
 
-    <header class="page-header" style="margin-top: 120px;">
-        <span class="top-tag">CONHEÇA NOSSOS</span>
-        <h1 class="main-title">PALESTRANTES<span>.</span></h1>
+    <header class="page-header">
+        <span class="top-tag" id="topTag">CONHEÇA NOSSOS</span>
+        <h1 class="main-title" id="mainTitle">PALESTRANTES<span>.</span></h1>
     </header>
 
     <main class="vantage-grid">
         <a href="/perfil/bruno" class="vantage-card">
-            <img src="{{ url_for('static', filename='img/bruno.jpg') }}" class="vantage-img">
+            <img src="{{ url_for('static', filename='img/bruno.jpg') }}" class="vantage-img" alt="Bruno Silva">
             <div class="vantage-gradient"></div>
             <div class="vantage-content-static">
                 <span class="vantage-tag">>> IA & DADOS</span>
@@ -48,7 +47,7 @@
         </a>
 
         <a href="/perfil/heitor" class="vantage-card">
-            <img src="{{ url_for('static', filename='img/heitor.jpeg') }}" class="vantage-img">
+            <img src="{{ url_for('static', filename='img/heitor.jpeg') }}" class="vantage-img" alt="Heitor Santos">
             <div class="vantage-gradient"></div>
             <div class="vantage-content-static">
                 <span class="vantage-tag">>> DESENVOLVIMENTO</span>
@@ -63,10 +62,6 @@
         </a>
     </main>
 
-    <script>
-        setTimeout(() => {
-            document.getElementById('navbar').classList.add('visible');
-        }, 200);
-    </script>
+    <script src="{{ url_for('static', filename='palestrantes.js') }}"></script>
 </body>
 </html>
