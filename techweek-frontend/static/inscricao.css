@@ -34,6 +34,7 @@ body {
 /* =====================
    NAVBAR
 ===================== */
+
 .navbar {
     width: 100%;
     display: flex;
@@ -42,12 +43,15 @@ body {
     padding: 22px 6%;
     background: rgba(5, 10, 18, 0.92);
     border-bottom: 1px solid var(--border-soft);
-    backdrop-filter: blur(12px);
+    backdrop-filter: b
+    lur(12px);
     -webkit-backdrop-filter: blur(12px);
     position: sticky;
     top: 0;
     z-index: 999;
+
 }
+
 
 .logo {
     font-family: 'Syne', sans-serif;
