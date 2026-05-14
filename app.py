@@ -47,20 +47,76 @@ def buscar_inscritos():
     return json.loads(urllib.request.urlopen(req).read())
 
 PALESTRANTES_DADOS = {
-    'bruno': {
-        'nome': 'Bruno Silva',
-        'trilha': 'IA & DADOS',
-        'sub_titulo': 'Especialista em visão computacional',
-        'descricao_completa': 'Bruno atua na vanguarda da Inteligência Artificial, com foco em processamento de linguagem natural e modelos preditivos de larga escala.',
-        'imagem': 'bruno.jpg'
+    'gustavo-melles': {
+        'nome': 'Gustavo Melles',
+        'trilha': '01/06 · SEGUNDA · 19:15',
+        'sub_titulo': 'Pense com IA: A Revolução da Inteligência Ampliada',
+        'imagem': 'Gustavo Melles.png',
+        'descricao_completa': """
+            <p>Graduação em Publicidade e Marketing pela Mackenzie. Fundador do portal
+            <strong>BuscaIA.com</strong> e da <strong>OiRobo.com</strong>.</p>
+            <p>Professor no MBA em Inovação e Inteligência Artificial para Negócios da PUCPR
+            e Colunista na Rádio CBN Londrina.</p>
+            <p>Atuação em grandes marcas como Bayer, Toyota, Uber, Cielo, Natura e Unimed,
+            além de projetos no setor de entretenimento, como os shows U2 360 e Cirque du Soleil.</p>
+        """
     },
-    'heitor': {
-        'nome': 'Heitor Santos',
-        'trilha': 'DESENVOLVIMENTO',
-        'sub_titulo': 'Arquiteto de Software',
-        'descricao_completa': 'Heitor possui anos de experiência construindo sistemas robustos e escaláveis, focando sempre em performance e segurança da informação.',
-        'imagem': 'heitor.jpeg'
-    }
+    'jessy-ferracioli': {
+        'nome': 'Jessy Borges Ferracioli',
+        'trilha': '01/06 · SEGUNDA · 20:30',
+        'sub_titulo': 'Os data taggers e o trabalho invisível por trás da Inteligência Artificial',
+        'imagem': 'jessy.png',
+        'descricao_completa': """
+            <p>Advogada há mais de 10 anos, atualmente advoga em uma empresa do ramo de
+            licitações públicas.</p>
+            <p>Pós-graduada em Direito Civil e Processo Civil pelo IDCC — Instituto de Direito
+            Constitucional e Cidadania. Mestrado em Direito, Sociedades e Tecnologias pelas
+            Faculdades Londrina.</p>
+            <p>Pesquisadora de direito e inteligência artificial na <strong>Lawgorithm</strong>,
+            do núcleo IA e Raça.</p>
+        """
+    },
+    'luciano-soler': {
+        'nome': 'Luciano Soler',
+        'trilha': '02/06 · TERÇA · 19:15',
+        'sub_titulo': 'Construção e Orquestração de Agentes de IA',
+        'imagem': 'luciano.png',
+        'descricao_completa': """
+            <p>Engenheiro da Computação, Especialista em Engenharia de Software e
+            Mestre em Ciências da Computação.</p>
+            <p>Atualmente trabalha com desenvolvimento de Software e IA no
+            <strong>Instituto Agronômico do Paraná – IAPAR</strong>.</p>
+        """
+    },
+    'michel-banagouro': {
+        'nome': 'Michel Cesar Leme Banagouro',
+        'trilha': '02/06 · TERÇA · 20:30',
+        'sub_titulo': 'O programador morreu. Vida longa ao programador',
+        'imagem': 'michel.png',
+        'descricao_completa': """
+            <p>Arquiteto de Software e <strong>CTO na Leanwork Group</strong>. Formado em
+            Análise e Desenvolvimento de Sistemas com 20 anos de experiência na área.</p>
+            <p>Atuou no desenvolvimento e liderança técnica de grandes e-commerces como
+            <strong>Centauro, Ultrafarma e Riachuelo</strong>.</p>
+        """
+    },
+    'luiz-nunes': {
+        'nome': 'Luiz Fernando Pereira Nunes',
+        'trilha': '03/06 · QUARTA · 19:15',
+        'sub_titulo': 'Inteligência Artificial e Proteção de Dados: Desafios, Ética e Segurança na Era Digital',
+        'imagem': 'luiz.png',
+        'descricao_completa': """
+            <p>Profissional da área de tecnologia com mais de 15 anos de experiência em
+            Gerenciamento de Projetos, atuando em empresas de médio e grande porte,
+            nacionais e multinacionais, nos setores de tecnologia, agronegócio, educação,
+            jurídico e infraestrutura.</p>
+            <p>Graduado em Ciência da Computação, MBA em Gestão de Projetos, Estratégia
+            Empresarial e Gestão Comercial. Mestrado em Ciência da Computação na
+            <strong>Universidade Estadual de Londrina</strong> e Mestrado em Direito e Tecnologia.</p>
+            <p>Líder na <strong>Hanke Digital Solutions</strong>, gerencia produtos, projetos
+            e times ágeis com foco em resultado, melhoria contínua e formação de lideranças.</p>
+        """
+    },
 }
 
 @app.route("/")
@@ -130,13 +186,13 @@ def dashboard():
         todos = buscar_inscritos()
         total = len(todos)
         alunos = len([x for x in todos if x.get('tipo') == 'aluno'])
-        palestrantes = len([x for x in todos if x.get('tipo') == 'palestrante'])
+        palestrantes_count = len([x for x in todos if x.get('tipo') == 'palestrante'])
         cafe = len([x for x in todos if x.get('cafe') == 'sim'])
         projetos = len([x for x in todos if x.get('nome_projeto')])
         return render_template("dashboard.html",
             total=total,
             alunos=alunos,
-            palestrantes=palestrantes,
+            palestrantes=palestrantes_count,
             cafe=cafe,
             projetos=projetos,
             inscritos=todos
