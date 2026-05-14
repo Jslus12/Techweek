@@ -150,7 +150,7 @@ def inscricao():
             'nome_completo':        request.form.get('nome'),
             'whatsapp':             request.form.get('whatsapp'),
             'ra':                   request.form.get('ra'),
-            'cafe':                 'sim' if request.form.get('cafe') else 'nao',
+            'cafe': 'Sim' if request.form.get('cafe') else 'Nao',
             'curso_serie':          request.form.get('curso_serie'),
             'titulo_palestra':      request.form.get('titulo_palestra'),
             'bio':                  request.form.get('bio'),
@@ -187,7 +187,7 @@ def dashboard():
         total = len(todos)
         alunos = len([x for x in todos if x.get('tipo') == 'aluno'])
         palestrantes_count = len([x for x in todos if x.get('tipo') == 'palestrante'])
-        cafe = len([x for x in todos if x.get('cafe') == 'sim'])
+        cafe = len([x for x in todos if x.get('cafe') == 'Sim'])
         projetos = len([x for x in todos if x.get('nome_projeto')])
         return render_template("dashboard.html",
             total=total,
